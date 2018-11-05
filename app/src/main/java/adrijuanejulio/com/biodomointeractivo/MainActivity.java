@@ -4,20 +4,18 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 
 public class MainActivity extends Activity {
 
-
-    private Button exploraButton = findViewById(R.id.exploraButton);
-    private Button nfcButton = findViewById(R.id.nfcButton);
-    private Button qrButton = findViewById(R.id.qrButton);
-    private Button preciosButton = findViewById(R.id.preciosButton);
-    private Button redesButton = findViewById(R.id.redesButton);
-    private Button mapaButton = findViewById(R.id.mapaButton);
-
-
+    private ImageButton exploraButton = findViewById(R.id.exploraButton);
+    private ImageButton nfcButton = findViewById(R.id.nfcButton);
+    private ImageButton qrButton = findViewById(R.id.qrButton);
+    private ImageButton preciosButton = findViewById(R.id.preciosButton);
+    private ImageButton redesButton = findViewById(R.id.redesButton);
+    private ImageButton mapaButton = findViewById(R.id.mapaButton);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
