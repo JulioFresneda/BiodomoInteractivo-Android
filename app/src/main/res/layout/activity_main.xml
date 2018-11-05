@@ -85,9 +85,9 @@
         android:layout_marginTop="8dp"
         android:text="@string/lector_qr"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/lectorqrButton"
-        app:layout_constraintStart_toStartOf="@+id/lectorqrButton"
-        app:layout_constraintTop_toBottomOf="@+id/lectorqrButton" />
+        app:layout_constraintEnd_toEndOf="@+id/qrButton"
+        app:layout_constraintStart_toStartOf="@+id/qrButton"
+        app:layout_constraintTop_toBottomOf="@+id/qrButton" />
 
     <TextView
         android:id="@+id/preciosText"
@@ -96,9 +96,9 @@
         android:layout_marginTop="8dp"
         android:text="@string/precios"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/comprarButton"
-        app:layout_constraintStart_toStartOf="@+id/comprarButton"
-        app:layout_constraintTop_toBottomOf="@+id/comprarButton" />
+        app:layout_constraintEnd_toEndOf="@+id/preciosButton"
+        app:layout_constraintStart_toStartOf="@+id/preciosButton"
+        app:layout_constraintTop_toBottomOf="@+id/preciosButton" />
 
     <TextView
         android:id="@+id/redesText"
@@ -118,12 +118,12 @@
         android:layout_marginTop="8dp"
         android:text="@string/mapa"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/mapa_button"
-        app:layout_constraintStart_toStartOf="@+id/mapa_button"
-        app:layout_constraintTop_toBottomOf="@+id/mapa_button" />
+        app:layout_constraintEnd_toEndOf="@+id/mapaButton"
+        app:layout_constraintStart_toStartOf="@+id/mapaButton"
+        app:layout_constraintTop_toBottomOf="@+id/mapaButton" />
 
     <Button
-        android:id="@+id/comprarButton"
+        android:id="@+id/preciosButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -145,7 +145,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nfcText" />
 
     <Button
-        android:id="@+id/mapa_button"
+        android:id="@+id/mapaButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
@@ -167,7 +167,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/lectorqrButton"
+        android:id="@+id/qrButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
