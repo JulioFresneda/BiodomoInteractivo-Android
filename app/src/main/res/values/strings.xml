@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">BiodomoInteractivo</string>
     <string name="background">background</string>
+    <string name="explora">Explora</string>
+    <string name="lector_nfc">Lector NFC</string>
+    <string name="lector_qr">Lector QR</string>
+    <string name="precios">Precios</string>
+    <string name="redes_sociales">Redes sociales</string>
+    <string name="mapa">Mapa</string>
 </resources>
