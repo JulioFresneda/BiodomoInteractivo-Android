@@ -53,6 +53,7 @@
     <string name="boton_left">Boton left</string>
     <string name="boton_right">Boton right</string>
     <string name="texto_descriptivo">Texto descriptivo</string>
+    <string name="nfc_activity_name">NFC Activity</string>
 
     <!-- END voice strings-->
 </resources>

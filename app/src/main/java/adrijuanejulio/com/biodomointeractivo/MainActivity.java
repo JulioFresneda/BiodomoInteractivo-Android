@@ -3,6 +3,7 @@ package adrijuanejulio.com.biodomointeractivo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -62,15 +63,19 @@ public class MainActivity extends VoiceActivity{
 
     // END ASR/TTS Fields
 
+    // BUttons
     private ImageButton qrButton;
     private ImageButton speechButton;
+    private ImageButton nfcButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         qrButton = findViewById(R.id.qr_button);
         speechButton = findViewById(R.id.speech_button);
+        nfcButton = findViewById(R.id.nfc_button);
 
         //Set up the qr button
         setQrButton();
@@ -80,6 +85,9 @@ public class MainActivity extends VoiceActivity{
 
         //Set up the speech button
         setSpeakButton();
+
+        //Set up the NFC button
+        setNFCButton();
 
         //Dialogflow configuration parameters
         final String ACCESS_TOKEN = "99a6982faf8c46a5b165b5067c6f4598";
@@ -145,6 +153,24 @@ public class MainActivity extends VoiceActivity{
         });
     }
 
+    /**
+     * Initializes the NFC button and its listener. When the button is pressed, a NFC recognition is enabled.
+     */
+    private void setNFCButton() {
+        nfcButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                launchNFCActivity();
+            }
+
+        });
+    }
+
+    /* LAunch NFC activity*/
+    private void launchNFCActivity(){
+        Intent intent = new Intent(this, NFCActivity.class);
+        startActivity(intent);
+    }
 
     /* Voice Methods*/
 
