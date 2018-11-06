@@ -47,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/exploraButton"
+        android:id="@+id/explora_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -64,9 +64,9 @@
         android:layout_marginTop="8dp"
         android:text="@string/explora"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/exploraButton"
-        app:layout_constraintStart_toStartOf="@+id/exploraButton"
-        app:layout_constraintTop_toBottomOf="@+id/exploraButton" />
+        app:layout_constraintEnd_toEndOf="@+id/explora_button"
+        app:layout_constraintStart_toStartOf="@+id/explora_button"
+        app:layout_constraintTop_toBottomOf="@+id/explora_button" />
 
     <TextView
         android:id="@+id/nfcText"
@@ -75,9 +75,9 @@
         android:layout_marginTop="8dp"
         android:text="@string/lector_nfc"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/nfcButton"
-        app:layout_constraintStart_toStartOf="@+id/nfcButton"
-        app:layout_constraintTop_toBottomOf="@+id/nfcButton" />
+        app:layout_constraintEnd_toEndOf="@+id/nfc_button"
+        app:layout_constraintStart_toStartOf="@+id/nfc_button"
+        app:layout_constraintTop_toBottomOf="@+id/nfc_button" />
 
     <TextView
         android:id="@+id/qrText"
@@ -86,9 +86,9 @@
         android:layout_marginTop="8dp"
         android:text="@string/lector_qr"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/qrButton"
-        app:layout_constraintStart_toStartOf="@+id/qrButton"
-        app:layout_constraintTop_toBottomOf="@+id/qrButton" />
+        app:layout_constraintEnd_toEndOf="@+id/qr_button"
+        app:layout_constraintStart_toStartOf="@+id/qr_button"
+        app:layout_constraintTop_toBottomOf="@+id/qr_button" />
 
     <TextView
         android:id="@+id/preciosText"
@@ -97,9 +97,9 @@
         android:layout_marginTop="8dp"
         android:text="@string/precios"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/preciosButton"
-        app:layout_constraintStart_toStartOf="@+id/preciosButton"
-        app:layout_constraintTop_toBottomOf="@+id/preciosButton" />
+        app:layout_constraintEnd_toEndOf="@+id/precios_button"
+        app:layout_constraintStart_toStartOf="@+id/precios_button"
+        app:layout_constraintTop_toBottomOf="@+id/precios_button" />
 
     <TextView
         android:id="@+id/redesText"
@@ -108,9 +108,9 @@
         android:layout_marginTop="8dp"
         android:text="@string/redes_sociales"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/redesButton"
-        app:layout_constraintStart_toStartOf="@+id/redesButton"
-        app:layout_constraintTop_toBottomOf="@+id/redesButton" />
+        app:layout_constraintEnd_toEndOf="@+id/redes_button"
+        app:layout_constraintStart_toStartOf="@+id/redes_button"
+        app:layout_constraintTop_toBottomOf="@+id/redes_button" />
 
     <TextView
         android:id="@+id/mapaText"
@@ -119,12 +119,12 @@
         android:layout_marginTop="8dp"
         android:text="@string/mapa"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/mapaButton"
-        app:layout_constraintStart_toStartOf="@+id/mapaButton"
-        app:layout_constraintTop_toBottomOf="@+id/mapaButton" />
+        app:layout_constraintEnd_toEndOf="@+id/mapa_button"
+        app:layout_constraintStart_toStartOf="@+id/mapa_button"
+        app:layout_constraintTop_toBottomOf="@+id/mapa_button" />
 
     <ImageButton
-        android:id="@+id/preciosButton"
+        android:id="@+id/precios_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -135,7 +135,7 @@
         app:layout_constraintTop_toBottomOf="@+id/exploraText" />
 
     <ImageButton
-        android:id="@+id/redesButton"
+        android:id="@+id/redes_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
@@ -148,7 +148,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nfcText" />
 
     <ImageButton
-        android:id="@+id/mapaButton"
+        android:id="@+id/mapa_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
@@ -159,7 +159,7 @@
         app:layout_constraintTop_toBottomOf="@+id/qrText" />
 
     <ImageButton
-        android:id="@+id/nfcButton"
+        android:id="@+id/nfc_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
@@ -172,7 +172,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/qrButton"
+        android:id="@+id/qr_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
