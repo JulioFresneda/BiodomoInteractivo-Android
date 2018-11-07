@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.SpeechRecognizer;
@@ -70,6 +72,11 @@ public class MainActivity extends VoiceActivity{
     private ImageButton nfcButton;
     private ImageButton mapaButton;
 
+    private ImageButton fbButton;
+    private ImageButton twitterButton;
+    private ImageButton webButton;
+    private ImageButton ytButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +86,11 @@ public class MainActivity extends VoiceActivity{
         speechButton = findViewById(R.id.speech_button);
         nfcButton = findViewById(R.id.nfc_button);
         mapaButton = findViewById(R.id.mapa_button);
+
+        fbButton = findViewById(R.id.fb_button);
+        twitterButton = findViewById(R.id.twitter_button);
+        webButton = findViewById(R.id.web_button);
+        ytButton = findViewById(R.id.yt_button);
 
         //Set up the qr button
         setQrButton();
@@ -94,6 +106,18 @@ public class MainActivity extends VoiceActivity{
 
         //Set up the mapa button
         setMapaButton();
+
+        //Set up the twitter button
+        setTwitterButton();
+
+        //Set up the yt button
+        setYtButton();
+
+        //Set up the web button
+        setWebButton();
+
+        //Set up the Fb button
+        setFbButton();
 
 
         //Dialogflow configuration parameters
@@ -201,6 +225,103 @@ public class MainActivity extends VoiceActivity{
         Intent intent = new Intent(this, MapaActivity.class);
         startActivity(intent);
     }
+
+
+    /**
+     * Initializes the Twitter button and its listener.
+     */
+    private void setTwitterButton(){
+        twitterButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("twitter://user?screen_name=@ParqueCiencias"));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://twitter.com/#!/@ParqueCiencias")));
+                }
+            }
+
+        });
+    }
+
+    /**
+     * Initializes the Fb button and its listener.
+     */
+    private void setFbButton(){
+        fbButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String bg = "https://www.facebook.com/pages/Biodomo-De-Granada/1611675098846913";
+                Uri webbiodomo = Uri.parse(bg);
+
+                Intent gotoBG = new Intent(Intent.ACTION_VIEW,webbiodomo);
+                startActivity(gotoBG);
+            }
+
+        });
+    }
+
+    /**
+     * Initializes the web button and its listener.
+     */
+    private void setWebButton(){
+        webButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String bg = "https://www.biodomogranada.com";
+                Uri webbiodomo = Uri.parse(bg);
+
+                Intent gotoBG = new Intent(Intent.ACTION_VIEW,webbiodomo);
+                startActivity(gotoBG);
+            }
+
+        });
+    }
+
+
+    /**
+     * Initializes the Yt button and its listener.
+     */
+    private void setYtButton(){
+        ytButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.youtube.com/user/parqueciencias"));
+                startActivity(intent);
+            }
+
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /* Voice Methods*/
 

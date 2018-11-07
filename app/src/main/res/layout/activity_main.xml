@@ -102,17 +102,6 @@
         app:layout_constraintTop_toBottomOf="@+id/precios_button" />
 
     <TextView
-        android:id="@+id/redesText"
-        android:layout_width="137dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/redes_sociales"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/redes_button"
-        app:layout_constraintStart_toStartOf="@+id/redes_button"
-        app:layout_constraintTop_toBottomOf="@+id/redes_button" />
-
-    <TextView
         android:id="@+id/mapaText"
         android:layout_width="52dp"
         android:layout_height="33dp"
@@ -133,19 +122,6 @@
         android:background="@drawable/comprar_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exploraText" />
-
-    <ImageButton
-        android:id="@+id/redes_button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/redes_sociales"
-        android:background="@drawable/redes_sociales_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nfcText" />
 
     <ImageButton
         android:id="@+id/mapa_button"
@@ -181,5 +157,51 @@
         android:background="@drawable/lectorqr_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/fb_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/fbicon"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/background_v"
+        app:layout_constraintEnd_toStartOf="@+id/web_button" />
+
+    <ImageButton
+        android:id="@+id/twitter_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/twittericon"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/background_v"
+        app:layout_constraintStart_toEndOf="@+id/yt_button" />
+
+
+    <ImageButton
+        android:id="@+id/yt_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/yticon"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/background_v"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/web_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/logo"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/background_v"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
