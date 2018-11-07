@@ -54,6 +54,10 @@
     <string name="boton_right">Boton right</string>
     <string name="texto_descriptivo">Texto descriptivo</string>
     <string name="nfc_activity_name">NFC Activity</string>
+    <string name="tarifas">TextView</string>
+    <string name="tarifas_image">TODO</string>
+    <string name="tarifas1">TextView</string>
+    <string name="tarifas2">TextView</string>
 
     <!-- END voice strings-->
 </resources>
