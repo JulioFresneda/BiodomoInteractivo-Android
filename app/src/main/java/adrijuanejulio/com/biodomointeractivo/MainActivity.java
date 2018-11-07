@@ -72,6 +72,7 @@ public class MainActivity extends VoiceActivity{
     private ImageButton nfcButton;
     private ImageButton mapaButton;
     private ImageButton exploraButton;
+    private ImageButton tarifasButton;
 
     private ImageButton fbButton;
     private ImageButton twitterButton;
@@ -90,6 +91,7 @@ public class MainActivity extends VoiceActivity{
         nfcButton = findViewById(R.id.nfc_button);
         mapaButton = findViewById(R.id.mapa_button);
         exploraButton = findViewById(R.id.explora_button);
+        tarifasButton = findViewById(R.id.precios_button);
 
         fbButton = findViewById(R.id.fb_button);
         twitterButton = findViewById(R.id.twitter_button);
@@ -113,6 +115,9 @@ public class MainActivity extends VoiceActivity{
 
         //Set up the mapa button
         setMapaButton();
+
+        //Set up the tarifas button
+        setTarifasButton();
 
         //Set up the twitter button
         setTwitterButton();
@@ -229,6 +234,26 @@ public class MainActivity extends VoiceActivity{
     /* LAunch NFC activity*/
     private void launchExploraActivity(){
         Intent intent = new Intent(this, ExploraActivity.class);
+        startActivity(intent);
+    }
+
+
+    /**
+     * Initializes the Tarifas button and its listener. When the button is pressed, tarifas is enabled.
+     */
+    private void setTarifasButton() {
+        tarifasButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                launchTarifasActivity();
+            }
+
+        });
+    }
+
+    /* Launch tarifas activity*/
+    private void launchTarifasActivity(){
+        Intent intent = new Intent(this, TarifasActivity.class);
         startActivity(intent);
     }
 

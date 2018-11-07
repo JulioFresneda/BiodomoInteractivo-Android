@@ -34,20 +34,20 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/tarifas_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:contentDescription="@string/tarifas_image"
         android:src="@drawable/tarifas"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toTopOf="@+id/background_v"
-        app:layout_constraintVertical_bias="0.211"
-        android:contentDescription="@string/tarifas_image" />
+        app:layout_constraintVertical_bias="0.211" />
 
     <TextView
         android:id="@+id/textView2"
@@ -63,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/tarifas_image"
         app:layout_constraintTop_toTopOf="@+id/background_v"
         app:layout_constraintVertical_bias="0.188" />
 
@@ -80,7 +80,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.433"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/tarifas_image"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -97,7 +97,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.433"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/tarifas_image"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.048" />
 
@@ -142,7 +142,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/tarifas_image"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.347" />
 
@@ -193,7 +193,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.977"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/tarifas_image"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.833" />
 
