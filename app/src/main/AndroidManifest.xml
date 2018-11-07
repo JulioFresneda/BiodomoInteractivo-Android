@@ -32,11 +32,8 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".record.MapaActivity" />
         <activity android:name=".MapaActivity" />
-        <activity android:name=".TarifasActivity"></activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+        <activity android:name=".ExploraActivity" />
+        <activity android:name=".ExploraViewActivity"></activity>
     </application>
 
 </manifest>

@@ -71,12 +71,14 @@ public class MainActivity extends VoiceActivity{
     private ImageButton speechButton;
     private ImageButton nfcButton;
     private ImageButton mapaButton;
-    private ImageButton tarifasButton;
+    private ImageButton exploraButton;
 
     private ImageButton fbButton;
     private ImageButton twitterButton;
     private ImageButton webButton;
     private ImageButton ytButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +89,7 @@ public class MainActivity extends VoiceActivity{
         speechButton = findViewById(R.id.speech_button);
         nfcButton = findViewById(R.id.nfc_button);
         mapaButton = findViewById(R.id.mapa_button);
-        tarifasButton = findViewById(R.id.precios_button);
+        exploraButton = findViewById(R.id.explora_button);
 
         fbButton = findViewById(R.id.fb_button);
         twitterButton = findViewById(R.id.twitter_button);
@@ -103,14 +105,14 @@ public class MainActivity extends VoiceActivity{
         //Set up the speech button
         setSpeakButton();
 
+        //Set up the Explora button
+        setExploraButton();
+
         //Set up the NFC button
         setNFCButton();
 
         //Set up the mapa button
         setMapaButton();
-
-        //Set up the tarifas button
-        setTarifasButton();
 
         //Set up the twitter button
         setTwitterButton();
@@ -204,7 +206,7 @@ public class MainActivity extends VoiceActivity{
         });
     }
 
-    /* Launch NFC activity*/
+    /* LAunch NFC activity*/
     private void launchNFCActivity(){
         Intent intent = new Intent(this, NFCActivity.class);
         startActivity(intent);
@@ -212,27 +214,28 @@ public class MainActivity extends VoiceActivity{
 
 
     /**
-     * Initializes the tarifas button and its listener. When the button is pressed, a tarifas is enabled.
+     * Initializes the Explora button and its listener.
      */
-    private void setTarifasButton() {
-        tarifasButton.setOnClickListener(new View.OnClickListener(){
+    private void setExploraButton() {
+        exploraButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                launchTarifasActivity();
+                launchExploraActivity();
             }
 
         });
     }
 
-    /* Launch tarifas activity*/
-    private void launchTarifasActivity(){
-        Intent intent = new Intent(this, TarifasActivity.class);
+    /* LAunch NFC activity*/
+    private void launchExploraActivity(){
+        Intent intent = new Intent(this, ExploraActivity.class);
         startActivity(intent);
     }
 
 
+
     /**
-     * Initializes the Map button and its listener. When the button is pressed, a Map is enabled.
+     * Initializes the NFC button and its listener. When the button is pressed, a NFC recognition is enabled.
      */
     private void setMapaButton() {
         mapaButton.setOnClickListener(new View.OnClickListener(){
@@ -244,7 +247,7 @@ public class MainActivity extends VoiceActivity{
         });
     }
 
-    /* Launch Map activity*/
+    /* LAunch NFC activity*/
     private void launchMapaActivity(){
         Intent intent = new Intent(this, MapaActivity.class);
         startActivity(intent);
