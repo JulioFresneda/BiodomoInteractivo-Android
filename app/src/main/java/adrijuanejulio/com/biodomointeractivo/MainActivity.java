@@ -71,11 +71,14 @@ public class MainActivity extends VoiceActivity{
     private ImageButton speechButton;
     private ImageButton nfcButton;
     private ImageButton mapaButton;
+    private ImageButton exploraButton;
 
     private ImageButton fbButton;
     private ImageButton twitterButton;
     private ImageButton webButton;
     private ImageButton ytButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +89,7 @@ public class MainActivity extends VoiceActivity{
         speechButton = findViewById(R.id.speech_button);
         nfcButton = findViewById(R.id.nfc_button);
         mapaButton = findViewById(R.id.mapa_button);
+        exploraButton = findViewById(R.id.explora_button);
 
         fbButton = findViewById(R.id.fb_button);
         twitterButton = findViewById(R.id.twitter_button);
@@ -100,6 +104,9 @@ public class MainActivity extends VoiceActivity{
 
         //Set up the speech button
         setSpeakButton();
+
+        //Set up the Explora button
+        setExploraButton();
 
         //Set up the NFC button
         setNFCButton();
@@ -202,6 +209,26 @@ public class MainActivity extends VoiceActivity{
     /* LAunch NFC activity*/
     private void launchNFCActivity(){
         Intent intent = new Intent(this, NFCActivity.class);
+        startActivity(intent);
+    }
+
+
+    /**
+     * Initializes the Explora button and its listener.
+     */
+    private void setExploraButton() {
+        exploraButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                launchExploraActivity();
+            }
+
+        });
+    }
+
+    /* LAunch NFC activity*/
+    private void launchExploraActivity(){
+        Intent intent = new Intent(this, ExploraActivity.class);
         startActivity(intent);
     }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/out"
+    android:weightSum="3"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    >
+
+
+
+        <Button
+            android:id="@+id/amazonia_button"
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:background="@drawable/explora_amaz_button"
+            android:text="Amazonia"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#fff000"
+            android:textSize="60sp"
+            />
+
+
+        <Button
+            android:id="@+id/mad_button"
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:background="@drawable/explora_mad_button"
+            android:scaleType="centerCrop"
+            android:text="Madagascar"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="60sp"
+            android:textColor="#002c07"/>
+
+
+        <Button
+            android:id="@+id/ip_button"
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:background="@drawable/explora_ip_button"
+            android:scaleType="centerCrop"
+            android:text="Indo-pacífico"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="60sp"
+            android:textColor="#00023f"/>
+
+
+
+
+</LinearLayout>
