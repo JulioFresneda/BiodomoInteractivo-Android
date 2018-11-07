@@ -26,11 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NFCActivity"
+        <activity
+            android:name=".NFCActivity"
             android:label="@string/nfc_activity_name"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".record.MapaActivity" />
+        <activity android:name=".MapaActivity"></activity>
     </application>
 
 </manifest>

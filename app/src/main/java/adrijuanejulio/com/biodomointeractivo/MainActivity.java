@@ -36,6 +36,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
+import adrijuanejulio.com.biodomointeractivo.record.MapaActivity;
 import ai.api.AIDataService;
 import ai.api.AIServiceException;
 import ai.api.android.AIConfiguration;
@@ -67,6 +68,7 @@ public class MainActivity extends VoiceActivity{
     private ImageButton qrButton;
     private ImageButton speechButton;
     private ImageButton nfcButton;
+    private ImageButton mapaButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,7 @@ public class MainActivity extends VoiceActivity{
         qrButton = findViewById(R.id.qr_button);
         speechButton = findViewById(R.id.speech_button);
         nfcButton = findViewById(R.id.nfc_button);
+        mapaButton = findViewById(R.id.mapa_button);
 
         //Set up the qr button
         setQrButton();
@@ -88,6 +91,10 @@ public class MainActivity extends VoiceActivity{
 
         //Set up the NFC button
         setNFCButton();
+
+        //Set up the mapa button
+        setMapaButton();
+
 
         //Dialogflow configuration parameters
         final String ACCESS_TOKEN = "99a6982faf8c46a5b165b5067c6f4598";
@@ -131,6 +138,8 @@ public class MainActivity extends VoiceActivity{
         });
     }
 
+
+
     /**
      * Initializes the qr button and its listener. When the button is pressed, a qr recognition is enabled.
      */
@@ -169,6 +178,27 @@ public class MainActivity extends VoiceActivity{
     /* LAunch NFC activity*/
     private void launchNFCActivity(){
         Intent intent = new Intent(this, NFCActivity.class);
+        startActivity(intent);
+    }
+
+
+
+    /**
+     * Initializes the NFC button and its listener. When the button is pressed, a NFC recognition is enabled.
+     */
+    private void setMapaButton() {
+        mapaButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                launchMapaActivity();
+            }
+
+        });
+    }
+
+    /* LAunch NFC activity*/
+    private void launchMapaActivity(){
+        Intent intent = new Intent(this, MapaActivity.class);
         startActivity(intent);
     }
 
