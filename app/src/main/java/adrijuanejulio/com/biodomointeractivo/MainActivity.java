@@ -4,6 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.media.Image;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,6 +18,8 @@ import android.os.Bundle;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -46,7 +53,7 @@ import ai.api.model.AIRequest;
 import ai.api.model.AIResponse;
 import ai.api.model.Result;
 
-public class MainActivity extends VoiceActivity{
+public class MainActivity extends VoiceActivity implements SensorEventListener {
     // ASR/TTS fields wwwww
     private static final String LOGTAG = "CHATBOT";
     private static final Integer ID_PROMPT_QUERY = 0;
@@ -80,9 +87,26 @@ public class MainActivity extends VoiceActivity{
     private ImageButton ytButton;
 
 
+    private Boolean escuchaGiro = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**
+         *  Esto es para el flip down and up
+         */
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        /**
+         *
+         */
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -160,6 +184,7 @@ public class MainActivity extends VoiceActivity{
                     if(greenButton) {
                         Log.e(LOGTAG, "BOTON: Hablame de nuevo..");
                         speak(getResources().getString(R.string.listen_again), LANGUAGECODE, ID_PROMPT_QUERY);
+                        escuchaGiro = true;
                     }
                     else{
                         Log.e(LOGTAG, "BOTON: Para de escuchar");
@@ -350,10 +375,67 @@ public class MainActivity extends VoiceActivity{
     }
 
 
+    /******************************************************************
+     *
+     *
+     * Esto es para por el movil boca abajo y que el asistente pare
+     * https://stackoverflow.com/questions/17774070/android-detect-when-the-phone-flips-around
+     * http://www.vogella.com/tutorials/AndroidSensor/article.html
+     *
+     *
+     ******************************************************************/
 
 
+    private SensorManager sensorManager;
+    private float mGZ = 0;//gravity acceleration along the z axis
 
 
+    public void getAccelerometer(SensorEvent event) {
+        float gz;
+        int type = event.sensor.getType();
+        if (type == Sensor.TYPE_ACCELEROMETER) {
+            gz = event.values[2];
+            if (mGZ == 0) {
+                mGZ = gz;
+            } else {
+                if ((mGZ * gz) < 0) {
+                    mGZ = gz;
+                    if (gz < 0) {
+                        stop();
+                        escuchaGiro = false;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (escuchaGiro && event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            getAccelerometer(event);
+        }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) { }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // register this class as a listener for the orientation and
+        // accelerometer sensors
+        sensorManager.registerListener(this,
+                sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    protected void onPause() {
+        // unregister listener
+        super.onPause();
+        sensorManager.unregisterListener(this);
+    }
 
 
 

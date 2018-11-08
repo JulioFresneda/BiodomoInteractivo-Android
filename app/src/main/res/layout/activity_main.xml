@@ -50,10 +50,10 @@
         android:id="@+id/explora_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/explora"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/explora_button"
+        android:contentDescription="@string/explora"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,10 +61,11 @@
         android:id="@+id/exploraText"
         android:layout_width="70dp"
         android:layout_height="28dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/explora"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/explora_button"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="@+id/explora_button"
         app:layout_constraintTop_toBottomOf="@+id/explora_button" />
 
@@ -72,21 +73,23 @@
         android:id="@+id/nfcText"
         android:layout_width="107dp"
         android:layout_height="29dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/lector_nfc"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/nfc_button"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/nfc_button"
         app:layout_constraintTop_toBottomOf="@+id/nfc_button" />
 
     <TextView
         android:id="@+id/qrText"
         android:layout_width="91dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="16dp"
         android:text="@string/lector_qr"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/qr_button"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/qr_button"
         app:layout_constraintTop_toBottomOf="@+id/qr_button" />
 
@@ -94,10 +97,10 @@
         android:id="@+id/preciosText"
         android:layout_width="70dp"
         android:layout_height="51dp"
-        android:layout_marginTop="8dp"
         android:text="@string/precios"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/precios_button"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="@+id/precios_button"
         app:layout_constraintTop_toBottomOf="@+id/precios_button" />
 
@@ -116,10 +119,10 @@
         android:id="@+id/precios_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:contentDescription="@string/precios"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/comprar_button"
+        android:contentDescription="@string/precios"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exploraText" />
 
@@ -127,10 +130,10 @@
         android:id="@+id/mapa_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@string/mapa"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/mapa_button"
+        android:contentDescription="@string/mapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/qrText" />
 
@@ -139,11 +142,12 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="8dp"
-        android:contentDescription="@string/lector_nfc"
         android:background="@drawable/nfc_button"
+        android:contentDescription="@string/lector_nfc"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -151,10 +155,10 @@
         android:id="@+id/qr_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@string/lector_qr"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/lectorqr_button"
+        android:contentDescription="@string/lector_qr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -203,5 +207,7 @@
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/background_v"
         app:layout_constraintEnd_toEndOf="parent" />
+
+
 
 </android.support.constraint.ConstraintLayout>
