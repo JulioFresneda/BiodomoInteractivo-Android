@@ -3,17 +3,19 @@ package adrijuanejulio.com.biodomointeractivo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 public class ExploraActivity extends AppCompatActivity {
+    final private String ZONE_AMAZONIA = "0";
+    final private String ZONE_MADAGASCAR = "1";
+    final private String ZONE_INDOPACIFICO = "2";
 
     private Button amaButton;
     private Button madButton;
     private Button ipButton;
-
-    static protected int zone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,7 @@ public class ExploraActivity extends AppCompatActivity {
 
         setAmaButton();
         setMadButton();
-        setIpButton();
-
+        //setIpButton();
     }
 
 
@@ -39,6 +40,7 @@ public class ExploraActivity extends AppCompatActivity {
        amaButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                Log.e("PRUEBA", " ---------------> Lanzando activity amazonia");
                 launchAmaActivity();
             }
 
@@ -47,8 +49,8 @@ public class ExploraActivity extends AppCompatActivity {
 
     /* LAunch Amazonia activity*/
     private void launchAmaActivity(){
-        zone = 0;
         Intent intent = new Intent(this, ExploraViewActivity.class);
+        intent.putExtra("zone", ZONE_AMAZONIA);
         startActivity(intent);
     }
 
@@ -60,6 +62,7 @@ public class ExploraActivity extends AppCompatActivity {
         madButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                Log.e("PRUEBA", " ---------------> Lanzando activity madagascar");
                 launchMadActivity();
             }
 
@@ -68,8 +71,8 @@ public class ExploraActivity extends AppCompatActivity {
 
     /* LAunch madagascar activity*/
     private void launchMadActivity(){
-        zone = 1;
         Intent intent = new Intent(this, ExploraViewActivity.class);
+        intent.putExtra("zone", ZONE_MADAGASCAR);
         startActivity(intent);
     }
 
@@ -80,6 +83,7 @@ public class ExploraActivity extends AppCompatActivity {
         madButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                Log.e("PRUEBA", " ---------------> Lanzando activity indo");
                 launchIpActivity();
             }
 
@@ -88,8 +92,8 @@ public class ExploraActivity extends AppCompatActivity {
 
     /* LAunch madagascar activity*/
     private void launchIpActivity(){
-        zone = 2;
         Intent intent = new Intent(this, ExploraViewActivity.class);
+        intent.putExtra("zone", ZONE_INDOPACIFICO);
         startActivity(intent);
     }
 }
