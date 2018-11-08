@@ -134,12 +134,21 @@ public class ExploraViewActivity extends AppCompatActivity {
             imageView.setImageResource(species.get(position));
             textView.setText(speciesTexts.get(position));
         } else {
-            Log.e("RECIBIENDO INTENT", " ---------------> Viene de QR O NFC");
-            position = 1;
+            String id = getIntent().getStringExtra("id");
 
-            titleTextView.setText(titles.get(position));
-            imageView.setImageResource(species.get(position));
-            textView.setText(speciesTexts.get(position));
+            Log.e("RECIBIENDO INTENT", " ---------------> Viene de QR O NFC");
+
+            String titleToSet;
+            int imageToSet;
+            String descrToSet;
+
+            Log.e("ID ama_a_0_title", String.valueOf(R.string.ama_a_0_title));
+
+            Log.e("ID ama_v__title", String.valueOf(R.string.ama_v_0_title));
+
+            titleTextView.setText(R.string.ama_a_0_title);
+            imageView.setImageResource(R.drawable.ama_a_0);
+            textView.setText(R.string.ama_a_0_text);
         }
 
         rightButton.setOnClickListener(new View.OnClickListener() {
