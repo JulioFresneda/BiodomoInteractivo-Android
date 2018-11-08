@@ -44,7 +44,7 @@
         android:src="@drawable/tarifas"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toTopOf="@+id/background_v"
         app:layout_constraintVertical_bias="0.211" />
@@ -59,24 +59,25 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="Entrada conjunta con el museo:"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.329"
         app:layout_constraintStart_toEndOf="@+id/tarifas_image"
         app:layout_constraintTop_toTopOf="@+id/background_v"
-        app:layout_constraintVertical_bias="0.188" />
+        app:layout_constraintVertical_bias="0.186" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="253dp"
-        android:layout_height="19dp"
+        android:layout_width="218dp"
+        android:layout_height="22dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="11€ General (7€ Museo + 4€ BioDomo)"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.433"
@@ -86,7 +87,7 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="253dp"
+        android:layout_width="218dp"
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -94,6 +95,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="9€ Reducida (6€ Museo +3€ BioDomo)"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.433"
@@ -103,12 +105,15 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="373dp"
+        android:layout_width="322dp"
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="9€ Escolar(5,5€ Museo + 3,5€ BioDomo)(con visita guiada)"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -122,33 +127,34 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="Entrada sólo al BioDomo*:"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.428" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="375dp"
+        android:layout_width="322dp"
         android:layout_height="28dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="6€ General | 5€ Reducida | 5€ Escolar (Incluye visita guiada)"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="@+id/tarifas_image"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.347" />
+        app:layout_constraintVertical_bias="0.34" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="371dp"
+        android:layout_width="323dp"
         android:layout_height="92dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -156,11 +162,13 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="*Las visitas sólo a BIODOMO quedarán limitadas a la última hora del día, es decir, a las 18:00 de martes a viernes, a las 18:05 los sábados y festivos de día completo y a las 14:05 los domingos y festivos de medio día, y siempre sujeta a disponibilidad."
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.501" />
+        app:layout_constraintVertical_bias="0.486" />
 
     <TextView
         android:id="@+id/textView9"
@@ -172,17 +180,17 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="Tarjeta Amiga:"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="371dp"
+        android:layout_width="324dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -190,11 +198,11 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="Los titulares de la Tarjeta Amiga tendrán un acceso gratuito al BioDomo cada año. Las siguientes visitas tendrán un precio especial de 2€."
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.977"
-        app:layout_constraintStart_toEndOf="@+id/tarifas_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintVertical_bias="0.811" />
 
 </android.support.constraint.ConstraintLayout>

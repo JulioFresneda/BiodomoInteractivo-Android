@@ -4,6 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.media.Image;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,6 +18,8 @@ import android.os.Bundle;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -47,7 +54,7 @@ import ai.api.model.AIRequest;
 import ai.api.model.AIResponse;
 import ai.api.model.Result;
 
-public class MainActivity extends VoiceActivity {
+public class MainActivity extends VoiceActivity implements SensorEventListener {
     // ASR/TTS fields wwwww
     private static final String LOGTAG = "CHATBOT";
     private static final Integer ID_PROMPT_QUERY = 0;
@@ -81,8 +88,26 @@ public class MainActivity extends VoiceActivity {
     private ImageButton ytButton;
 
 
+    private Boolean escuchaGiro = false;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**
+         *  Esto es para el flip down and up
+         */
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        /**
+         *
+         */
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -157,10 +182,12 @@ public class MainActivity extends VoiceActivity {
                     Log.e(LOGTAG, "Pulsando boton..");
 
                     //Ask the user to speak
-                    if (greenButton) {
+                    if(greenButton) {
                         Log.e(LOGTAG, "BOTON: Hablame de nuevo..");
                         speak(getResources().getString(R.string.listen_again), LANGUAGECODE, ID_PROMPT_QUERY);
-                    } else {
+                        escuchaGiro = true;
+                    }
+                    else{
                         Log.e(LOGTAG, "BOTON: Para de escuchar");
                         stopListening();
                         changeButtonAppearanceToDefault();
@@ -174,6 +201,7 @@ public class MainActivity extends VoiceActivity {
     }
 
 
+
     /**
      * Initializes the qr button and its listener. When the button is pressed, a qr recognition is enabled.
      */
@@ -181,9 +209,9 @@ public class MainActivity extends VoiceActivity {
         // gain reference to qr button
         final Activity activity = this;
 
-        qrButton.setOnClickListener(new View.OnClickListener() {
+        qrButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 IntentIntegrator integrator = new IntentIntegrator(activity);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
                 integrator.setPrompt("Escaneando QR");
@@ -220,9 +248,9 @@ public class MainActivity extends VoiceActivity {
      * Initializes the NFC button and its listener. When the button is pressed, a NFC recognition is enabled.
      */
     private void setNFCButton() {
-        nfcButton.setOnClickListener(new View.OnClickListener() {
+        nfcButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 launchNFCActivity();
             }
 
@@ -230,7 +258,7 @@ public class MainActivity extends VoiceActivity {
     }
 
     /* LAunch NFC activity*/
-    private void launchNFCActivity() {
+    private void launchNFCActivity(){
         Intent intent = new Intent(this, NFCActivity.class);
         startActivity(intent);
     }
@@ -240,9 +268,9 @@ public class MainActivity extends VoiceActivity {
      * Initializes the Explora button and its listener.
      */
     private void setExploraButton() {
-        exploraButton.setOnClickListener(new View.OnClickListener() {
+        exploraButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 launchExploraActivity();
             }
 
@@ -250,7 +278,7 @@ public class MainActivity extends VoiceActivity {
     }
 
     /* LAunch NFC activity*/
-    private void launchExploraActivity() {
+    private void launchExploraActivity(){
         Intent intent = new Intent(this, ExploraActivity.class);
         startActivity(intent);
     }
@@ -260,9 +288,9 @@ public class MainActivity extends VoiceActivity {
      * Initializes the Tarifas button and its listener. When the button is pressed, tarifas is enabled.
      */
     private void setTarifasButton() {
-        tarifasButton.setOnClickListener(new View.OnClickListener() {
+        tarifasButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 launchTarifasActivity();
             }
 
@@ -270,19 +298,20 @@ public class MainActivity extends VoiceActivity {
     }
 
     /* Launch tarifas activity*/
-    private void launchTarifasActivity() {
+    private void launchTarifasActivity(){
         Intent intent = new Intent(this, TarifasActivity.class);
         startActivity(intent);
     }
+
 
 
     /**
      * Initializes the NFC button and its listener. When the button is pressed, a NFC recognition is enabled.
      */
     private void setMapaButton() {
-        mapaButton.setOnClickListener(new View.OnClickListener() {
+        mapaButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 launchMapaActivity();
             }
 
@@ -290,7 +319,7 @@ public class MainActivity extends VoiceActivity {
     }
 
     /* LAunch NFC activity*/
-    private void launchMapaActivity() {
+    private void launchMapaActivity(){
         Intent intent = new Intent(this, MapaActivity.class);
         startActivity(intent);
     }
@@ -299,10 +328,10 @@ public class MainActivity extends VoiceActivity {
     /**
      * Initializes the Twitter button and its listener.
      */
-    private void setTwitterButton() {
-        twitterButton.setOnClickListener(new View.OnClickListener() {
+    private void setTwitterButton(){
+        twitterButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW,
                             Uri.parse("twitter://user?screen_name=@ParqueCiencias"));
@@ -319,14 +348,14 @@ public class MainActivity extends VoiceActivity {
     /**
      * Initializes the Fb button and its listener.
      */
-    private void setFbButton() {
-        fbButton.setOnClickListener(new View.OnClickListener() {
+    private void setFbButton(){
+        fbButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 String bg = "https://www.facebook.com/pages/Biodomo-De-Granada/1611675098846913";
                 Uri webbiodomo = Uri.parse(bg);
 
-                Intent gotoBG = new Intent(Intent.ACTION_VIEW, webbiodomo);
+                Intent gotoBG = new Intent(Intent.ACTION_VIEW,webbiodomo);
                 startActivity(gotoBG);
             }
 
@@ -336,14 +365,14 @@ public class MainActivity extends VoiceActivity {
     /**
      * Initializes the web button and its listener.
      */
-    private void setWebButton() {
-        webButton.setOnClickListener(new View.OnClickListener() {
+    private void setWebButton(){
+        webButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 String bg = "https://www.biodomogranada.com";
                 Uri webbiodomo = Uri.parse(bg);
 
-                Intent gotoBG = new Intent(Intent.ACTION_VIEW, webbiodomo);
+                Intent gotoBG = new Intent(Intent.ACTION_VIEW,webbiodomo);
                 startActivity(gotoBG);
             }
 
@@ -354,10 +383,10 @@ public class MainActivity extends VoiceActivity {
     /**
      * Initializes the Yt button and its listener.
      */
-    private void setYtButton() {
-        ytButton.setOnClickListener(new View.OnClickListener() {
+    private void setYtButton(){
+        ytButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("https://www.youtube.com/user/parqueciencias"));
                 startActivity(intent);
@@ -367,10 +396,67 @@ public class MainActivity extends VoiceActivity {
     }
 
 
+    /******************************************************************
+     *
+     *
+     * Esto es para por el movil boca abajo y que el asistente pare
+     * https://stackoverflow.com/questions/17774070/android-detect-when-the-phone-flips-around
+     * http://www.vogella.com/tutorials/AndroidSensor/article.html
+     *
+     *
+     ******************************************************************/
 
 
+    private SensorManager sensorManager;
+    private float mGZ = 0;//gravity acceleration along the z axis
 
 
+    public void getAccelerometer(SensorEvent event) {
+        float gz;
+        int type = event.sensor.getType();
+        if (type == Sensor.TYPE_ACCELEROMETER) {
+            gz = event.values[2];
+            if (mGZ == 0) {
+                mGZ = gz;
+            } else {
+                if ((mGZ * gz) < 0) {
+                    mGZ = gz;
+                    if (gz < 0) {
+                        stop();
+                        escuchaGiro = false;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (escuchaGiro && event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            getAccelerometer(event);
+        }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) { }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // register this class as a listener for the orientation and
+        // accelerometer sensors
+        sensorManager.registerListener(this,
+                sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    protected void onPause() {
+        // unregister listener
+        super.onPause();
+        sensorManager.unregisterListener(this);
+    }
 
 
 
@@ -620,7 +706,7 @@ public class MainActivity extends VoiceActivity {
      * * It changes the color and the message of the speech button
      */
     private void changeButtonAppearanceToListening() {
-        if (speechButton != null) {
+        if(speechButton != null) {
             speechButton.setBackgroundResource(R.drawable.micro_on);
             greenButton = false;
         }
@@ -631,7 +717,7 @@ public class MainActivity extends VoiceActivity {
      * * It changes the color and the message of the speech button
      */
     private void changeButtonAppearanceToDefault() {
-        if (speechButton != null) {
+        if(speechButton != null) {
             speechButton.setBackgroundResource(R.drawable.micro_off);
             greenButton = true;
         }
@@ -712,7 +798,7 @@ public class MainActivity extends VoiceActivity {
                                 }
                             }
                         }
-                    } else {
+                    }else{
                         Log.d(LOGTAG, "ResultPost: " + result.getResolvedQuery());
                         Log.d(LOGTAG, "ActionPost: " + result.getAction());
 
