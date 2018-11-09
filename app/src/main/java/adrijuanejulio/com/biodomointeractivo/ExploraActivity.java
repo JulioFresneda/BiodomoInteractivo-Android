@@ -28,7 +28,7 @@ public class ExploraActivity extends AppCompatActivity {
 
         setAmaButton();
         setMadButton();
-        //setIpButton();
+        setIpButton();
     }
 
 
@@ -80,7 +80,7 @@ public class ExploraActivity extends AppCompatActivity {
      * Initializes the indopacifico button and its listener.
      */
     private void setIpButton() {
-        madButton.setOnClickListener(new View.OnClickListener(){
+        ipButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Log.e("PRUEBA", " ---------------> Lanzando activity indo");

@@ -329,6 +329,25 @@ public class ExploraViewActivity extends AppCompatActivity {
         madagascarTexts.add(getResources().getString(R.string.mad_v_15_text));
 
         // descripciones indo pacifico
+
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_0_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_1_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_2_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_3_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_4_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_5_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_6_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_7_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_8_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_9_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_10_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_11_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_12_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_13_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_14_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_a_15_text));
+
+
         indoPacificoTexts.add(getResources().getString(R.string.ip_v_0_text));
         indoPacificoTexts.add(getResources().getString(R.string.ip_v_1_text));
         indoPacificoTexts.add(getResources().getString(R.string.ip_v_2_text));
