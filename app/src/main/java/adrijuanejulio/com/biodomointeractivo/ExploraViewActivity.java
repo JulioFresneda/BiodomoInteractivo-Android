@@ -88,12 +88,12 @@ public class ExploraViewActivity extends AppCompatActivity {
 
         // INSERTS id descripciones
         // inserts descripciones amazonas
-        amazonasTexts.add(getResources().getString(R.string.ama_a_0_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_0_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_0_desc));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_0_desc));
 
         // inserts descripciones madagascar
-        madagascarTexts.add(getResources().getString(R.string.mad_a_0_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_0_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_a_0_desc));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_0_desc));
 
         /*// inserts descripciones indo pacifico
         madagascarTexts.add(getResources().getString(R.string.mad_a_0_text));
@@ -135,81 +135,58 @@ public class ExploraViewActivity extends AppCompatActivity {
             titleTextView.setText(titles.get(position));
             imageView.setImageResource(species.get(position));
             textView.setText(speciesTexts.get(position));
+
+            rightButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if (position < species.size() - 1) {
+                        position++;
+
+                        int id = species.get(position);
+
+                        titleTextView.setText(titles.get(position));
+                        imageView.setImageResource(id);
+                        textView.setText(speciesTexts.get(position));
+
+                    }
+                }
+
+            });
+
+
+            leftButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if (position > 0) {
+                        position--;
+
+                        int id = species.get(position);
+
+                        titleTextView.setText(titles.get(position));
+                        imageView.setImageResource(id);
+                        textView.setText(speciesTexts.get(position));
+                    }
+                }
+
+            });
         } else {
             String id = getIntent().getStringExtra("id");
 
-            leftButton.setEnabled(false);
-            rightButton.setEnabled(false);
-            String title = id + "_title";
-            String image = id;
-            String desc = id + "_text";
-            int idtitle = getResources().getIdentifier(title,null,null);
-            int idimage = getResources().getIdentifier(image,null,null);
-            int iddesc = getResources().getIdentifier(desc,null,null);
+            rightButton.setVisibility(View.INVISIBLE);
+            leftButton.setVisibility(View.INVISIBLE);
 
+            int idTitle = getResources().getIdentifier(id + "_title", "string", getPackageName());
+            int idImage = getResources().getIdentifier(id, "drawable", getPackageName());
+            int idDesc = getResources().getIdentifier(id + "_desc", "string", getPackageName());
 
-
-            Log.e("RECIBIENDO INTENT", " ---------------> Viene de QR O NFC");
-
-
-
-            try{
-                titleTextView.setText(idtitle);
-            }
-            catch(Exception e){
-                Log.e("Titulo incorrecto","Titulo incorrecto");
-            }
-
-            try{
-                imageView.setImageResource(idimage);
-            }
-            catch(Exception e){
-                Log.e("Imagen incorrecta","Imagen incorrecta");
-            }
-
-            try{
-                textView.setText(iddesc);
-            }
-            catch(Exception e){
-                Log.e("Desc incorrecta","Desc incorrecta");
-            }
+            titleTextView.setText(idTitle);
+            imageView.setImageResource(idImage);
+            textView.setText(idDesc);
         }
 
-        rightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
 
-                if(position < species.size() -1) {
-                    position++;
-
-                    int id = species.get(position);
-
-                    titleTextView.setText(titles.get(position));
-                    imageView.setImageResource(id);
-                    textView.setText(speciesTexts.get(position));
-
-                }
-            }
-
-        });
-
-
-        leftButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-
-                if(position > 0 ) {
-                    position--;
-
-                    int id = species.get(position);
-
-                    titleTextView.setText(titles.get(position));
-                    imageView.setImageResource(id);
-                    textView.setText(speciesTexts.get(position));
-                }
-            }
-
-        });
 
     }
 }

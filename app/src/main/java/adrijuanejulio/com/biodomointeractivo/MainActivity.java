@@ -90,8 +90,11 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     private ImageButton webButton;
     private ImageButton ytButton;
 
+    // Acelerometer
+    private SensorManager sensorManager;
+    private float mGZ = 0;//gravity acceleration along the z axis
 
-    // Esta variable es para poner el acelerometro en escucha solo cuando es necesario, es decir, como el asistente está hablando
+    // Acelerometer on/off
     private Boolean escuchaGiro = false;
 
 
@@ -223,6 +226,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         });
     }
 
+    /* Returns results of call intents (use of QR)*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -406,8 +410,6 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
      ******************************************************************/
 
 
-    private SensorManager sensorManager;
-    private float mGZ = 0;//gravity acceleration along the z axis
 
     /**
      * Detect if the device is face up or face down
@@ -464,22 +466,6 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         super.onPause();
         sensorManager.unregisterListener(this);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

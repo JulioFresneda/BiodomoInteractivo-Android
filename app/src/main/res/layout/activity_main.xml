@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/background_v"
@@ -48,10 +48,10 @@
 
     <ImageButton
         android:id="@+id/explora_button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="120dp"
         android:background="@drawable/explora_button"
         android:contentDescription="@string/explora"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,21 +117,21 @@
 
     <ImageButton
         android:id="@+id/precios_button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="116dp"
         android:background="@drawable/comprar_button"
         android:contentDescription="@string/precios"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exploraText" />
+        app:layout_constraintTop_toBottomOf="@+id/nfcText" />
 
     <ImageButton
         android:id="@+id/mapa_button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/mapa_button"
         android:contentDescription="@string/mapa"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,24 +139,24 @@
 
     <ImageButton
         android:id="@+id/nfc_button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/nfc_button"
         android:contentDescription="@string/lector_nfc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/qr_button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/lectorqr_button"
         android:contentDescription="@string/lector_qr"
         app:layout_constraintEnd_toEndOf="parent"
