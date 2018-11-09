@@ -70,11 +70,59 @@
     <string name="mad_a_0_text">Es un primate de hábitos estrictamente diurnos que pasa la mayor parte del tiempo en los árboles, aunque también frecuenta el suelo. Es sociable y vive en grupos de 5 a 25 individuos. Es polígamo y usa su característica cola para hacer señales visuales y odoríferas. Cuando camina por el suelo mantiene erguida la cola para señalar su presencia al resto de sus congéneres. También se comunica por vocalizaciones, por actitudes corporales y por expresiones del rostro. Se alimenta de frutos, hojas, flores, cortezas y pequeños insectos.</string>
 
     <!--AMAZONAS-->
-    <string name="ama_a_0_title">Koala</string>
+    <string name="ama_a_0_title">Perezoso de dos dedos</string>
+    <string name="ama_a_1_title">Tucán de pecho blanco</string>
+    <string name="ama_a_2_title">Trompetero</string>
+    <string name="ama_a_3_title">Tortuga matamata</string>
+    <string name="ama_a_4_title">Rana de ojos rojos</string>
+    <string name="ama_a_5_title">Culebra verde nariguda</string>
+    <string name="ama_a_6_title">Cotinga</string>
+    <string name="ama_a_7_title">Armadillo de seis bandas</string>
+    <string name="ama_a_8_title">Boa arco iris</string>
+    <string name="ama_a_9_title">Ajolote</string>
+    <string name="ama_a_10_title">Rascón de cuello rojo</string>
+    <string name="ama_a_11_title">Ibis escarlata</string>
+    <string name="ama_a_12_title">Iguana verde</string>
+    <string name="ama_a_13_title">Rana punta de ﬂecha rayada</string>
+    <string name="ama_a_14_title">Rana punta de ﬂecha de franjas amarillas</string>
+    <string name="ama_a_15_title">Rana punta de ﬂecha teñida</string>
+    <string name="ama_a_16_title">Arasarí verde</string>
+    <string name="ama_a_17_title">Tití de cara blanca</string>
+
+
+
     <string name="ama_v_0_title">Arbol amazonas</string>
 
+
+    <string name="ama_a_0_text">Choloepus didactylus. Las extremidades terminan en dos dedos con garras curvas que le sirven para trepar y permanecer colgado. Su pelo es largo y se orienta desde el vientre hacia el dorso, al contrario que la mayoría de los mamíferos. Es de hábitos nocturnos y duerme hasta quince horas durante el día. Nocturno. Come hojas y frutas.</string>
+    <string name="ama_a_1_text">Ramphastos tucanus. El macho y la hembra son iguales, a excepción del pico que es más largo en el macho. Son principalmente frugívoras. Usan su pico para alcanzar los frutos que engullen enteros con una rápida sacudida de su cuello. También comen insectos, orugas y pequeños reptiles. Hace el nido en huecos de árboles. Vive solo, en pareja o en pequeñas bandadas. Emite un gruñido profundo que puede oírse a gran distancia.</string>
+    <string name="ama_a_2_text">Psophia crepitans. Es sociable. Vive en pequeños grupos en el suelo del bosque donde descansan, se bañan y buscan frutos caídos de los árboles para alimentarse mientras que por la noche prefieren posarse en las ramas de los árboles. Emite una variedad de sonidos, algunos intensos como una trompeta, para advertir del peligro, marcar su territorio, solicitar alimento o amenazar a los intrusos. Es muy dócil y las poblaciones nativas la utilizan como centinela para cuidar de sus gallinas ya que avisan de la presencia de cualquier animal extraño. Varios machos se aparean con una hembra, algo inusual en las aves, y los pollos son cuidados y alimentados por varios miembros del grupo.</string>
+    <string name="ama_a_3_text">Chelus fimbriatus. Pasa la mayor parte del tiempo bajo el agua en el fondo de ríos, lagunas y ciénagas de poca profundidad y escaso caudal. Utiliza su camuflaje y su comportamiento estático para pasar inadvertida y cazar al acecho. Sus mandíbulas son débiles y no son adecuadas para agarrar a las presas. Por eso cuando un pez o un invertebrado está a su alcance abre la boca y lo engulle. Sus ojos son pequeños pero posee grandes tímpanos externos que le ayudan a detectar a las presas en movimiento. La nariz en forma de tubo le permite respirar sin salir a la superficie.</string>
+    <string name="ama_a_4_text">Agalychnis callidryas. Es arborícola y vive entre la vegetación de las selvas húmedas cerca de los ríos. Tiene ventosas en los dedos de las patas que le ayudan a adherirse al envés de las hojas donde descansa durante el día. Deposita los huevos en la vegetación que cuelga por encima del agua. Come insectos. Es tóxica.</string>
+    <string name="ama_a_5_text">Philodryas baroni. Serpiente estrictamente arborícola que en raras ocasiones desciende al suelo. Su aspecto y color verde le confieren un excelente camuflaje. Suele pasar gran parte del día inmóvil colgada entre las hojas de los árboles, circunstancia que aprovecha para capturar al acecho a lagartos, anfibios, murciélagos o aves. Posee veneno que inocula con colmillos situados en la parte posterior de la mandíbula con el que inmoviliza a las presas una vez capturadas.</string>
+    <string name="ama_a_6_text">Cotinga cayana. Es un ave con acentuado dimorfismo sexual. Mientras que el macho es de color azul turquesa brillante con la garganta rojiza la hembra tiene un tono marrón grisáceo. Vive en el dosel de la selva, tanto en tierra firme como en las áreas inundables. Es muy silenciosa, excepto cuando se alarma por la presencia de depredadores. Construye un nido plano que luego destruye para evitar que los depredadores encuentren el sitio que normalmente vuelve a utilizar. El nombre de cotinga proviene del guaraní para referirse a las aves con colores que brillan en el bosque.</string>
+    <string name="ama_a_7_text">Euphractus sexcinctus. Es un mamífero acorazado con el cuerpo cubierto de anillos duros de los que salen pelos sensibles. Es tímido y de costumbres diurnas. Posee fuertes garras con las que excava en la tierra sus madrigueras donde se refugia y reproduce. Tiene glándulas odoríferas en la base de la cola para marcar el territorio. Son buenos nadadores. Su alimentación es variada y va desde raíces a tubérculos, lombrices, insectos, carroña y pequeños vertebrados.</string>
+    <string name="ama_a_8_text">Epicrates cenchria. Tiene escamas suaves y brillantes. Vive en los bosques tropicales a nivel de suelo en lugares próximos al agua, aunque también es semiarborícola. Descansa durante el día y por la noche se alimenta de aves y pequeños mamíferos que localizan gracias unos receptores situados al lado de los ojos que detectan el calor que emiten. Asfixia a la presa y la engulle entera.</string>
+    <string name="ama_a_9_text">Ambystoma mexicanum. Salamandra endémica de algunas lagunas mejicanas. Su desarrollo es muy peculiar ya que alcanza el estado adulto sin terminar la metamorfosis, es decir, mantiene la forma larvaria durante toda su vida. Tiene hábitos nocturnos. Se alimenta de invertebrados.</string>
+    <string name="ama_a_10_text">Aramides ypecaha. Vive en riberas de ríos y lagunas. Al alba y al atardecer se reúne en grupos y produce un canto característico que le ha dado nombre a la especie. Se alimenta de semillas, frutos, insectos e invertebrados acuáticos. Construye un nido plano en los árboles con hierba seca y ramas. Es monógama.</string>
+    <string name="ama_a_11_text">Eudocimos ruber. Es sociable y forma grandes colonias en época de cría. Los jóvenes son pardo oscuro y los adultos rojo vivo que se hace más intenso a medida que envejece. Este color proviene del pigmento de unos crustáceos que forman parte de su dieta. Tiene un pico largo y curvo que utiliza para buscar alimento removiendo el fango en zonas someras de estuarios y manglares. Su dieta es variada a base de insectos, semillas, ranas y peces.</string>
+    <string name="ama_a_12_text">Iguana iguana. Vive en manglares, selvas y riberas de ríos. Es arborícola y buena nadadora. Tiene la piel cubierta de escamas y una cresta dorsal de espinas dérmicas. La cola la utiliza como látigo para defenderse. Come hojas , flores y frutas.</string>
+    <string name="ama_a_13_text">Phyllobates vittatus. Algunas tribus amazónicas utilizan el veneno que estas ranitas almacenan en su piel para untar los dardos con los que cazan animales, mayormente pequeños primates. Cuando se clavan en el cuerpo los tóxicos se distribuyen rápidamente por los tejidos del animal que muere de manera fulminante. Estas neurotoxinas paralizantes no las produce la rana, sino que provienen de los insectos venenosos de su dieta.</string>
+    <string name="ama_a_14_text">Dendrobates leucomelas. Las Dendrobates, pese a su pequeño tamaño, son animales de gran carácter y los machos defenderán vivamente su territorio de otros machos. Sus dominios suelen ser troncos caídos que ofrecen a la rana numerosos escondites y puestos elevados desde donde actúan de vigías a la vez que sirven para propagar más lejos los cantos que atraerán a hembras para la reproducción.</string>
+    <string name="ama_a_15_text">Dendrobates tinctorius. Este anfibio pertenece a una familia de pequeñas ranas de vivos colores que viven en el suelo de las selvas húmedas del centro y del sur de América. Sus brillantes colores aposemáticos indican su elevada toxicidad. No en vano, son los anfibios más venenosos del mundo. Se alimentan de pequeños invertebrados. Ponen los huevos en la hojarasca y el macho transporta los renacuajos a charcas.</string>
+    <string name="ama_a_16_text">Pteroglossus viridis. Es un pequeño tucán que vive en la espesura del bosque en grupos reducidos. Se alimenta de frutos, flores, insectos y huevos de aves. Construye los nidos en huecos de árboles o aprovecha los nidos abandonados de pájaros carpinteros donde pone de 2 a 4 huevos. El macho y la hembra comparten la incubación y el cuidado de las crías.</string>
+    <string name="ama_a_17_text">Callithrix geoffroyi. Es un pequeño primate endémico de los bosques atlánticos de Brasil. Es diurno y arbóreo. Vive en grupos familiares con una hambre dominante que es la única que se reproduce. Es monógamo. Se alimenta de frutas e invertebrados y emite muchos sonidos que representan emociones y estados de ánimo.</string>
+
+
+
+
+
+
+
+
     <string name="ama_v_0_text">Es un pequeño árbol caduco de 5-10 m de altura nativo de la región del Paraná (Norte de Argentina, Paraguay y Sur de Brasil). Crece en bosques galería a lo largo de los ríos y en zonas inundables. El tallo es irregular y contiene alcaloides cuya ingestión puede producir toxicidad. Las ramas tienen espinas. Las flores, de color rojo brillante,  son melíferas y el néctar atrae a insectos y aves. Las raíces presentan nódulos con bacterias fijadoras de nitrógeno. Se usa como planta medicinal y ornamental.</string>
-    <string name="ama_a_0_text">Arbóreo. Las extremidades terminan en dos dedos con garras curvas que le sirven para trepar y permanecer colgado. Su pelo es largo y se orienta desde el vientre hacia el dorso, al contrario que la mayoría de los mamíferos. Es de hábitos nocturnos y duerme hasta quince horas durante el día. Nocturno. Come hojas y frutas.</string>
+
+
     <string name="textview">TextView</string>
 
 

@@ -63,7 +63,30 @@ public class ExploraViewActivity extends AppCompatActivity {
         // INSERTS ID titulos
         // titulos amazonas
         amazonasTitles.add(getResources().getString(R.string.ama_a_0_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_1_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_2_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_3_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_4_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_5_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_6_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_7_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_8_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_9_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_10_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_11_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_12_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_13_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_14_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_15_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_16_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_a_17_title));
+
+
+
+
         amazonasTitles.add(getResources().getString(R.string.ama_v_0_title));
+
+
 
         //titulos madagascar
         madagascarTitles.add(getResources().getString(R.string.mad_a_0_title));
@@ -76,6 +99,32 @@ public class ExploraViewActivity extends AppCompatActivity {
         // INSERTS ID Imagenes
         // imagenes amazonas
         amazonas.add(R.drawable.ama_a_0);
+        amazonas.add(R.drawable.ama_a_1);
+        amazonas.add(R.drawable.ama_a_2);
+        amazonas.add(R.drawable.ama_a_3);
+        amazonas.add(R.drawable.ama_a_4);
+        amazonas.add(R.drawable.ama_a_5);
+        amazonas.add(R.drawable.ama_a_6);
+        amazonas.add(R.drawable.ama_a_7);
+        amazonas.add(R.drawable.ama_a_8);
+        amazonas.add(R.drawable.ama_a_9);
+        amazonas.add(R.drawable.ama_a_10);
+        amazonas.add(R.drawable.ama_a_11);
+        amazonas.add(R.drawable.ama_a_12);
+        amazonas.add(R.drawable.ama_a_13);
+        amazonas.add(R.drawable.ama_a_14);
+        amazonas.add(R.drawable.ama_a_15);
+        amazonas.add(R.drawable.ama_a_16);
+        amazonas.add(R.drawable.ama_a_17);
+
+
+
+
+
+
+
+
+
         amazonas.add(R.drawable.ama_v_0);
 
         //imagenes madagascar
@@ -89,6 +138,32 @@ public class ExploraViewActivity extends AppCompatActivity {
         // INSERTS id descripciones
         // inserts descripciones amazonas
         amazonasTexts.add(getResources().getString(R.string.ama_a_0_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_1_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_2_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_3_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_4_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_5_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_6_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_7_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_8_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_9_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_10_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_11_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_12_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_13_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_14_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_15_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_16_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_a_17_text));
+
+
+
+
+
+
+
+
+
         amazonasTexts.add(getResources().getString(R.string.ama_v_0_text));
 
         // inserts descripciones madagascar
