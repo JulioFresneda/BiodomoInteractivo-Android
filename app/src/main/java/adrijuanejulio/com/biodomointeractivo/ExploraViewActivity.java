@@ -105,9 +105,63 @@ public class ExploraViewActivity extends AppCompatActivity {
         madagascarTitles.add(getResources().getString(R.string.mad_a_1_title));
         madagascarTitles.add(getResources().getString(R.string.mad_a_2_title));
 
-        /*//titulos indopacifico
-        madagascarTitles.add(getResources().getString(R.string.mad_a_0_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_0_title));*/
+        madagascarTitles.add(getResources().getString(R.string.mad_v_0_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_1_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_2_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_3_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_4_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_5_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_6_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_7_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_8_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_9_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_10_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_11_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_12_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_13_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_14_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_v_15_title));
+
+
+
+        //titulos indopacifico
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_0_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_1_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_2_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_3_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_4_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_5_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_6_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_7_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_8_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_9_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_10_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_11_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_12_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_13_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_14_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_a_15_title));
+
+
+
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_0_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_1_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_2_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_3_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_4_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_5_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_6_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_7_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_8_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_9_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_10_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_11_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_12_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_13_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_14_title));
+        indoPacificoTitles.add(getResources().getString(R.string.ip_v_15_title));
+
+
 
         // INSERTS ID Imagenes
         // imagenes amazonas
@@ -155,10 +209,60 @@ public class ExploraViewActivity extends AppCompatActivity {
         madagascar.add(R.drawable.mad_a_2);
 
         madagascar.add(R.drawable.mad_v_0);
+        madagascar.add(R.drawable.mad_v_1);
+        madagascar.add(R.drawable.mad_v_2);
+        madagascar.add(R.drawable.mad_v_3);
+        madagascar.add(R.drawable.mad_v_4);
+        madagascar.add(R.drawable.mad_v_5);
+        madagascar.add(R.drawable.mad_v_6);
+        madagascar.add(R.drawable.mad_v_7);
+        madagascar.add(R.drawable.mad_v_8);
+        madagascar.add(R.drawable.mad_v_9);
+        madagascar.add(R.drawable.mad_v_10);
+        madagascar.add(R.drawable.mad_v_11);
+        madagascar.add(R.drawable.mad_v_12);
+        madagascar.add(R.drawable.mad_v_13);
+        madagascar.add(R.drawable.mad_v_14);
+        madagascar.add(R.drawable.mad_v_15);
 
-        /*//imagenes indo pacifico
-        madagascar.add(R.drawable.mad_a_0);
-        madagascar.add(R.drawable.mad_v_0);*/
+
+        //imagenes indo pacifico
+        indoPacifico.add(R.drawable.ip_a_0);
+        indoPacifico.add(R.drawable.ip_a_1);
+        indoPacifico.add(R.drawable.ip_a_2);
+        indoPacifico.add(R.drawable.ip_a_3);
+        indoPacifico.add(R.drawable.ip_a_4);
+        indoPacifico.add(R.drawable.ip_a_5);
+        indoPacifico.add(R.drawable.ip_a_6);
+        indoPacifico.add(R.drawable.ip_a_7);
+        indoPacifico.add(R.drawable.ip_a_8);
+        indoPacifico.add(R.drawable.ip_a_9);
+        indoPacifico.add(R.drawable.ip_a_10);
+        indoPacifico.add(R.drawable.ip_a_11);
+        indoPacifico.add(R.drawable.ip_a_12);
+        indoPacifico.add(R.drawable.ip_a_13);
+        indoPacifico.add(R.drawable.ip_a_14);
+        indoPacifico.add(R.drawable.ip_a_15);
+
+
+
+        indoPacifico.add(R.drawable.ip_v_0);
+        indoPacifico.add(R.drawable.ip_v_1);
+        indoPacifico.add(R.drawable.ip_v_2);
+        indoPacifico.add(R.drawable.ip_v_3);
+        indoPacifico.add(R.drawable.ip_v_4);
+        indoPacifico.add(R.drawable.ip_v_5);
+        indoPacifico.add(R.drawable.ip_v_6);
+        indoPacifico.add(R.drawable.ip_v_7);
+        indoPacifico.add(R.drawable.ip_v_8);
+        indoPacifico.add(R.drawable.ip_v_9);
+        indoPacifico.add(R.drawable.ip_v_10);
+        indoPacifico.add(R.drawable.ip_v_11);
+        indoPacifico.add(R.drawable.ip_v_12);
+        indoPacifico.add(R.drawable.ip_v_13);
+        indoPacifico.add(R.drawable.ip_v_14);
+        indoPacifico.add(R.drawable.ip_v_15);
+
 
         // INSERTS id descripciones
         // inserts descripciones amazonas
@@ -208,10 +312,40 @@ public class ExploraViewActivity extends AppCompatActivity {
 
 
         madagascarTexts.add(getResources().getString(R.string.mad_v_0_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_1_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_2_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_3_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_4_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_5_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_6_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_7_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_8_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_9_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_10_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_11_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_12_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_13_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_14_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_v_15_text));
 
-        /*// inserts descripciones indo pacifico
-        madagascarTexts.add(getResources().getString(R.string.mad_a_0_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_0_text));*/
+        // descripciones indo pacifico
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_0_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_1_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_2_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_3_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_4_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_5_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_6_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_7_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_8_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_9_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_10_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_11_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_12_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_13_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_14_text));
+        indoPacificoTexts.add(getResources().getString(R.string.ip_v_15_text));
+
 
         /* FIN SIMULACION BASE DE DATOS */
 
@@ -260,8 +394,11 @@ public class ExploraViewActivity extends AppCompatActivity {
                     int id = species.get(position);
 
                     titleTextView.setText(titles.get(position));
+
                     imageView.setImageResource(id);
+
                     textView.setText(speciesTexts.get(position));
+
 
                 }
             }
