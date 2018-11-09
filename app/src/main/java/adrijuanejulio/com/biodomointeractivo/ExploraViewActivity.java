@@ -39,7 +39,9 @@ public class ExploraViewActivity extends AppCompatActivity {
     private int position;
 
 
-
+    /**
+     * Simulate of a Database of animals and vegetables of Biodomo
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
