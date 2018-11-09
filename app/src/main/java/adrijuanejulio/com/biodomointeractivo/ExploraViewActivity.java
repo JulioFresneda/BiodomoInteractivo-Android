@@ -109,6 +109,11 @@ public class ExploraViewActivity extends AppCompatActivity {
 
         //titulos madagascar
         madagascarTitles.add(getResources().getString(R.string.mad_a_0_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_a_1_title));
+        madagascarTitles.add(getResources().getString(R.string.mad_a_2_title));
+
+
+
         madagascarTitles.add(getResources().getString(R.string.mad_v_0_title));
 
         /*//titulos indopacifico
@@ -161,6 +166,11 @@ public class ExploraViewActivity extends AppCompatActivity {
 
         //imagenes madagascar
         madagascar.add(R.drawable.mad_a_0);
+        madagascar.add(R.drawable.mad_a_1);
+        madagascar.add(R.drawable.mad_a_2);
+
+
+
         madagascar.add(R.drawable.mad_v_0);
 
         /*//imagenes indo pacifico
@@ -220,6 +230,10 @@ public class ExploraViewActivity extends AppCompatActivity {
 
         // inserts descripciones madagascar
         madagascarTexts.add(getResources().getString(R.string.mad_a_0_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_a_1_text));
+        madagascarTexts.add(getResources().getString(R.string.mad_a_2_text));
+
+
         madagascarTexts.add(getResources().getString(R.string.mad_v_0_text));
 
         /*// inserts descripciones indo pacifico
