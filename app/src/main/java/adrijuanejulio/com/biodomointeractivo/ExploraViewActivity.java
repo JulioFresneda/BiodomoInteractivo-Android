@@ -141,9 +141,9 @@ public class ExploraViewActivity extends AppCompatActivity {
             leftButton.setEnabled(false);
             rightButton.setEnabled(false);
 
-            int original = R.drawable.ama_a_0;
-            int origtext = R.string.ama_a_0_title;
-            int origdesc = R.string.ama_a_0_text;
+            int original = R.drawable.mad_a_0;
+            int origtext = R.string.mad_a_0_title;
+            int origdesc = R.string.mad_a_0_text;
 
             Log.e("RECIBIENDO INTENT", " ---------------> Viene de QR O NFC");
             Log.e("Cadena: ", id);
