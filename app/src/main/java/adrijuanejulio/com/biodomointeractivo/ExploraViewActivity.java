@@ -138,47 +138,35 @@ public class ExploraViewActivity extends AppCompatActivity {
 
             leftButton.setEnabled(false);
             rightButton.setEnabled(false);
+            String title = id + "_title";
+            String image = id;
+            String desc = id + "_text";
+            int idtitle = getResources().getIdentifier(title,null,null);
+            int idimage = getResources().getIdentifier(image,null,null);
+            int iddesc = getResources().getIdentifier(desc,null,null);
 
-            int original = R.drawable.mad_a_0;
-            int origtext = R.string.mad_a_0_title;
-            int origdesc = R.string.mad_a_0_text;
 
-            Log.e("RECIBIENDO INTENT", " ---------------> Viene de QR O NFC");
-            Log.e("Cadena: ", id);
-            Log.e("Title: ", id.substring(0,10));
-            Log.e("original: ", Integer.toString(origtext));
-            Log.e("Image: ",id.substring(11,21));
-            Log.e("original: ", Integer.toString(original));
-            Log.e("Description: ", id.substring(22));
-            Log.e("original: ", Integer.toString(origdesc));
-
-            int titleToSet = Integer.parseInt(id.substring(0,10));
-            int imageToSet = Integer.parseInt(id.substring(11,21));
-            int descrToSet = Integer.parseInt(id.substring(22));
 
             Log.e("RECIBIENDO INTENT", " ---------------> Viene de QR O NFC");
-            Log.e("Title: ", Integer.toString(titleToSet));
-            Log.e("Image: ", Integer.toString(imageToSet));
-            Log.e("original: ", Integer.toString(original));
-            Log.e("Description: ", Integer.toString(descrToSet));
+
 
 
             try{
-                titleTextView.setText(titleToSet);
+                titleTextView.setText(idtitle);
             }
             catch(Exception e){
                 Log.e("Titulo incorrecto","Titulo incorrecto");
             }
 
             try{
-                imageView.setImageResource(imageToSet);
+                imageView.setImageResource(idimage);
             }
             catch(Exception e){
                 Log.e("Imagen incorrecta","Imagen incorrecta");
             }
 
             try{
-                textView.setText(descrToSet);
+                textView.setText(iddesc);
             }
             catch(Exception e){
                 Log.e("Desc incorrecta","Desc incorrecta");
