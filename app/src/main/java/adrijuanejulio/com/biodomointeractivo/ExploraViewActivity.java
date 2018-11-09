@@ -136,19 +136,53 @@ public class ExploraViewActivity extends AppCompatActivity {
         } else {
             String id = getIntent().getStringExtra("id");
 
+            leftButton.setEnabled(false);
+            rightButton.setEnabled(false);
+
+            int original = R.drawable.ama_a_0;
+            int origtext = R.string.ama_a_0_title;
+            int origdesc = R.string.ama_a_0_text;
+
             Log.e("RECIBIENDO INTENT", " ---------------> Viene de QR O NFC");
+            Log.e("Cadena: ", id);
+            Log.e("Title: ", id.substring(0,10));
+            Log.e("original: ", Integer.toString(origtext));
+            Log.e("Image: ",id.substring(11,21));
+            Log.e("original: ", Integer.toString(original));
+            Log.e("Description: ", id.substring(22));
+            Log.e("original: ", Integer.toString(origdesc));
 
-            String titleToSet;
-            int imageToSet;
-            String descrToSet;
+            int titleToSet = Integer.parseInt(id.substring(0,10));
+            int imageToSet = Integer.parseInt(id.substring(11,21));
+            int descrToSet = Integer.parseInt(id.substring(22));
 
-            Log.e("ID ama_a_0_title", String.valueOf(R.string.ama_a_0_title));
+            Log.e("RECIBIENDO INTENT", " ---------------> Viene de QR O NFC");
+            Log.e("Title: ", Integer.toString(titleToSet));
+            Log.e("Image: ", Integer.toString(imageToSet));
+            Log.e("original: ", Integer.toString(original));
+            Log.e("Description: ", Integer.toString(descrToSet));
 
-            Log.e("ID ama_v__title", String.valueOf(R.string.ama_v_0_title));
 
-            titleTextView.setText(R.string.ama_a_0_title);
-            imageView.setImageResource(R.drawable.ama_a_0);
-            textView.setText(R.string.ama_a_0_text);
+            try{
+                titleTextView.setText(titleToSet);
+            }
+            catch(Exception e){
+                Log.e("Titulo incorrecto","Titulo incorrecto");
+            }
+
+            try{
+                imageView.setImageResource(imageToSet);
+            }
+            catch(Exception e){
+                Log.e("Imagen incorrecta","Imagen incorrecta");
+            }
+
+            try{
+                textView.setText(descrToSet);
+            }
+            catch(Exception e){
+                Log.e("Desc incorrecta","Desc incorrecta");
+            }
         }
 
         rightButton.setOnClickListener(new View.OnClickListener() {

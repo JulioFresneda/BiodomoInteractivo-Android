@@ -215,6 +215,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
                 integrator.setBeepEnabled(false);
                 integrator.setBarcodeImageEnabled(false);
                 integrator.initiateScan();
+
             }
 
         });
@@ -228,26 +229,12 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
             if (result.getContents() == null) {
                 Toast.makeText(this, "Has cancelado el escaneo", Toast.LENGTH_LONG).show();
             } else {
-//                String webqr = result.getContents();
-//                Uri web = Uri.parse(webqr);
 //
-//                Intent gotoWeb = new Intent(Intent.ACTION_VIEW, web);
-//                startActivity(gotoWeb);
                 String contentQR = result.getContents();
 
-                if (contentQR.contains("http")) {
-                    Uri web = Uri.parse(contentQR);
-                    Intent gotoWeb = new Intent(Intent.ACTION_VIEW, web);
-                    startActivity(gotoWeb);
-                } else {
-                    if (contentQR.contains("BiodomoInteractivo")) {
-                        String id = contentQR.substring(contentQR.indexOf(":") + 1);
-
-                        Intent intent = new Intent(this, ExploraViewActivity.class);
-                        intent.putExtra("id", "");
-                        startActivity(intent);
-                    }
-                }
+                Intent intent = new Intent(this, ExploraViewActivity.class);
+                intent.putExtra("id", contentQR);
+                startActivity(intent);
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
