@@ -24,8 +24,9 @@ tools:context=".NFCActivity">
         android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:gravity="center_horizontal"
-        android:text="Hold a tag against the back of your device"
+        android:text="@string/nfc_message"
         android:textSize="20sp"
         android:textStyle="bold" />
 
 </RelativeLayout>
+

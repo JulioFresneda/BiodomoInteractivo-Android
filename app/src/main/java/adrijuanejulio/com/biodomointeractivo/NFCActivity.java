@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import adrijuanejulio.com.biodomointeractivo.parser.NdefMessageParser;
 import adrijuanejulio.com.biodomointeractivo.record.ParsedNdefRecord;
@@ -57,6 +59,7 @@ public class NFCActivity extends AppCompatActivity {
         }
     }
 
+    /* Warning toast sto show wireless if not NFC activated*/
     private void showWirelessSettings() {
         Toast.makeText(this, "You need to enable NFC", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
@@ -69,13 +72,14 @@ public class NFCActivity extends AppCompatActivity {
         resolveIntent(intent);
     }
 
+    /* Segun el intent recibido (tag NFC leido) lo leeremos de distinta manera */
     private void resolveIntent(Intent intent) {
         String action = intent.getAction();
 
         if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(action)
                 || NfcAdapter.ACTION_TECH_DISCOVERED.equals(action)
                 || NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) {
-            Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+            /*Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
             NdefMessage[] msgs;
 
             if (rawMsgs != null) {
@@ -95,10 +99,18 @@ public class NFCActivity extends AppCompatActivity {
                 msgs = new NdefMessage[] {msg};
             }
 
-            displayMsgs(msgs);
+            displayMsgs(msgs);*/
+
+            /* FUncionamiento actual: aleatoriamente entre las distintas zonas controladas
+              en el momento del desarrollo (tres zonas), nos dice en la zona que estamos, podriamos mejorarlo mas adelante
+            * usando sensores de proximidad en el museo para indicarnos donde estamos realmente.
+            * */
+            int randomZone = ThreadLocalRandom.current().nextInt(0, 3);
+            launchExploraZoneView(String.valueOf(randomZone));
         }
     }
 
+    /* Show results of readed NFC card*/
     private void displayMsgs(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0)
             return;
@@ -116,6 +128,17 @@ public class NFCActivity extends AppCompatActivity {
         text.setText(builder.toString());
     }
 
+    /* Launch zone view
+     *  Posible mejora: segun la lectura de NFC lanzaremos otra actividad mas funcional
+     *  Ahora mismo solo lanzamos exploraViewActivity como muestra de uso del NFC
+     * */
+    private void launchExploraZoneView(String zone) {
+        Intent intent = new Intent(this, ExploraViewActivity.class);
+        intent.putExtra("zone_NFC", zone);
+        startActivity(intent);
+    }
+
+    /* Return el volcado de datos desde el tag NFC a un string */
     private String dumpTagData(Tag tag) {
         StringBuilder sb = new StringBuilder();
         byte[] id = tag.getId();

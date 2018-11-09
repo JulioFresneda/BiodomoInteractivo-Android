@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -148,16 +149,10 @@ public class ExploraViewActivity extends AppCompatActivity {
         amazonas.add(R.drawable.ama_v_15);
 
 
-
-
-
-
         //imagenes madagascar
         madagascar.add(R.drawable.mad_a_0);
         madagascar.add(R.drawable.mad_a_1);
         madagascar.add(R.drawable.mad_a_2);
-
-
 
         madagascar.add(R.drawable.mad_v_0);
 
@@ -290,7 +285,8 @@ public class ExploraViewActivity extends AppCompatActivity {
             }
 
             });
-        } else {
+        } else if (getIntent().getStringExtra("id") != null) {
+            Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla del lector QR");
             String id = getIntent().getStringExtra("id");
 
             rightButton.setVisibility(View.INVISIBLE);
@@ -305,6 +301,35 @@ public class ExploraViewActivity extends AppCompatActivity {
             titleTextView.setText(idTitle);
             imageView.setImageResource(idImage);
             textView.setText(idDesc);
+        } else if (getIntent().getStringExtra("zone_NFC") != null) {
+
+            int id = Integer.parseInt(getIntent().getStringExtra("zone_NFC"));
+            Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla del lector NFC + " + id);
+            rightButton.setVisibility(View.INVISIBLE);
+            leftButton.setVisibility(View.INVISIBLE);
+
+            switch (id) {
+                case 0:
+                    titleTextView.setText(R.string.zone_amazonia_title);
+                    imageView.setImageResource(R.drawable.explora_amaz_button);
+                    textView.setText(R.string.zone_amazonia_desc);
+                    break;
+                case 1:
+                    titleTextView.setText(R.string.zone_madagascar_title);
+                    imageView.setImageResource(R.drawable.explora_mad_button);
+                    textView.setText(R.string.zone_madagascar_desc);
+                    break;
+                case 2:
+                    titleTextView.setText(R.string.zone_ip_title);
+                    imageView.setImageResource(R.drawable.explora_ip_button);
+                    textView.setText(R.string.zone_ip_desc);
+                    break;
+                default:
+                    Toast.makeText(getApplicationContext(), "Zona no válida", Toast.LENGTH_SHORT).show();
+
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "No es posible abrir Explora View", Toast.LENGTH_SHORT).show();
         }
 
 

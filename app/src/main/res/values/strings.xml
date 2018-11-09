@@ -44,6 +44,8 @@
 
     <!-- Colors -->
     <color name="speechbtn_default">#EEEEEE</color>
+
+    <!-- Generales -->
     <string name="hello_world">Hello world!</string>
     <string name="habla_con_nuestro_asistente_del_biodomo">Habla con nuestro asistente del Biodomo</string>
     <string name="escanea">Escanea el código QR para obtener información de la especie</string>
@@ -55,9 +57,19 @@
     <string name="boton_right">Boton right</string>
     <string name="texto_descriptivo">Texto descriptivo</string>
     <string name="nfc_activity_name">NFC Activity</string>
-    <string name="boton_amazonia">boton amazonia</string>
-    <string name="amazonia_text">amazonia_text</string>
-    <string name="amazonia">Amazonia</string>
+    <string name="nfc_message">Hold a tag against the back of your device</string>
+    <!-- END generales-->
+
+    <!-- Zonas Explora View-->
+    <string name="zone_amazonia_title">Amazonia</string>
+    <string name="zone_amazonia_desc">DEscripcion amazonia</string>
+
+    <string name="zone_madagascar_title">Madagascar</string>
+    <string name="zone_madagascar_desc">DEscripcion madagascar</string>
+
+    <string name="zone_ip_title">Indo pacifico</string>
+    <string name="zone_ip_desc">DEscripcion indo pacifico</string>
+    <!-- END Zonas explora View-->
 
     <!-- END voice strings-->
 
@@ -164,8 +176,6 @@
     <string name="ama_v_13_text">Handroanthus ochraeus. Árbol originario de regiones cálidas de América, desde México a Argentina. Alcanza 20 m de altura. Tiene forma irregular y ﬂorece masivamente después de las primeras lluvias. Es semipersistente ya que pierde las hojas después de la ﬂoración. Las ﬂores son de color amarillo intenso y tienen el cáliz alargado en forma de trompeta. El fruto es una legumbre. Su madera es muy resistente y se utiliza en construcción.</string>
     <string name="ama_v_14_text">Thevetia peruviana. Arbusto originario de América tropical que alcanza 5 m. Perenne. Tiene la corteza grisácea y las hojas duras, lanceoladas, de color verde oscuro vivo. Las ﬂores son amarillas y perfumadas en forma de embudo. El fruto es una drupa carnosa  roja redondeada. Desde hace cientos de años se utiliza en medicina tradicional para reducir grasa. Es ornamental.</string>
     <string name="ama_v_15_text">Acoelorraphe wrightii. Pequeña palmera natural de Florida y áreas tropicales húmedas de América Central y el Caribe, donde se encuentra silvestre en muchos ambientes, incluidas áreas salinas, pantanos y bosques periódicamente inundados. El tronco está cubierto de ﬁbras y las hojas son grandes en forma de abanico con espinas aserradas en los márgenes. Flores diminutas blancas y hermafroditas.</string>
-
-    <string name="textview">TextView</string>
 
 
     <!--INDO PACIFICO-->
