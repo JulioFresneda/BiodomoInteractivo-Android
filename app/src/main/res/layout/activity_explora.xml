@@ -28,9 +28,8 @@
             android:layout_height="0px"
             android:layout_weight="1"
             android:background="@drawable/explora_mad_button"
-            android:scaleType="centerCrop"
             android:text="Madagascar"
-            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="60sp"
             android:textColor="#002c07"/>
 

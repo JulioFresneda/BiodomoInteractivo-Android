@@ -75,6 +75,8 @@
 
     <string name="ama_v_0_text">Es un pequeño árbol caduco de 5-10 m de altura nativo de la región del Paraná (Norte de Argentina, Paraguay y Sur de Brasil). Crece en bosques galería a lo largo de los ríos y en zonas inundables. El tallo es irregular y contiene alcaloides cuya ingestión puede producir toxicidad. Las ramas tienen espinas. Las flores, de color rojo brillante,  son melíferas y el néctar atrae a insectos y aves. Las raíces presentan nódulos con bacterias fijadoras de nitrógeno. Se usa como planta medicinal y ornamental.</string>
     <string name="ama_a_0_text">Arbóreo. Las extremidades terminan en dos dedos con garras curvas que le sirven para trepar y permanecer colgado. Su pelo es largo y se orienta desde el vientre hacia el dorso, al contrario que la mayoría de los mamíferos. Es de hábitos nocturnos y duerme hasta quince horas durante el día. Nocturno. Come hojas y frutas.</string>
+    <string name="textview">TextView</string>
+
 
     <!--INDO PACIFICO-->
 
