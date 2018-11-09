@@ -52,6 +52,11 @@ import ai.api.model.AIRequest;
 import ai.api.model.AIResponse;
 import ai.api.model.Result;
 
+// Esta es nuestra actividad principal y es el medio para poder ir hacia otras actividades hechas, es el eje principal y donde esta nuestro asistente.
+// Dentro de esta actividad esta el acceso a las otras además de un algoritmo para detectar cuando el dispositivo es puesto boca abajo para que el asistente pare
+// de hablar.
+// ************* COMPLETAR *************//
+
 public class MainActivity extends VoiceActivity implements SensorEventListener {
     // ASR/TTS fields wwwww
     private static final String LOGTAG = "CHATBOT";
@@ -86,6 +91,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     private ImageButton ytButton;
 
 
+    // Esta variable es para poner el acelerometro en escucha solo cuando es necesario, es decir, como el asistente está hablando
     private Boolean escuchaGiro = false;
 
 
@@ -94,10 +100,6 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         /**
          *  Esto es para el flip down and up
          */
-
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
@@ -315,7 +317,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         });
     }
 
-    /* LAunch NFC activity*/
+    /* Launch NFC activity*/
     private void launchMapaActivity() {
         Intent intent = new Intent(this, MapaActivity.class);
         startActivity(intent);
@@ -407,6 +409,9 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     private SensorManager sensorManager;
     private float mGZ = 0;//gravity acceleration along the z axis
 
+    /**
+     * Detect if the device is face up or face down
+     */
 
     public void getAccelerometer(SensorEvent event) {
         float gz;
@@ -426,6 +431,10 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
             }
         }
     }
+
+    /**
+     * Listen to event and past to getAccelerometer
+     */
 
     @Override
     public void onSensorChanged(SensorEvent event) {

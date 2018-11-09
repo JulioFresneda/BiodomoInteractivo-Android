@@ -47,7 +47,7 @@ public class ExploraActivity extends AppCompatActivity {
         });
     }
 
-    /* LAunch Amazonia activity*/
+    /* Launch Amazonia activity*/
     private void launchAmaActivity(){
         Intent intent = new Intent(this, ExploraViewActivity.class);
         intent.putExtra("zone", ZONE_AMAZONIA);
@@ -69,7 +69,7 @@ public class ExploraActivity extends AppCompatActivity {
         });
     }
 
-    /* LAunch madagascar activity*/
+    /* Launch madagascar activity*/
     private void launchMadActivity(){
         Intent intent = new Intent(this, ExploraViewActivity.class);
         intent.putExtra("zone", ZONE_MADAGASCAR);
@@ -90,7 +90,7 @@ public class ExploraActivity extends AppCompatActivity {
         });
     }
 
-    /* LAunch madagascar activity*/
+    /* Launch madagascar activity*/
     private void launchIpActivity(){
         Intent intent = new Intent(this, ExploraViewActivity.class);
         intent.putExtra("zone", ZONE_INDOPACIFICO);
