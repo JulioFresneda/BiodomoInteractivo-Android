@@ -238,9 +238,20 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
 //
                 String contentQR = result.getContents();
 
-                Intent intent = new Intent(this, ExploraViewActivity.class);
-                intent.putExtra("id", contentQR);
-                startActivity(intent);
+                if (contentQR.contains("http")) {
+                    Uri web = Uri.parse(contentQR);
+                    Intent gotoWeb = new Intent(Intent.ACTION_VIEW, web);
+                    startActivity(gotoWeb);
+                } else {
+                    // Low cifrate
+                    if (contentQR.toLowerCase().contains("biodomointeractivo")) {
+                        String id = contentQR.substring(contentQR.indexOf(":") + 1);
+
+                        Intent intent = new Intent(this, ExploraViewActivity.class);
+                        intent.putExtra("id", id);
+                        startActivity(intent);
+                    }
+                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

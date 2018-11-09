@@ -204,7 +204,7 @@ public class ExploraViewActivity extends AppCompatActivity {
         amazonasTexts.add(getResources().getString(R.string.ama_v_13_text));
         amazonasTexts.add(getResources().getString(R.string.ama_v_14_text));
         amazonasTexts.add(getResources().getString(R.string.ama_v_15_text));
-        
+
 
         // inserts descripciones madagascar
         madagascarTexts.add(getResources().getString(R.string.mad_a_0_text));
@@ -298,7 +298,9 @@ public class ExploraViewActivity extends AppCompatActivity {
 
             int idTitle = getResources().getIdentifier(id + "_title", "string", getPackageName());
             int idImage = getResources().getIdentifier(id, "drawable", getPackageName());
-            int idDesc = getResources().getIdentifier(id + "_desc", "string", getPackageName());
+            int idDesc = getResources().getIdentifier(id + "_text", "string", getPackageName());
+
+            Log.e("ids", idTitle + " " + idImage + " " + idDesc);
 
             titleTextView.setText(idTitle);
             imageView.setImageResource(idImage);
