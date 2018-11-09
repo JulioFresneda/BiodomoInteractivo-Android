@@ -99,22 +99,10 @@ public class ExploraViewActivity extends AppCompatActivity {
         amazonasTitles.add(getResources().getString(R.string.ama_v_14_title));
         amazonasTitles.add(getResources().getString(R.string.ama_v_15_title));
 
-
-
-
-
-        amazonasTitles.add(getResources().getString(R.string.ama_v_0_title));
-
-
-
         //titulos madagascar
         madagascarTitles.add(getResources().getString(R.string.mad_a_0_title));
         madagascarTitles.add(getResources().getString(R.string.mad_a_1_title));
         madagascarTitles.add(getResources().getString(R.string.mad_a_2_title));
-
-
-
-        madagascarTitles.add(getResources().getString(R.string.mad_v_0_title));
 
         /*//titulos indopacifico
         madagascarTitles.add(getResources().getString(R.string.mad_a_0_title));
@@ -216,17 +204,7 @@ public class ExploraViewActivity extends AppCompatActivity {
         amazonasTexts.add(getResources().getString(R.string.ama_v_13_text));
         amazonasTexts.add(getResources().getString(R.string.ama_v_14_text));
         amazonasTexts.add(getResources().getString(R.string.ama_v_15_text));
-
-
-
-
-
-
-
-
-
-
-        amazonasTexts.add(getResources().getString(R.string.ama_v_0_text));
+        
 
         // inserts descripciones madagascar
         madagascarTexts.add(getResources().getString(R.string.mad_a_0_text));
