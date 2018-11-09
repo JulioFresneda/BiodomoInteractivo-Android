@@ -82,6 +82,25 @@ public class ExploraViewActivity extends AppCompatActivity {
         amazonasTitles.add(getResources().getString(R.string.ama_a_17_title));
 
 
+        amazonasTitles.add(getResources().getString(R.string.ama_v_0_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_1_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_2_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_3_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_4_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_5_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_6_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_7_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_8_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_9_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_10_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_11_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_12_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_13_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_14_title));
+        amazonasTitles.add(getResources().getString(R.string.ama_v_15_title));
+
+
+
 
 
         amazonasTitles.add(getResources().getString(R.string.ama_v_0_title));
@@ -118,14 +137,27 @@ public class ExploraViewActivity extends AppCompatActivity {
         amazonas.add(R.drawable.ama_a_17);
 
 
-
-
-
-
-
-
-
         amazonas.add(R.drawable.ama_v_0);
+        amazonas.add(R.drawable.ama_v_1);
+        amazonas.add(R.drawable.ama_v_2);
+        amazonas.add(R.drawable.ama_v_3);
+        amazonas.add(R.drawable.ama_v_4);
+        amazonas.add(R.drawable.ama_v_5);
+        amazonas.add(R.drawable.ama_v_6);
+        amazonas.add(R.drawable.ama_v_7);
+        amazonas.add(R.drawable.ama_v_8);
+        amazonas.add(R.drawable.ama_v_9);
+        amazonas.add(R.drawable.ama_v_10);
+        amazonas.add(R.drawable.ama_v_11);
+        amazonas.add(R.drawable.ama_v_12);
+        amazonas.add(R.drawable.ama_v_13);
+        amazonas.add(R.drawable.ama_v_14);
+        amazonas.add(R.drawable.ama_v_15);
+
+
+
+
+
 
         //imagenes madagascar
         madagascar.add(R.drawable.mad_a_0);
@@ -155,6 +187,26 @@ public class ExploraViewActivity extends AppCompatActivity {
         amazonasTexts.add(getResources().getString(R.string.ama_a_15_text));
         amazonasTexts.add(getResources().getString(R.string.ama_a_16_text));
         amazonasTexts.add(getResources().getString(R.string.ama_a_17_text));
+
+
+
+        amazonasTexts.add(getResources().getString(R.string.ama_v_0_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_1_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_2_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_3_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_4_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_5_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_6_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_7_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_8_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_9_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_10_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_11_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_12_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_13_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_14_text));
+        amazonasTexts.add(getResources().getString(R.string.ama_v_15_text));
+
 
 
 

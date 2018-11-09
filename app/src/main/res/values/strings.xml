@@ -91,7 +91,25 @@
 
 
 
-    <string name="ama_v_0_title">Arbol amazonas</string>
+    <string name="ama_v_0_title">Árbol del coral</string>
+    <string name="ama_v_1_title">Buganvilla</string>
+    <string name="ama_v_2_title">Butia lanosa</string>
+    <string name="ama_v_3_title">Clavel del aire</string>
+    <string name="ama_v_4_title">Coco plumoso</string>
+    <string name="ama_v_5_title">Filodendro</string>
+    <string name="ama_v_6_title">Galán de noche</string>
+    <string name="ama_v_7_title">Guayaba del Brasil</string>
+    <string name="ama_v_8_title">Heliconia</string>
+    <string name="ama_v_9_title">Jacaranda</string>
+    <string name="ama_v_10_title">Lágrimas de amor</string>
+    <string name="ama_v_11_title">Lantana</string>
+    <string name="ama_v_12_title">Lapacho rosado</string>
+    <string name="ama_v_13_title">Madero amarillo</string>
+    <string name="ama_v_14_title">Nuez de la India</string>
+    <string name="ama_v_15_title">Palmera de los pantanos</string>
+
+
+
 
 
     <string name="ama_a_0_text">Choloepus didactylus. Las extremidades terminan en dos dedos con garras curvas que le sirven para trepar y permanecer colgado. Su pelo es largo y se orienta desde el vientre hacia el dorso, al contrario que la mayoría de los mamíferos. Es de hábitos nocturnos y duerme hasta quince horas durante el día. Nocturno. Come hojas y frutas.</string>
@@ -120,8 +138,22 @@
 
 
 
-    <string name="ama_v_0_text">Es un pequeño árbol caduco de 5-10 m de altura nativo de la región del Paraná (Norte de Argentina, Paraguay y Sur de Brasil). Crece en bosques galería a lo largo de los ríos y en zonas inundables. El tallo es irregular y contiene alcaloides cuya ingestión puede producir toxicidad. Las ramas tienen espinas. Las flores, de color rojo brillante,  son melíferas y el néctar atrae a insectos y aves. Las raíces presentan nódulos con bacterias fijadoras de nitrógeno. Se usa como planta medicinal y ornamental.</string>
-
+    <string name="ama_v_0_text">Erythrina crista-galli. Es un pequeño árbol caduco de 5-10 m de altura nativo de la región del Paraná (Norte de Argentina, Paraguay y Sur de Brasil). Crece en bosques galería a lo largo de los ríos y en zonas inundables. El tallo es irregular y contiene alcaloides cuya ingestión puede producir toxicidad. Las ramas tienen espinas. Las flores, de color rojo brillante,  son melíferas y el néctar atrae a insectos y aves. Las raíces presentan nódulos con bacterias fijadoras de nitrógeno. Se usa como planta medicinal y ornamental.</string>
+    <string name="ama_v_1_text">Bougainvillea glabra. Arbusto sarmentoso originario de Brasil. Perenne, trepador y leñoso con espinas en sus ramas que le permiten agarrarse a un soporte. Tiene hojas verdes brillantes. Las ﬂores son pequeñas y blancas y están rodeadas de unas brácteas caducas de color rojo intenso. Tiene propiedades medicinales contra las afecciones gastrointestinales y respiratorias.</string>
+    <string name="ama_v_2_text">Butia eriospatha. Palmera endémica del sur de Brasil. Vive en zonas de media altura entre 700 y 1.200 m. Las hojas son péndulas de 2 m de longitud y el peciolo largo y espinoso. La base de las hojas está cubierta de un denso tomento marrón. Las ﬂores se agrupan en inﬂorescencias macho y hembra que dan frutos globosos, suculentos y comestibles.</string>
+    <string name="ama_v_3_text">Tillandsia usneoides. Herbácea originaria de América, desde el sudeste de EE.UU. hasta Argentina. Crece en climas cálidos y húmedos. Vive en ramas de árboles formando estructuras colgantes y lanudas de 1 m de longitud.  No tiene raíces. El tallo es ﬂexible y las hojas pequeñas, delgadas y curvas. Las ﬂores son diminutas y aromáticas. Se propaga por fragmentos de tallo que arrastra el viento o las aves. Es muy sensible a la polución del aire.</string>
+    <string name="ama_v_4_text">Syagrus romanzoffiana. Palmera de mediana altura nativa de Paraguay y el área de influencia del río Paraná. Tiene el tallo desnudo y las hojas son palmas alternas que dan un aspecto elegante. Las flores masculinas y femeninas están separadas en plantas diferentes. Los frutos son anaranjados, parecidos a aceitunas, de sabor dulce, muy atractivos para pájaros y animales trepadores. Se planta como ornamental. Se ha introducido en otras regiones tropicales del mundo donde se ha naturalizado. A veces es invasiva.</string>
+    <string name="ama_v_5_text">Philodendron xanadu. Herbácea trepadora nativa de la selva de Brasil. Tiene hojas perennes, grandes y brillantes, coriáceas y con dimorﬁsmo foliar, es decir, las hojas varían de aspecto a medida que crecen. Tiene raíces aéreas que utiliza para ﬁjarse a un soporte. Son epiﬁtas. La ﬂor es una inﬂorescencia que está rodeada por una bráctea blanca protectora. El fruto es una baya de sabor parecido a la piña.</string>
+    <string name="ama_v_6_text">Cestrum nocturnum. Arbusto nativo de Sudamérica. Es perenne, aunque a veces pierde la hoja. Las ﬂores son pequeñas y tubulares de color blanco o amarillo verdoso y desprenden una fragancia intensa durante la noche. Se agrupan en racimos. El fruto es una baya globosa blanca. Todas las partes de la planta son altamente tóxicas, aunque tiene aplicaciones medicinales.</string>
+    <string name="ama_v_7_text">Acca selloviana. Arbusto originario del  centro de Sudamérica. Perenne. Las hojas son simples, coriáceas, verdes brillantes por el haz y tomentosas por el envés. Las ﬂores son solitarias y tienen gran número de estambres de color rojo vivo. El fruto es carnoso, pequeño y  muy aromático, de color verde y con numerosas semillas. Tiene aplicaciones medicinales y se utiliza en la elaboración de bebidas y mermeladas.</string>
+    <string name="ama_v_8_text">Heliconia latispatha. Herbácea grande y vigorosa de 2-3 m de altura de crecimiento parecido a los bananeros. Está extendida por toda América tropical. Tiene hojas grandes, simples, de margen entero y color verde brillante. Las ﬂores se sitúan en espiral alrededor de un largo pedúnculo protegidas por brácteas de color amarillo o rojo. Producen néctar y son polinizadas por colibríes.</string>
+    <string name="ama_v_9_text">Jacaranda mimosifolia. Árbol semipersistente originario de los bosques caducifolios tropicales  de Sudamérica aunque se ha introducido por otras zonas.  Las hojas son grandes, compuestas  bipinnadas y opuestas. Alcanza 10 m. Las ﬂores están agrupadas en panículas azul violáceo. Fruto leñoso en cápsula con semillas aladas. Toda la planta es venenosa pero se utiliza para dolencias gastrointestinales y en carpintería.</string>
+    <string name="ama_v_10_text">Russelia equisetiformis. Es un arbusto perenne de 1,2-1,5 m originario de México y Guatemala.  Sus ramas son delgadas y colgantes con hojas muy pequeñas de color verde brillante reducidas a escamas. Tiene copiosas ﬂores tubulares de color rojo brillante agrupadas en racimos que se suceden a lo largo de todo el año en los climas tropicales y subtropicales atrayendo con su néctar a mariposas y colibríes. Se utiliza como planta ornamental.</string>
+    <string name="ama_v_11_text">Lantana camara. Arbusto perenne nativo de las áreas tropicales y subtropicales de Sudamérica y América Central. Alcanza 1,5 m de altura y es muy ramiﬁcado y oloroso. El tallo es cuadrangular y las hojas simples, de bordes dentados, ásperas, rugosas y pubescentes. Las ﬂores son amarillas y se tornan rojizas cuando maduran. El fruto es una drupa negra brillante. Se ha naturalizado en zonas cálidas de todo el mundo.</string>
+    <string name="ama_v_12_text">Tabebuia impetiginosa. Árbol nativo de la zona intertropical de América, México, el Caribe, Argentina y Paraguay. La corteza es lisa y las hojas palmaticompuestas. Es semipersistente. Tiene inﬂorescencias en panícula al ﬁnal de las ramas y las ﬂores son largas trompetas rosadas que abren antes que las hojas. Fruto en cápsula alargado y cilíndrico con semillas aladas. Es resistente al fuego. Su madera se utiliza en construcción. Muy apreciado medicinalmente.</string>
+    <string name="ama_v_13_text">Handroanthus ochraeus. Árbol originario de regiones cálidas de América, desde México a Argentina. Alcanza 20 m de altura. Tiene forma irregular y ﬂorece masivamente después de las primeras lluvias. Es semipersistente ya que pierde las hojas después de la ﬂoración. Las ﬂores son de color amarillo intenso y tienen el cáliz alargado en forma de trompeta. El fruto es una legumbre. Su madera es muy resistente y se utiliza en construcción.</string>
+    <string name="ama_v_14_text">Thevetia peruviana. Arbusto originario de América tropical que alcanza 5 m. Perenne. Tiene la corteza grisácea y las hojas duras, lanceoladas, de color verde oscuro vivo. Las ﬂores son amarillas y perfumadas en forma de embudo. El fruto es una drupa carnosa  roja redondeada. Desde hace cientos de años se utiliza en medicina tradicional para reducir grasa. Es ornamental.</string>
+    <string name="ama_v_15_text">Acoelorraphe wrightii. Pequeña palmera natural de Florida y áreas tropicales húmedas de América Central y el Caribe, donde se encuentra silvestre en muchos ambientes, incluidas áreas salinas, pantanos y bosques periódicamente inundados. El tronco está cubierto de ﬁbras y las hojas son grandes en forma de abanico con espinas aserradas en los márgenes. Flores diminutas blancas y hermafroditas.</string>
 
     <string name="textview">TextView</string>
 
