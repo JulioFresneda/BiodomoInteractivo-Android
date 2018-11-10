@@ -2,6 +2,7 @@ package adrijuanejulio.com.biodomointeractivo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +51,8 @@ public class ExploraViewActivity extends AppCompatActivity {
 
     private int position;
 
+    private Drawable leftButtonDrawable, rightButtonDrawable;
+
 
     /**
      * Simulate of a Database of animals and vegetables of Biodomo
@@ -81,7 +84,280 @@ public class ExploraViewActivity extends AppCompatActivity {
         setQrButton();
 
 
+        // INSERT SPECIES
+        insertSpecies();
 
+
+        /* FIN SIMULACION BASE DE DATOS */
+
+        position = 0;
+
+        leftButton = findViewById(R.id.left);
+        rightButton = findViewById(R.id.right);
+
+        titleTextView = findViewById(R.id.title_image);
+        imageView = findViewById(R.id.specieImage);
+        textView = findViewById(R.id.animalDescription);
+
+        leftButtonDrawable = getDrawable(R.drawable.button_left);
+        rightButtonDrawable = getDrawable(R.drawable.button_right);
+
+
+
+
+
+
+        // Insertamos datos según la zona
+
+        if (getIntent().getStringExtra("zone") != null) {
+            Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla de zonas");
+            zoneSelected = getIntent().getStringExtra("zone");
+
+            titles = new ArrayList<>();
+            species = new ArrayList<>();
+            speciesTexts = new ArrayList<>();
+
+            ImageView topscreen;
+            ImageView bgText;
+
+            switch (zoneSelected) {
+
+
+                case "0":
+                    titles.addAll(amazonasTitles);
+                    species.addAll(amazonas);
+                    speciesTexts.addAll(amazonasTexts);
+
+                    topscreen = findViewById(R.id.bg_title_explora);
+                    topscreen.setImageResource(R.drawable.explora_ama_topscreen);
+
+                    bgText = findViewById(R.id.bg_text_explora);
+                    bgText.setImageResource(R.drawable.explora_amaz_button);
+
+                    leftButtonDrawable = getDrawable(R.drawable.explora_button_left_ama);
+                    rightButtonDrawable = getDrawable(R.drawable.explora_button_right_ama);
+
+                    break;
+                case "1":
+                    titles.addAll(madagascarTitles);
+                    species.addAll(madagascar);
+                    speciesTexts.addAll(madagascarTexts);
+
+                    topscreen = findViewById(R.id.bg_title_explora);
+                    topscreen.setImageResource(R.drawable.explora_mad_topscreen);
+
+                    bgText = findViewById(R.id.bg_text_explora);
+                    bgText.setImageResource(R.drawable.explora_mad_button);
+
+                    leftButtonDrawable = getDrawable(R.drawable.explora_button_left_mad);
+                    rightButtonDrawable = getDrawable(R.drawable.explora_button_right_mad);
+
+                    break;
+                case "2":
+                    titles.addAll(indoPacificoTitles);
+                    species.addAll(indoPacifico);
+                    speciesTexts.addAll(indoPacificoTexts);
+
+                    topscreen = findViewById(R.id.bg_title_explora);
+                    topscreen.setImageResource(R.drawable.explora_ip_topscreen);
+
+                    bgText = findViewById(R.id.bg_text_explora);
+                    bgText.setImageResource(R.drawable.explora_ip_button);
+
+                    leftButtonDrawable = getDrawable(R.drawable.explora_button_left_ip);
+                    rightButtonDrawable = getDrawable(R.drawable.explora_button_right_ip);
+
+                    break;
+            }
+
+            for( int i=0; i<species.size(); i++ )
+            {
+                shuffleIndices.add(i);
+            }
+
+            Collections.shuffle(shuffleIndices);
+
+
+
+            titleTextView.setText(titles.get(shuffleIndices.get(position)));
+            imageView.setImageResource(species.get(shuffleIndices.get(position)));
+            textView.setText(speciesTexts.get(shuffleIndices.get(position)));
+
+            rightButton.setBackground(rightButtonDrawable);
+            leftButton.setBackgroundResource(R.drawable.button_left_right_off);
+
+
+
+        rightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+
+                if(position < species.size() -1) {
+                    position++;
+
+                    int id = species.get(shuffleIndices.get(position));
+
+                    titleTextView.setText(titles.get(shuffleIndices.get(position)));
+
+                    imageView.setImageResource(id);
+
+                    textView.setText(speciesTexts.get(shuffleIndices.get(position)));
+
+                    if( position == species.size()-1 ) rightButton.setBackgroundResource(R.drawable.button_left_right_off);
+                    if( position == 1 ) leftButton.setBackground(leftButtonDrawable);
+
+                }
+            }
+
+        });
+
+
+        leftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+
+                if(position > 0 ) {
+                    position--;
+
+                    int id = species.get(shuffleIndices.get(position));
+
+                    titleTextView.setText(titles.get(shuffleIndices.get(position)));
+                    imageView.setImageResource(id);
+                    textView.setText(speciesTexts.get(shuffleIndices.get(position)));
+
+                    if( position == 0 ) leftButton.setBackgroundResource(R.drawable.button_left_right_off);
+
+
+                    if(position == species.size()-2 ) rightButton.setBackground(rightButtonDrawable);
+                }
+
+            }
+
+            });
+
+
+        } else if (getIntent().getStringExtra("id") != null) {
+            Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla del lector QR");
+            String id = getIntent().getStringExtra("id");
+
+            rightButton.setVisibility(View.INVISIBLE);
+            leftButton.setVisibility(View.INVISIBLE);
+
+            int idTitle = getResources().getIdentifier(id + "_title", "string", getPackageName());
+            int idImage = getResources().getIdentifier(id, "drawable", getPackageName());
+            int idDesc = getResources().getIdentifier(id + "_text", "string", getPackageName());
+
+            Log.e("ids", idTitle + " " + idImage + " " + idDesc);
+
+            titleTextView.setText(idTitle);
+            imageView.setImageResource(idImage);
+            textView.setText(idDesc);
+        } else if (getIntent().getStringExtra("zone_NFC") != null) {
+
+            int id = Integer.parseInt(getIntent().getStringExtra("zone_NFC"));
+            Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla del lector NFC + " + id);
+            rightButton.setVisibility(View.INVISIBLE);
+            leftButton.setVisibility(View.INVISIBLE);
+
+            switch (id) {
+                case 0:
+                    titleTextView.setText(R.string.zone_amazonia_title);
+                    imageView.setImageResource(R.drawable.explora_amaz_button);
+                    textView.setText(R.string.zone_amazonia_desc);
+                    break;
+                case 1:
+                    titleTextView.setText(R.string.zone_madagascar_title);
+                    imageView.setImageResource(R.drawable.explora_mad_button);
+                    textView.setText(R.string.zone_madagascar_desc);
+                    break;
+                case 2:
+                    titleTextView.setText(R.string.zone_ip_title);
+                    imageView.setImageResource(R.drawable.explora_ip_button);
+                    textView.setText(R.string.zone_ip_desc);
+                    break;
+                default:
+                    Toast.makeText(getApplicationContext(), "Zona no válida", Toast.LENGTH_SHORT).show();
+
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "No es posible abrir Explora View", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+    }
+
+
+
+
+
+    /**
+     * Initializes the qr button and its listener. When the button is pressed, a qr recognition is enabled.
+     */
+    private void setQrButton() {
+        // gain reference to qr button
+        final Activity activity = this;
+
+        floatingQRButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentIntegrator integrator = new IntentIntegrator(activity);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+                integrator.setPrompt("Escaneando QR");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
+
+            }
+
+        });
+    }
+
+    /* Returns results of call intents (use of QR)*/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "Has cancelado el escaneo", Toast.LENGTH_LONG).show();
+            } else {
+//
+                String contentQR = result.getContents();
+
+                if (contentQR.contains("http")) {
+                    Uri web = Uri.parse(contentQR);
+                    Intent gotoWeb = new Intent(Intent.ACTION_VIEW, web);
+                    startActivity(gotoWeb);
+                } else {
+                    // Low cifrate
+                    if (contentQR.toLowerCase().contains("biodomointeractivo")) {
+                        String id = contentQR.substring(contentQR.indexOf(":") + 1);
+
+                        Intent intent = new Intent(this, ExploraViewActivity.class);
+                        intent.putExtra("id", id);
+                        startActivity(intent);
+                    }
+                }
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    private void insertSpecies()
+    {
         // INSERTS ID titulos
         // titulos amazonas
         amazonasTitles.add(getResources().getString(R.string.ama_a_0_title));
@@ -385,220 +661,6 @@ public class ExploraViewActivity extends AppCompatActivity {
         indoPacificoTexts.add(getResources().getString(R.string.ip_v_13_text));
         indoPacificoTexts.add(getResources().getString(R.string.ip_v_14_text));
         indoPacificoTexts.add(getResources().getString(R.string.ip_v_15_text));
-
-
-        /* FIN SIMULACION BASE DE DATOS */
-
-        position = 0;
-
-        leftButton = findViewById(R.id.left);
-        rightButton = findViewById(R.id.right);
-
-        titleTextView = findViewById(R.id.title_image);
-        imageView = findViewById(R.id.specieImage);
-        textView = findViewById(R.id.animalDescription);
-
-        leftButton.setBackgroundResource(R.drawable.button_left_right_off);
-
-
-
-        // Insertamos datos según la zona
-
-        if (getIntent().getStringExtra("zone") != null) {
-            Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla de zonas");
-            zoneSelected = getIntent().getStringExtra("zone");
-
-            titles = new ArrayList<>();
-            species = new ArrayList<>();
-            speciesTexts = new ArrayList<>();
-
-            switch (zoneSelected) {
-                case "0":
-                    titles.addAll(amazonasTitles);
-                    species.addAll(amazonas);
-                    speciesTexts.addAll(amazonasTexts);
-                    break;
-                case "1":
-                    titles.addAll(madagascarTitles);
-                    species.addAll(madagascar);
-                    speciesTexts.addAll(madagascarTexts);
-                    break;
-                case "2":
-                    titles.addAll(indoPacificoTitles);
-                    species.addAll(indoPacifico);
-                    speciesTexts.addAll(indoPacificoTexts);
-                    break;
-            }
-
-            for( int i=0; i<species.size(); i++ )
-            {
-                shuffleIndices.add(i);
-            }
-
-            Collections.shuffle(shuffleIndices);
-
-
-
-            titleTextView.setText(titles.get(shuffleIndices.get(position)));
-            imageView.setImageResource(species.get(shuffleIndices.get(position)));
-            textView.setText(speciesTexts.get(shuffleIndices.get(position)));
-
-        rightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-
-                if(position < species.size() -1) {
-                    position++;
-
-                    int id = species.get(shuffleIndices.get(position));
-
-                    titleTextView.setText(titles.get(shuffleIndices.get(position)));
-
-                    imageView.setImageResource(id);
-
-                    textView.setText(speciesTexts.get(shuffleIndices.get(position)));
-
-                    if( position == species.size()-1 ) rightButton.setBackgroundResource(R.drawable.button_left_right_off);
-                    if( position == 1 ) leftButton.setBackgroundResource(R.drawable.button_left);
-
-                }
-            }
-
-        });
-
-
-        leftButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-
-                if(position > 0 ) {
-                    position--;
-
-                    int id = species.get(shuffleIndices.get(position));
-
-                    titleTextView.setText(titles.get(shuffleIndices.get(position)));
-                    imageView.setImageResource(id);
-                    textView.setText(speciesTexts.get(shuffleIndices.get(position)));
-
-                    if( position == 0 ) leftButton.setBackgroundResource(R.drawable.button_left_right_off);
-
-
-                    if(position == species.size()-2 ) rightButton.setBackgroundResource(R.drawable.button_right);
-                }
-
-            }
-
-            });
-
-
-        } else if (getIntent().getStringExtra("id") != null) {
-            Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla del lector QR");
-            String id = getIntent().getStringExtra("id");
-
-            rightButton.setVisibility(View.INVISIBLE);
-            leftButton.setVisibility(View.INVISIBLE);
-
-            int idTitle = getResources().getIdentifier(id + "_title", "string", getPackageName());
-            int idImage = getResources().getIdentifier(id, "drawable", getPackageName());
-            int idDesc = getResources().getIdentifier(id + "_text", "string", getPackageName());
-
-            Log.e("ids", idTitle + " " + idImage + " " + idDesc);
-
-            titleTextView.setText(idTitle);
-            imageView.setImageResource(idImage);
-            textView.setText(idDesc);
-        } else if (getIntent().getStringExtra("zone_NFC") != null) {
-
-            int id = Integer.parseInt(getIntent().getStringExtra("zone_NFC"));
-            Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla del lector NFC + " + id);
-            rightButton.setVisibility(View.INVISIBLE);
-            leftButton.setVisibility(View.INVISIBLE);
-
-            switch (id) {
-                case 0:
-                    titleTextView.setText(R.string.zone_amazonia_title);
-                    imageView.setImageResource(R.drawable.explora_amaz_button);
-                    textView.setText(R.string.zone_amazonia_desc);
-                    break;
-                case 1:
-                    titleTextView.setText(R.string.zone_madagascar_title);
-                    imageView.setImageResource(R.drawable.explora_mad_button);
-                    textView.setText(R.string.zone_madagascar_desc);
-                    break;
-                case 2:
-                    titleTextView.setText(R.string.zone_ip_title);
-                    imageView.setImageResource(R.drawable.explora_ip_button);
-                    textView.setText(R.string.zone_ip_desc);
-                    break;
-                default:
-                    Toast.makeText(getApplicationContext(), "Zona no válida", Toast.LENGTH_SHORT).show();
-
-            }
-        } else {
-            Toast.makeText(getApplicationContext(), "No es posible abrir Explora View", Toast.LENGTH_SHORT).show();
-        }
-
-
-
-    }
-
-
-
-
-
-    /**
-     * Initializes the qr button and its listener. When the button is pressed, a qr recognition is enabled.
-     */
-    private void setQrButton() {
-        // gain reference to qr button
-        final Activity activity = this;
-
-        floatingQRButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                IntentIntegrator integrator = new IntentIntegrator(activity);
-                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-                integrator.setPrompt("Escaneando QR");
-                integrator.setCameraId(0);
-                integrator.setBeepEnabled(false);
-                integrator.setBarcodeImageEnabled(false);
-                integrator.initiateScan();
-
-            }
-
-        });
-    }
-
-    /* Returns results of call intents (use of QR)*/
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-
-        if (result != null) {
-            if (result.getContents() == null) {
-                Toast.makeText(this, "Has cancelado el escaneo", Toast.LENGTH_LONG).show();
-            } else {
-//
-                String contentQR = result.getContents();
-
-                if (contentQR.contains("http")) {
-                    Uri web = Uri.parse(contentQR);
-                    Intent gotoWeb = new Intent(Intent.ACTION_VIEW, web);
-                    startActivity(gotoWeb);
-                } else {
-                    // Low cifrate
-                    if (contentQR.toLowerCase().contains("biodomointeractivo")) {
-                        String id = contentQR.substring(contentQR.indexOf(":") + 1);
-
-                        Intent intent = new Intent(this, ExploraViewActivity.class);
-                        intent.putExtra("id", id);
-                        startActivity(intent);
-                    }
-                }
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
     }
 
 

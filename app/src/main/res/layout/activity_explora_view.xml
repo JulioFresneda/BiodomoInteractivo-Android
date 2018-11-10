@@ -50,6 +50,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:translationZ="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/bg_text_explora"
         app:layout_constraintEnd_toEndOf="@+id/bg_text_explora"
         app:layout_constraintStart_toStartOf="@+id/bg_text_explora"
@@ -63,6 +64,8 @@
         android:layout_marginBottom="8dp"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:translationZ="3dp"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="@+id/bg_title_explora"
         app:layout_constraintEnd_toEndOf="@+id/bg_title_explora"
         app:layout_constraintStart_toStartOf="@+id/bg_title_explora"
@@ -71,7 +74,7 @@
     <ImageView
         android:id="@+id/bg_text_explora"
         android:layout_width="0dp"
-        android:layout_height="310dp"
+        android:layout_height="250dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -79,19 +82,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/explora_text_bg" />
+        app:srcCompat="@drawable/bg_explora_button" />
 
     <ImageView
         android:id="@+id/bg_title_explora"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/explora_title_bg" />
+        app:srcCompat="@drawable/background_v" />
 
     <ImageView
         android:id="@+id/specieImage"
