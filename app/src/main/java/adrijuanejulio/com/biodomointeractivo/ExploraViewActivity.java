@@ -1,5 +1,9 @@
 package adrijuanejulio.com.biodomointeractivo;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +12,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,6 +42,7 @@ public class ExploraViewActivity extends AppCompatActivity {
     private ArrayList<Integer> shuffleIndices;
 
     Button leftButton, rightButton;
+    FloatingActionButton floatingQRButton;
 
     TextView titleTextView;
     ImageView imageView;
@@ -65,6 +73,11 @@ public class ExploraViewActivity extends AppCompatActivity {
         indoPacificoTexts = new ArrayList<>();
 
         shuffleIndices = new ArrayList<>();
+
+
+        floatingQRButton = findViewById(R.id.floatingQRButton);
+        //Set up the qr button
+        setQrButton();
 
 
 
@@ -475,6 +488,8 @@ public class ExploraViewActivity extends AppCompatActivity {
             }
 
             });
+
+
         } else if (getIntent().getStringExtra("id") != null) {
             Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla del lector QR");
             String id = getIntent().getStringExtra("id");
@@ -525,4 +540,65 @@ public class ExploraViewActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+    /**
+     * Initializes the qr button and its listener. When the button is pressed, a qr recognition is enabled.
+     */
+    private void setQrButton() {
+        // gain reference to qr button
+        final Activity activity = this;
+
+        floatingQRButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentIntegrator integrator = new IntentIntegrator(activity);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+                integrator.setPrompt("Escaneando QR");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
+
+            }
+
+        });
+    }
+
+    /* Returns results of call intents (use of QR)*/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "Has cancelado el escaneo", Toast.LENGTH_LONG).show();
+            } else {
+//
+                String contentQR = result.getContents();
+
+                if (contentQR.contains("http")) {
+                    Uri web = Uri.parse(contentQR);
+                    Intent gotoWeb = new Intent(Intent.ACTION_VIEW, web);
+                    startActivity(gotoWeb);
+                } else {
+                    // Low cifrate
+                    if (contentQR.toLowerCase().contains("biodomointeractivo")) {
+                        String id = contentQR.substring(contentQR.indexOf(":") + 1);
+
+                        Intent intent = new Intent(this, ExploraViewActivity.class);
+                        intent.putExtra("id", id);
+                        startActivity(intent);
+                    }
+                }
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+
 }

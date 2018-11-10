@@ -96,4 +96,10 @@ public class ExploraActivity extends AppCompatActivity {
         intent.putExtra("zone", ZONE_INDOPACIFICO);
         startActivity(intent);
     }
+
+
+
+
+
+
 }
