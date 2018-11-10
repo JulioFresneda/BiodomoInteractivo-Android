@@ -413,7 +413,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     /******************************************************************
      *
      *
-     * Esto es para por el movil boca abajo y que el asistente pare
+     * Movil boca abajo y que el asistente pare
      * https://stackoverflow.com/questions/17774070/android-detect-when-the-phone-flips-around
      * http://www.vogella.com/tutorials/AndroidSensor/article.html
      *
@@ -478,7 +478,9 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         sensorManager.unregisterListener(this);
     }
 
-
+/**
+ * END Detect if the device is face up or face down
+ */
 
 
 
@@ -573,11 +575,11 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
                     break;
             }
             String msg = getResources().getString(errorMsg);
-            this.runOnUiThread(new Runnable() { //Toasts must be in the main thread
+            /*this.runOnUiThread(new Runnable() { //Toasts must be in the main thread
                 public void run() {
                     Toast.makeText(getApplicationContext(), R.string.asr_error, Toast.LENGTH_LONG).show();
                 }
-            });
+            });*/
 
             Log.e(LOGTAG, "Error when attempting to listen: " + msg);
             try {
