@@ -200,7 +200,7 @@
     <TextView
         android:id="@+id/mapaText"
         android:layout_width="52dp"
-        android:layout_height="24dp"
+        android:layout_height="32dp"
         android:layout_marginStart="45dp"
         android:text="@string/mapa"
         android:textSize="20sp"
