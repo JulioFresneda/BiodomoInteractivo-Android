@@ -346,14 +346,11 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         twitterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
+                
                     Intent intent = new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("twitter://user?screen_name=@ParqueCiencias"));
+                            Uri.parse("https://twitter.com/ParqueCiencias"));
                     startActivity(intent);
-                } catch (Exception e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("https://twitter.com/#!/@ParqueCiencias")));
-                }
+
             }
 
         });
