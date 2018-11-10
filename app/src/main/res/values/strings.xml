@@ -62,13 +62,13 @@
 
     <!-- Zonas Explora View-->
     <string name="zone_amazonia_title">Amazonia</string>
-    <string name="zone_amazonia_desc">DEscripcion amazonia</string>
+    <string name="zone_amazonia_desc">La Amazonia no sólo abarca el bosque tropical más grande que queda en el mundo, sino que también es hogar de una de cada diez especies conocidas en la Tierra.</string>
 
     <string name="zone_madagascar_title">Madagascar</string>
-    <string name="zone_madagascar_desc">DEscripcion madagascar</string>
+    <string name="zone_madagascar_desc">La isla de Madagascar ha desarrollado un ecosistema propio y distintivo, con una extraordinaria biodiversidad, desde su separación del continente africano hace aproximadamente 160 millones de años.</string>
 
     <string name="zone_ip_title">Indo pacifico</string>
-    <string name="zone_ip_desc">DEscripcion indo pacifico</string>
+    <string name="zone_ip_desc">El sudeste asiático es una de las zonas del planeta que alberga mayor biodiversidad. Allí se encuentran importantes ecorregiones como las del Río Mekong o el Sulawesi.</string>
     <!-- END Zonas explora View-->
 
     <!-- END voice strings-->
@@ -289,6 +289,8 @@
     <string name="boton_yt">boton yt</string>
     <string name="boton_twitter">boton twitter</string>
     <string name="boton_fb">boton fb</string>
+    <string name="tucan_del_boton_amazonia_de_explora">tucan del boton amazonia de explora</string>
+
 
 
     <!-- END EXPLORA -->

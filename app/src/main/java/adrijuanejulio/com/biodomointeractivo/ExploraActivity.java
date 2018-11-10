@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 public class ExploraActivity extends AppCompatActivity {
     final private String ZONE_AMAZONIA = "0";
@@ -22,7 +21,7 @@ public class ExploraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explora);
 
-        amaButton = findViewById(R.id.amazonia_button);
+        amaButton = findViewById(R.id.ama_button);
         madButton = findViewById(R.id.mad_button);
         ipButton = findViewById(R.id.ip_button);
 
