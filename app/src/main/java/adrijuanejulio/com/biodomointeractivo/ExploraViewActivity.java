@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ExploraViewActivity extends AppCompatActivity {
 
@@ -30,6 +31,8 @@ public class ExploraViewActivity extends AppCompatActivity {
     private ArrayList<String> titles;
     private ArrayList<Integer> species;
     private ArrayList<String> speciesTexts;
+
+    private ArrayList<Integer> shuffleIndices;
 
     Button leftButton, rightButton;
 
@@ -60,6 +63,10 @@ public class ExploraViewActivity extends AppCompatActivity {
         amazonasTexts = new ArrayList<>();
         madagascarTexts = new ArrayList<>();
         indoPacificoTexts = new ArrayList<>();
+
+        shuffleIndices = new ArrayList<>();
+
+
 
         // INSERTS ID titulos
         // titulos amazonas
@@ -377,6 +384,12 @@ public class ExploraViewActivity extends AppCompatActivity {
         imageView = findViewById(R.id.specieImage);
         textView = findViewById(R.id.animalDescription);
 
+        leftButton.setBackgroundResource(R.drawable.button_left_right_off);
+
+
+
+        // Insertamos datos según la zona
+
         if (getIntent().getStringExtra("zone") != null) {
             Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla de zonas");
             zoneSelected = getIntent().getStringExtra("zone");
@@ -385,23 +398,36 @@ public class ExploraViewActivity extends AppCompatActivity {
             species = new ArrayList<>();
             speciesTexts = new ArrayList<>();
 
-            if (zoneSelected.equals("0")) {
-                titles.addAll(amazonasTitles);
-                species.addAll(amazonas);
-                speciesTexts.addAll(amazonasTexts);
-            } else if (zoneSelected.equals("1")) {
-                titles.addAll(madagascarTitles);
-                species.addAll(madagascar);
-                speciesTexts.addAll(madagascarTexts);
-            } else if (zoneSelected.equals("2")) {
-                titles.addAll(indoPacificoTitles);
-                species.addAll(indoPacifico);
-                speciesTexts.addAll(indoPacificoTexts);
+            switch (zoneSelected) {
+                case "0":
+                    titles.addAll(amazonasTitles);
+                    species.addAll(amazonas);
+                    speciesTexts.addAll(amazonasTexts);
+                    break;
+                case "1":
+                    titles.addAll(madagascarTitles);
+                    species.addAll(madagascar);
+                    speciesTexts.addAll(madagascarTexts);
+                    break;
+                case "2":
+                    titles.addAll(indoPacificoTitles);
+                    species.addAll(indoPacifico);
+                    speciesTexts.addAll(indoPacificoTexts);
+                    break;
             }
 
-            titleTextView.setText(titles.get(position));
-            imageView.setImageResource(species.get(position));
-            textView.setText(speciesTexts.get(position));
+            for( int i=0; i<species.size(); i++ )
+            {
+                shuffleIndices.add(i);
+            }
+
+            Collections.shuffle(shuffleIndices);
+
+
+
+            titleTextView.setText(titles.get(shuffleIndices.get(position)));
+            imageView.setImageResource(species.get(shuffleIndices.get(position)));
+            textView.setText(speciesTexts.get(shuffleIndices.get(position)));
 
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -410,14 +436,16 @@ public class ExploraViewActivity extends AppCompatActivity {
                 if(position < species.size() -1) {
                     position++;
 
-                    int id = species.get(position);
+                    int id = species.get(shuffleIndices.get(position));
 
-                    titleTextView.setText(titles.get(position));
+                    titleTextView.setText(titles.get(shuffleIndices.get(position)));
 
                     imageView.setImageResource(id);
 
-                    textView.setText(speciesTexts.get(position));
+                    textView.setText(speciesTexts.get(shuffleIndices.get(position)));
 
+                    if( position == species.size()-1 ) rightButton.setBackgroundResource(R.drawable.button_left_right_off);
+                    if( position == 1 ) leftButton.setBackgroundResource(R.drawable.button_left);
 
                 }
             }
@@ -432,12 +460,18 @@ public class ExploraViewActivity extends AppCompatActivity {
                 if(position > 0 ) {
                     position--;
 
-                    int id = species.get(position);
+                    int id = species.get(shuffleIndices.get(position));
 
-                    titleTextView.setText(titles.get(position));
+                    titleTextView.setText(titles.get(shuffleIndices.get(position)));
                     imageView.setImageResource(id);
-                    textView.setText(speciesTexts.get(position));
+                    textView.setText(speciesTexts.get(shuffleIndices.get(position)));
+
+                    if( position == 0 ) leftButton.setBackgroundResource(R.drawable.button_left_right_off);
+
+
+                    if(position == species.size()-2 ) rightButton.setBackgroundResource(R.drawable.button_right);
                 }
+
             }
 
             });
