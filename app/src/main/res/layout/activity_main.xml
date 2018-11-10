@@ -79,7 +79,8 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/explora_brujula"
         app:layout_constraintStart_toStartOf="@+id/explora_button"
-        app:layout_constraintTop_toTopOf="@+id/explora_button" />
+        app:layout_constraintTop_toTopOf="@+id/explora_button"
+        android:contentDescription="@string/brujula" />
 
     <TextView
         android:id="@+id/cabecera_main"
@@ -89,7 +90,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Biodomo Interactivo"
+        android:text="@string/biodomo_interactivo_main"
         android:textSize="30sp"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/background_v_arriba"
@@ -115,7 +116,7 @@
         android:layout_width="225dp"
         android:layout_height="91dp"
         android:layout_marginTop="8dp"
-        android:text="Descubre los animales y vegetales que tenemos en cada una de las zonas del biodomo."
+        android:text="@string/menu_explora_text_button"
         app:layout_constraintEnd_toEndOf="@+id/exploraText"
         app:layout_constraintStart_toStartOf="@+id/exploraText"
         app:layout_constraintTop_toBottomOf="@+id/exploraText" />

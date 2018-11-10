@@ -282,8 +282,9 @@
     <string name="ip_v_13_text">Balantium antarcticum. Helecho arborescente originario de Australia.  Vive en colinas abrigadas y en barrancos húmedos. Alcanza 15 m. Tiene un rizoma subterráneo del que sale un tronco fibroso vertical. En su copa, de 2 a 6 m de diámetro, se expanden las hojas o frondes. Algunas de ellas contienen en el envés esporangios, los órganos productores de esporas. La médula de la planta es comestible y contiene alto contenido de almidón.</string>
     <string name="ip_v_14_text">Asplenium nidus. Helecho nativo de las selvas húmedas del sudeste asiático. Tiene hábitos epíﬁtos ya que crece sobre troncos de árboles en los pisos bajos de la selva donde hay poca luz natural. No es parásita porque no perfora la corteza ni se alimenta de la savia del árbol. Se reproduce por esporas que se originan en unas estructuras en el envés de las hojas o frondes fértiles. Las hojas son lustrosas.</string>
     <string name="ip_v_15_text">Ficus macrophylla. Árbol nativo de la costa Este de Australia aunque está muy extendido por Sudamérica. Es perenne y sus hojas recuerdan a las del magnolio. Las semillas germinan en la copa de un árbol huésped. Vive como epíﬁta hasta que las raíces llegan al suelo. Entonces se alarga y estrangula al huésped convirtiéndose en un árbol independiente. Sus raíces aéreas le permiten extender ampliamente su copa.</string>
-
-
+    <string name="biodomo_interactivo_main">Biodomo Interactivo</string>
+    <string name="menu_explora_text_button">Descubre los animales y vegetales que tenemos en cada una de las zonas del biodomo.</string>
+    <string name="brujula">brujula del explora button</string>
 
 
     <!-- END EXPLORA -->
