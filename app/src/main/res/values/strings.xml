@@ -285,6 +285,10 @@
     <string name="biodomo_interactivo_main">Biodomo Interactivo</string>
     <string name="menu_explora_text_button">Descubre los animales y vegetales que tenemos en cada una de las zonas del biodomo.</string>
     <string name="brujula">brujula del explora button</string>
+    <string name="boton_web">boton web</string>
+    <string name="boton_yt">boton yt</string>
+    <string name="boton_twitter">boton twitter</string>
+    <string name="boton_fb">boton fb</string>
 
 
     <!-- END EXPLORA -->

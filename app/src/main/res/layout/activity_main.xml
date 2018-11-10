@@ -217,7 +217,8 @@
         android:background="@drawable/fbicon"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/background_v"
-        app:layout_constraintEnd_toStartOf="@+id/web_button" />
+        app:layout_constraintEnd_toStartOf="@+id/web_button"
+        android:contentDescription="@string/boton_fb" />
 
     <ImageButton
         android:id="@+id/twitter_button"
@@ -228,7 +229,8 @@
         android:background="@drawable/twittericon"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/background_v"
-        app:layout_constraintStart_toEndOf="@+id/yt_button" />
+        app:layout_constraintStart_toEndOf="@+id/yt_button"
+        android:contentDescription="@string/boton_twitter" />
 
 
     <ImageButton
@@ -240,7 +242,8 @@
         android:background="@drawable/yticon"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/background_v"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/boton_yt" />
 
     <ImageButton
         android:id="@+id/web_button"
@@ -251,7 +254,8 @@
         android:background="@drawable/logo"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/background_v"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/boton_web" />
 
 
 </android.support.constraint.ConstraintLayout>
