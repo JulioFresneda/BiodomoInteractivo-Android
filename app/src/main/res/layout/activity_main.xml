@@ -34,6 +34,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/speech_button" />
 
+    <ImageView
+        android:id="@+id/background_v_arriba"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:adjustViewBounds="false"
+        android:contentDescription="@string/background"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_v"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background" />
+
     <ImageButton
         android:id="@+id/speech_button"
         android:layout_width="120dp"
@@ -48,120 +60,152 @@
 
     <ImageButton
         android:id="@+id/explora_button"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/explora_button"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/bg_explora_button_2"
         android:contentDescription="@string/explora"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/qr_button"
+        app:layout_constraintTop_toBottomOf="@+id/background_v_arriba" />
+
+    <ImageView
+        android:id="@+id/explora_brujula"
+        android:layout_width="113dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/explora_brujula"
+        app:layout_constraintStart_toStartOf="@+id/explora_button"
+        app:layout_constraintTop_toTopOf="@+id/explora_button" />
+
+    <TextView
+        android:id="@+id/cabecera_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Biodomo Interactivo"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/background_v_arriba"
+        app:layout_constraintEnd_toEndOf="@+id/background_v_arriba"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/exploraText"
-        android:layout_width="70dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="166dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="50dp"
         android:text="@string/explora"
-        android:textSize="20sp"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="@+id/explora_button"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="@+id/explora_button"
+        app:layout_constraintStart_toEndOf="@+id/explora_brujula"
+        app:layout_constraintTop_toTopOf="@+id/explora_button" />
+
+    <TextView
+        android:id="@+id/exploraTextButton"
+        android:layout_width="225dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="8dp"
+        android:text="Descubre los animales y vegetales que tenemos en cada una de las zonas del biodomo."
+        app:layout_constraintEnd_toEndOf="@+id/exploraText"
+        app:layout_constraintStart_toStartOf="@+id/exploraText"
+        app:layout_constraintTop_toBottomOf="@+id/exploraText" />
+
+    <ImageButton
+        android:id="@+id/precios_button"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/comprar_button_bar"
+        android:contentDescription="@string/precios"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_button"
+        app:layout_constraintTop_toBottomOf="@+id/mapa_button" />
+
+    <ImageButton
+        android:id="@+id/mapa_button"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/mapa_button_bar"
+        android:contentDescription="@string/mapa"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/explora_button" />
+
+    <ImageButton
+        android:id="@+id/nfc_button"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/nfc_button_bar"
+        android:contentDescription="@string/lector_nfc"
+        app:layout_constraintStart_toStartOf="@+id/qr_button"
+        app:layout_constraintTop_toBottomOf="@+id/qr_button" />
+
+    <ImageButton
+        android:id="@+id/qr_button"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/lectorqr_button_bar"
+        android:contentDescription="@string/lector_qr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/explora_button" />
+
 
     <TextView
         android:id="@+id/nfcText"
         android:layout_width="107dp"
         android:layout_height="29dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="45dp"
         android:text="@string/lector_nfc"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/nfc_button"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintBottom_toBottomOf="@+id/nfc_button"
         app:layout_constraintStart_toStartOf="@+id/nfc_button"
-        app:layout_constraintTop_toBottomOf="@+id/nfc_button" />
+        app:layout_constraintTop_toTopOf="@+id/nfc_button" />
 
     <TextView
         android:id="@+id/qrText"
         android:layout_width="91dp"
         android:layout_height="29dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="45dp"
         android:text="@string/lector_qr"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/qr_button"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/qr_button"
         app:layout_constraintStart_toStartOf="@+id/qr_button"
-        app:layout_constraintTop_toBottomOf="@+id/qr_button" />
+        app:layout_constraintTop_toTopOf="@+id/qr_button" />
 
     <TextView
         android:id="@+id/preciosText"
         android:layout_width="70dp"
-        android:layout_height="51dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="45dp"
         android:text="@string/precios"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/precios_button"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintBottom_toBottomOf="@+id/precios_button"
         app:layout_constraintStart_toStartOf="@+id/precios_button"
-        app:layout_constraintTop_toBottomOf="@+id/precios_button" />
+        app:layout_constraintTop_toTopOf="@+id/precios_button" />
 
     <TextView
         android:id="@+id/mapaText"
         android:layout_width="52dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="45dp"
         android:text="@string/mapa"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/mapa_button"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_button"
         app:layout_constraintStart_toStartOf="@+id/mapa_button"
-        app:layout_constraintTop_toBottomOf="@+id/mapa_button" />
-
-    <ImageButton
-        android:id="@+id/precios_button"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="116dp"
-        android:background="@drawable/comprar_button"
-        android:contentDescription="@string/precios"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nfcText" />
-
-    <ImageButton
-        android:id="@+id/mapa_button"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="28dp"
-        android:background="@drawable/mapa_button"
-        android:contentDescription="@string/mapa"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qrText" />
-
-    <ImageButton
-        android:id="@+id/nfc_button"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/nfc_button"
-        android:contentDescription="@string/lector_nfc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/qr_button"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/lectorqr_button"
-        android:contentDescription="@string/lector_qr"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="@+id/mapa_button" />
 
     <ImageButton
         android:id="@+id/fb_button"
