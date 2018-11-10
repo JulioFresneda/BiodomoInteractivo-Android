@@ -22,26 +22,20 @@ import java.util.Collections;
 
 public class ExploraViewActivity extends AppCompatActivity {
 
+
+    // Zona del biodomo que queremos explorar
     private String zoneSelected;
 
-    private ArrayList<String> amazonasTitles;
-    private ArrayList<String> madagascarTitles;
-    private ArrayList<String> indoPacificoTitles;
 
-    private ArrayList<Integer> amazonas;
-    private ArrayList<Integer> madagascar;
-    private ArrayList<Integer> indoPacifico;
+    // Arrays donde se almacenarán sólo los nombres, imágenes y textos de la zona que queremos explorar
+    private ArrayList<String> specieNames;
+    private ArrayList<Integer> specieImages;
+    private ArrayList<String> specieTexts;
 
-    private ArrayList<String> amazonasTexts;
-    private ArrayList<String> madagascarTexts;
-    private ArrayList<String> indoPacificoTexts;
-
-    private ArrayList<String> titles;
-    private ArrayList<Integer> species;
-    private ArrayList<String> speciesTexts;
-
+    // Array donde almacenaremos los índices que usaremos para mostrar las especies. De esta forma podemos mostrarlas de forma aleatoria
     private ArrayList<Integer> shuffleIndices;
 
+    // Botones para pasar a la izquierda, derecha y el botón flotante lector de QR
     Button leftButton, rightButton;
     FloatingActionButton floatingQRButton;
 
@@ -49,6 +43,7 @@ public class ExploraViewActivity extends AppCompatActivity {
     ImageView imageView;
     TextView textView;
 
+    // Posición donde nos encontramos
     private int position;
 
     private Drawable leftButtonDrawable, rightButtonDrawable;
@@ -64,28 +59,14 @@ public class ExploraViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_explora_view);
 
         /* INICIO SIMULACION BASE DE DATOS */
-        amazonasTitles = new ArrayList<>();
-        madagascarTitles = new ArrayList<>();
-        indoPacificoTitles = new ArrayList<>();
-
-        amazonas = new ArrayList<>();
-        madagascar = new ArrayList<>();
-        indoPacifico = new ArrayList<>();
-
-        amazonasTexts = new ArrayList<>();
-        madagascarTexts = new ArrayList<>();
-        indoPacificoTexts = new ArrayList<>();
-
         shuffleIndices = new ArrayList<>();
-
 
         floatingQRButton = findViewById(R.id.floatingQRButton);
         //Set up the qr button
         setQrButton();
 
 
-        // INSERT SPECIES
-        insertSpecies();
+
 
 
         /* FIN SIMULACION BASE DE DATOS */
@@ -113,20 +94,22 @@ public class ExploraViewActivity extends AppCompatActivity {
             Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla de zonas");
             zoneSelected = getIntent().getStringExtra("zone");
 
-            titles = new ArrayList<>();
-            species = new ArrayList<>();
-            speciesTexts = new ArrayList<>();
+            specieNames = new ArrayList<>();
+            specieImages = new ArrayList<>();
+            specieTexts = new ArrayList<>();
 
             ImageView topscreen;
             ImageView bgText;
 
+            // INSERT SPECIES
+            insertSpecies( zoneSelected );
+
+            // Cargamos el color de la interfaz según en qué zona estemos
             switch (zoneSelected) {
 
 
                 case "0":
-                    titles.addAll(amazonasTitles);
-                    species.addAll(amazonas);
-                    speciesTexts.addAll(amazonasTexts);
+
 
                     topscreen = findViewById(R.id.bg_title_explora);
                     topscreen.setImageResource(R.drawable.explora_ama_topscreen);
@@ -139,9 +122,7 @@ public class ExploraViewActivity extends AppCompatActivity {
 
                     break;
                 case "1":
-                    titles.addAll(madagascarTitles);
-                    species.addAll(madagascar);
-                    speciesTexts.addAll(madagascarTexts);
+
 
                     topscreen = findViewById(R.id.bg_title_explora);
                     topscreen.setImageResource(R.drawable.explora_mad_topscreen);
@@ -154,9 +135,7 @@ public class ExploraViewActivity extends AppCompatActivity {
 
                     break;
                 case "2":
-                    titles.addAll(indoPacificoTitles);
-                    species.addAll(indoPacifico);
-                    speciesTexts.addAll(indoPacificoTexts);
+
 
                     topscreen = findViewById(R.id.bg_title_explora);
                     topscreen.setImageResource(R.drawable.explora_ip_topscreen);
@@ -170,7 +149,8 @@ public class ExploraViewActivity extends AppCompatActivity {
                     break;
             }
 
-            for( int i=0; i<species.size(); i++ )
+            // Hacemos shuffle a los índices
+            for(int i = 0; i< specieImages.size(); i++ )
             {
                 shuffleIndices.add(i);
             }
@@ -179,31 +159,31 @@ public class ExploraViewActivity extends AppCompatActivity {
 
 
 
-            titleTextView.setText(titles.get(shuffleIndices.get(position)));
-            imageView.setImageResource(species.get(shuffleIndices.get(position)));
-            textView.setText(speciesTexts.get(shuffleIndices.get(position)));
+            titleTextView.setText(specieNames.get(shuffleIndices.get(position)));
+            imageView.setImageResource(specieImages.get(shuffleIndices.get(position)));
+            textView.setText(specieTexts.get(shuffleIndices.get(position)));
 
             rightButton.setBackground(rightButtonDrawable);
             leftButton.setBackgroundResource(R.drawable.button_left_right_off);
 
 
-
+            // Listener del botón derecho
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
 
-                if(position < species.size() -1) {
+                if(position < specieImages.size() -1) {
                     position++;
 
-                    int id = species.get(shuffleIndices.get(position));
+                    int id = specieImages.get(shuffleIndices.get(position));
 
-                    titleTextView.setText(titles.get(shuffleIndices.get(position)));
+                    titleTextView.setText(specieNames.get(shuffleIndices.get(position)));
 
                     imageView.setImageResource(id);
 
-                    textView.setText(speciesTexts.get(shuffleIndices.get(position)));
+                    textView.setText(specieTexts.get(shuffleIndices.get(position)));
 
-                    if( position == species.size()-1 ) rightButton.setBackgroundResource(R.drawable.button_left_right_off);
+                    if( position == specieImages.size()-1 ) rightButton.setBackgroundResource(R.drawable.button_left_right_off);
                     if( position == 1 ) leftButton.setBackground(leftButtonDrawable);
 
                 }
@@ -211,7 +191,7 @@ public class ExploraViewActivity extends AppCompatActivity {
 
         });
 
-
+        // Listener del botón izquierdo
         leftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -219,16 +199,16 @@ public class ExploraViewActivity extends AppCompatActivity {
                 if(position > 0 ) {
                     position--;
 
-                    int id = species.get(shuffleIndices.get(position));
+                    int id = specieImages.get(shuffleIndices.get(position));
 
-                    titleTextView.setText(titles.get(shuffleIndices.get(position)));
+                    titleTextView.setText(specieNames.get(shuffleIndices.get(position)));
                     imageView.setImageResource(id);
-                    textView.setText(speciesTexts.get(shuffleIndices.get(position)));
+                    textView.setText(specieTexts.get(shuffleIndices.get(position)));
 
                     if( position == 0 ) leftButton.setBackgroundResource(R.drawable.button_left_right_off);
 
 
-                    if(position == species.size()-2 ) rightButton.setBackground(rightButtonDrawable);
+                    if(position == specieImages.size()-2 ) rightButton.setBackground(rightButtonDrawable);
                 }
 
             }
@@ -236,6 +216,7 @@ public class ExploraViewActivity extends AppCompatActivity {
             });
 
 
+        // Si obtenemos información a través del QR, desciframos el mensaje y lo cargamos en ExploraView
         } else if (getIntent().getStringExtra("id") != null) {
             Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla del lector QR");
             String id = getIntent().getStringExtra("id");
@@ -252,6 +233,8 @@ public class ExploraViewActivity extends AppCompatActivity {
             titleTextView.setText(idTitle);
             imageView.setImageResource(idImage);
             textView.setText(idDesc);
+
+            // Si la información viene del lector nfc
         } else if (getIntent().getStringExtra("zone_NFC") != null) {
 
             int id = Integer.parseInt(getIntent().getStringExtra("zone_NFC"));
@@ -355,312 +338,341 @@ public class ExploraViewActivity extends AppCompatActivity {
 
 
 
-
-    private void insertSpecies()
+    ////////// Método para insertar especies
+    private void insertSpecies( String zoneSelected)
     {
-        // INSERTS ID titulos
-        // titulos amazonas
-        amazonasTitles.add(getResources().getString(R.string.ama_a_0_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_1_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_2_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_3_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_4_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_5_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_6_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_7_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_8_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_9_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_10_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_11_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_12_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_13_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_14_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_15_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_16_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_a_17_title));
+
+        switch (zoneSelected){
+            case "0":
+                // titulos amazonas
+                specieNames.add(getResources().getString(R.string.ama_a_0_title));
+                specieNames.add(getResources().getString(R.string.ama_a_1_title));
+                specieNames.add(getResources().getString(R.string.ama_a_2_title));
+                specieNames.add(getResources().getString(R.string.ama_a_3_title));
+                specieNames.add(getResources().getString(R.string.ama_a_4_title));
+                specieNames.add(getResources().getString(R.string.ama_a_5_title));
+                specieNames.add(getResources().getString(R.string.ama_a_6_title));
+                specieNames.add(getResources().getString(R.string.ama_a_7_title));
+                specieNames.add(getResources().getString(R.string.ama_a_8_title));
+                specieNames.add(getResources().getString(R.string.ama_a_9_title));
+                specieNames.add(getResources().getString(R.string.ama_a_10_title));
+                specieNames.add(getResources().getString(R.string.ama_a_11_title));
+                specieNames.add(getResources().getString(R.string.ama_a_12_title));
+                specieNames.add(getResources().getString(R.string.ama_a_13_title));
+                specieNames.add(getResources().getString(R.string.ama_a_14_title));
+                specieNames.add(getResources().getString(R.string.ama_a_15_title));
+                specieNames.add(getResources().getString(R.string.ama_a_16_title));
+                specieNames.add(getResources().getString(R.string.ama_a_17_title));
 
 
-        amazonasTitles.add(getResources().getString(R.string.ama_v_0_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_1_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_2_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_3_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_4_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_5_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_6_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_7_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_8_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_9_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_10_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_11_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_12_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_13_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_14_title));
-        amazonasTitles.add(getResources().getString(R.string.ama_v_15_title));
-
-        //titulos madagascar
-        madagascarTitles.add(getResources().getString(R.string.mad_a_0_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_a_1_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_a_2_title));
-
-        madagascarTitles.add(getResources().getString(R.string.mad_v_0_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_1_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_2_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_3_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_4_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_5_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_6_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_7_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_8_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_9_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_10_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_11_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_12_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_13_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_14_title));
-        madagascarTitles.add(getResources().getString(R.string.mad_v_15_title));
+                specieNames.add(getResources().getString(R.string.ama_v_0_title));
+                specieNames.add(getResources().getString(R.string.ama_v_1_title));
+                specieNames.add(getResources().getString(R.string.ama_v_2_title));
+                specieNames.add(getResources().getString(R.string.ama_v_3_title));
+                specieNames.add(getResources().getString(R.string.ama_v_4_title));
+                specieNames.add(getResources().getString(R.string.ama_v_5_title));
+                specieNames.add(getResources().getString(R.string.ama_v_6_title));
+                specieNames.add(getResources().getString(R.string.ama_v_7_title));
+                specieNames.add(getResources().getString(R.string.ama_v_8_title));
+                specieNames.add(getResources().getString(R.string.ama_v_9_title));
+                specieNames.add(getResources().getString(R.string.ama_v_10_title));
+                specieNames.add(getResources().getString(R.string.ama_v_11_title));
+                specieNames.add(getResources().getString(R.string.ama_v_12_title));
+                specieNames.add(getResources().getString(R.string.ama_v_13_title));
+                specieNames.add(getResources().getString(R.string.ama_v_14_title));
+                specieNames.add(getResources().getString(R.string.ama_v_15_title));
 
 
+                // imagenes amazonas
+                specieImages.add(R.drawable.ama_a_0);
+                specieImages.add(R.drawable.ama_a_1);
+                specieImages.add(R.drawable.ama_a_2);
+                specieImages.add(R.drawable.ama_a_3);
+                specieImages.add(R.drawable.ama_a_4);
+                specieImages.add(R.drawable.ama_a_5);
+                specieImages.add(R.drawable.ama_a_6);
+                specieImages.add(R.drawable.ama_a_7);
+                specieImages.add(R.drawable.ama_a_8);
+                specieImages.add(R.drawable.ama_a_9);
+                specieImages.add(R.drawable.ama_a_10);
+                specieImages.add(R.drawable.ama_a_11);
+                specieImages.add(R.drawable.ama_a_12);
+                specieImages.add(R.drawable.ama_a_13);
+                specieImages.add(R.drawable.ama_a_14);
+                specieImages.add(R.drawable.ama_a_15);
+                specieImages.add(R.drawable.ama_a_16);
+                specieImages.add(R.drawable.ama_a_17);
 
-        //titulos indopacifico
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_0_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_1_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_2_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_3_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_4_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_5_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_6_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_7_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_8_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_9_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_10_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_11_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_12_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_13_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_14_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_a_15_title));
 
-
-
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_0_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_1_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_2_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_3_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_4_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_5_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_6_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_7_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_8_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_9_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_10_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_11_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_12_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_13_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_14_title));
-        indoPacificoTitles.add(getResources().getString(R.string.ip_v_15_title));
+                specieImages.add(R.drawable.ama_v_0);
+                specieImages.add(R.drawable.ama_v_1);
+                specieImages.add(R.drawable.ama_v_2);
+                specieImages.add(R.drawable.ama_v_3);
+                specieImages.add(R.drawable.ama_v_4);
+                specieImages.add(R.drawable.ama_v_5);
+                specieImages.add(R.drawable.ama_v_6);
+                specieImages.add(R.drawable.ama_v_7);
+                specieImages.add(R.drawable.ama_v_8);
+                specieImages.add(R.drawable.ama_v_9);
+                specieImages.add(R.drawable.ama_v_10);
+                specieImages.add(R.drawable.ama_v_11);
+                specieImages.add(R.drawable.ama_v_12);
+                specieImages.add(R.drawable.ama_v_13);
+                specieImages.add(R.drawable.ama_v_14);
+                specieImages.add(R.drawable.ama_v_15);
 
 
 
-        // INSERTS ID Imagenes
-        // imagenes amazonas
-        amazonas.add(R.drawable.ama_a_0);
-        amazonas.add(R.drawable.ama_a_1);
-        amazonas.add(R.drawable.ama_a_2);
-        amazonas.add(R.drawable.ama_a_3);
-        amazonas.add(R.drawable.ama_a_4);
-        amazonas.add(R.drawable.ama_a_5);
-        amazonas.add(R.drawable.ama_a_6);
-        amazonas.add(R.drawable.ama_a_7);
-        amazonas.add(R.drawable.ama_a_8);
-        amazonas.add(R.drawable.ama_a_9);
-        amazonas.add(R.drawable.ama_a_10);
-        amazonas.add(R.drawable.ama_a_11);
-        amazonas.add(R.drawable.ama_a_12);
-        amazonas.add(R.drawable.ama_a_13);
-        amazonas.add(R.drawable.ama_a_14);
-        amazonas.add(R.drawable.ama_a_15);
-        amazonas.add(R.drawable.ama_a_16);
-        amazonas.add(R.drawable.ama_a_17);
 
-
-        amazonas.add(R.drawable.ama_v_0);
-        amazonas.add(R.drawable.ama_v_1);
-        amazonas.add(R.drawable.ama_v_2);
-        amazonas.add(R.drawable.ama_v_3);
-        amazonas.add(R.drawable.ama_v_4);
-        amazonas.add(R.drawable.ama_v_5);
-        amazonas.add(R.drawable.ama_v_6);
-        amazonas.add(R.drawable.ama_v_7);
-        amazonas.add(R.drawable.ama_v_8);
-        amazonas.add(R.drawable.ama_v_9);
-        amazonas.add(R.drawable.ama_v_10);
-        amazonas.add(R.drawable.ama_v_11);
-        amazonas.add(R.drawable.ama_v_12);
-        amazonas.add(R.drawable.ama_v_13);
-        amazonas.add(R.drawable.ama_v_14);
-        amazonas.add(R.drawable.ama_v_15);
-
-
-        //imagenes madagascar
-        madagascar.add(R.drawable.mad_a_0);
-        madagascar.add(R.drawable.mad_a_1);
-        madagascar.add(R.drawable.mad_a_2);
-
-        madagascar.add(R.drawable.mad_v_0);
-        madagascar.add(R.drawable.mad_v_1);
-        madagascar.add(R.drawable.mad_v_2);
-        madagascar.add(R.drawable.mad_v_3);
-        madagascar.add(R.drawable.mad_v_4);
-        madagascar.add(R.drawable.mad_v_5);
-        madagascar.add(R.drawable.mad_v_6);
-        madagascar.add(R.drawable.mad_v_7);
-        madagascar.add(R.drawable.mad_v_8);
-        madagascar.add(R.drawable.mad_v_9);
-        madagascar.add(R.drawable.mad_v_10);
-        madagascar.add(R.drawable.mad_v_11);
-        madagascar.add(R.drawable.mad_v_12);
-        madagascar.add(R.drawable.mad_v_13);
-        madagascar.add(R.drawable.mad_v_14);
-        madagascar.add(R.drawable.mad_v_15);
-
-
-        //imagenes indo pacifico
-        indoPacifico.add(R.drawable.ip_a_0);
-        indoPacifico.add(R.drawable.ip_a_1);
-        indoPacifico.add(R.drawable.ip_a_2);
-        indoPacifico.add(R.drawable.ip_a_3);
-        indoPacifico.add(R.drawable.ip_a_4);
-        indoPacifico.add(R.drawable.ip_a_5);
-        indoPacifico.add(R.drawable.ip_a_6);
-        indoPacifico.add(R.drawable.ip_a_7);
-        indoPacifico.add(R.drawable.ip_a_8);
-        indoPacifico.add(R.drawable.ip_a_9);
-        indoPacifico.add(R.drawable.ip_a_10);
-        indoPacifico.add(R.drawable.ip_a_11);
-        indoPacifico.add(R.drawable.ip_a_12);
-        indoPacifico.add(R.drawable.ip_a_13);
-        indoPacifico.add(R.drawable.ip_a_14);
-        indoPacifico.add(R.drawable.ip_a_15);
+                // inserts descripciones amazonas
+                specieTexts.add(getResources().getString(R.string.ama_a_0_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_1_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_2_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_3_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_4_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_5_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_6_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_7_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_8_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_9_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_10_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_11_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_12_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_13_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_14_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_15_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_16_text));
+                specieTexts.add(getResources().getString(R.string.ama_a_17_text));
 
 
 
-        indoPacifico.add(R.drawable.ip_v_0);
-        indoPacifico.add(R.drawable.ip_v_1);
-        indoPacifico.add(R.drawable.ip_v_2);
-        indoPacifico.add(R.drawable.ip_v_3);
-        indoPacifico.add(R.drawable.ip_v_4);
-        indoPacifico.add(R.drawable.ip_v_5);
-        indoPacifico.add(R.drawable.ip_v_6);
-        indoPacifico.add(R.drawable.ip_v_7);
-        indoPacifico.add(R.drawable.ip_v_8);
-        indoPacifico.add(R.drawable.ip_v_9);
-        indoPacifico.add(R.drawable.ip_v_10);
-        indoPacifico.add(R.drawable.ip_v_11);
-        indoPacifico.add(R.drawable.ip_v_12);
-        indoPacifico.add(R.drawable.ip_v_13);
-        indoPacifico.add(R.drawable.ip_v_14);
-        indoPacifico.add(R.drawable.ip_v_15);
-
-
-        // INSERTS id descripciones
-        // inserts descripciones amazonas
-        amazonasTexts.add(getResources().getString(R.string.ama_a_0_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_1_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_2_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_3_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_4_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_5_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_6_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_7_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_8_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_9_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_10_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_11_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_12_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_13_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_14_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_15_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_16_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_a_17_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_0_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_1_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_2_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_3_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_4_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_5_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_6_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_7_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_8_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_9_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_10_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_11_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_12_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_13_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_14_text));
+                specieTexts.add(getResources().getString(R.string.ama_v_15_text));
+                break;
 
 
 
-        amazonasTexts.add(getResources().getString(R.string.ama_v_0_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_1_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_2_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_3_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_4_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_5_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_6_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_7_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_8_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_9_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_10_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_11_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_12_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_13_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_14_text));
-        amazonasTexts.add(getResources().getString(R.string.ama_v_15_text));
+            case "1":
+                //titulos madagascar
+                specieNames.add(getResources().getString(R.string.mad_a_0_title));
+                specieNames.add(getResources().getString(R.string.mad_a_1_title));
+                specieNames.add(getResources().getString(R.string.mad_a_2_title));
+
+                specieNames.add(getResources().getString(R.string.mad_v_0_title));
+                specieNames.add(getResources().getString(R.string.mad_v_1_title));
+                specieNames.add(getResources().getString(R.string.mad_v_2_title));
+                specieNames.add(getResources().getString(R.string.mad_v_3_title));
+                specieNames.add(getResources().getString(R.string.mad_v_4_title));
+                specieNames.add(getResources().getString(R.string.mad_v_5_title));
+                specieNames.add(getResources().getString(R.string.mad_v_6_title));
+                specieNames.add(getResources().getString(R.string.mad_v_7_title));
+                specieNames.add(getResources().getString(R.string.mad_v_8_title));
+                specieNames.add(getResources().getString(R.string.mad_v_9_title));
+                specieNames.add(getResources().getString(R.string.mad_v_10_title));
+                specieNames.add(getResources().getString(R.string.mad_v_11_title));
+                specieNames.add(getResources().getString(R.string.mad_v_12_title));
+                specieNames.add(getResources().getString(R.string.mad_v_13_title));
+                specieNames.add(getResources().getString(R.string.mad_v_14_title));
+                specieNames.add(getResources().getString(R.string.mad_v_15_title));
+
+                //imagenes madagascar
+                specieImages.add(R.drawable.mad_a_0);
+                specieImages.add(R.drawable.mad_a_1);
+                specieImages.add(R.drawable.mad_a_2);
+
+                specieImages.add(R.drawable.mad_v_0);
+                specieImages.add(R.drawable.mad_v_1);
+                specieImages.add(R.drawable.mad_v_2);
+                specieImages.add(R.drawable.mad_v_3);
+                specieImages.add(R.drawable.mad_v_4);
+                specieImages.add(R.drawable.mad_v_5);
+                specieImages.add(R.drawable.mad_v_6);
+                specieImages.add(R.drawable.mad_v_7);
+                specieImages.add(R.drawable.mad_v_8);
+                specieImages.add(R.drawable.mad_v_9);
+                specieImages.add(R.drawable.mad_v_10);
+                specieImages.add(R.drawable.mad_v_11);
+                specieImages.add(R.drawable.mad_v_12);
+                specieImages.add(R.drawable.mad_v_13);
+                specieImages.add(R.drawable.mad_v_14);
+                specieImages.add(R.drawable.mad_v_15);
 
 
-        // inserts descripciones madagascar
-        madagascarTexts.add(getResources().getString(R.string.mad_a_0_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_a_1_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_a_2_text));
 
 
-        madagascarTexts.add(getResources().getString(R.string.mad_v_0_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_1_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_2_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_3_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_4_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_5_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_6_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_7_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_8_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_9_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_10_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_11_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_12_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_13_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_14_text));
-        madagascarTexts.add(getResources().getString(R.string.mad_v_15_text));
-
-        // descripciones indo pacifico
-
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_0_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_1_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_2_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_3_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_4_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_5_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_6_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_7_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_8_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_9_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_10_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_11_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_12_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_13_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_14_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_a_15_text));
+                // inserts descripciones madagascar
+                specieTexts.add(getResources().getString(R.string.mad_a_0_text));
+                specieTexts.add(getResources().getString(R.string.mad_a_1_text));
+                specieTexts.add(getResources().getString(R.string.mad_a_2_text));
 
 
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_0_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_1_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_2_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_3_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_4_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_5_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_6_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_7_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_8_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_9_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_10_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_11_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_12_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_13_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_14_text));
-        indoPacificoTexts.add(getResources().getString(R.string.ip_v_15_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_0_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_1_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_2_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_3_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_4_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_5_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_6_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_7_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_8_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_9_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_10_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_11_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_12_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_13_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_14_text));
+                specieTexts.add(getResources().getString(R.string.mad_v_15_text));
+                break;
+
+            case "2":
+
+                //titulos indopacifico
+                specieNames.add(getResources().getString(R.string.ip_a_0_title));
+                specieNames.add(getResources().getString(R.string.ip_a_1_title));
+                specieNames.add(getResources().getString(R.string.ip_a_2_title));
+                specieNames.add(getResources().getString(R.string.ip_a_3_title));
+                specieNames.add(getResources().getString(R.string.ip_a_4_title));
+                specieNames.add(getResources().getString(R.string.ip_a_5_title));
+                specieNames.add(getResources().getString(R.string.ip_a_6_title));
+                specieNames.add(getResources().getString(R.string.ip_a_7_title));
+                specieNames.add(getResources().getString(R.string.ip_a_8_title));
+                specieNames.add(getResources().getString(R.string.ip_a_9_title));
+                specieNames.add(getResources().getString(R.string.ip_a_10_title));
+                specieNames.add(getResources().getString(R.string.ip_a_11_title));
+                specieNames.add(getResources().getString(R.string.ip_a_12_title));
+                specieNames.add(getResources().getString(R.string.ip_a_13_title));
+                specieNames.add(getResources().getString(R.string.ip_a_14_title));
+                specieNames.add(getResources().getString(R.string.ip_a_15_title));
+
+
+
+                specieNames.add(getResources().getString(R.string.ip_v_0_title));
+                specieNames.add(getResources().getString(R.string.ip_v_1_title));
+                specieNames.add(getResources().getString(R.string.ip_v_2_title));
+                specieNames.add(getResources().getString(R.string.ip_v_3_title));
+                specieNames.add(getResources().getString(R.string.ip_v_4_title));
+                specieNames.add(getResources().getString(R.string.ip_v_5_title));
+                specieNames.add(getResources().getString(R.string.ip_v_6_title));
+                specieNames.add(getResources().getString(R.string.ip_v_7_title));
+                specieNames.add(getResources().getString(R.string.ip_v_8_title));
+                specieNames.add(getResources().getString(R.string.ip_v_9_title));
+                specieNames.add(getResources().getString(R.string.ip_v_10_title));
+                specieNames.add(getResources().getString(R.string.ip_v_11_title));
+                specieNames.add(getResources().getString(R.string.ip_v_12_title));
+                specieNames.add(getResources().getString(R.string.ip_v_13_title));
+                specieNames.add(getResources().getString(R.string.ip_v_14_title));
+                specieNames.add(getResources().getString(R.string.ip_v_15_title));
+
+
+
+
+
+                //imagenes indo pacifico
+                specieImages.add(R.drawable.ip_a_0);
+                specieImages.add(R.drawable.ip_a_1);
+                specieImages.add(R.drawable.ip_a_2);
+                specieImages.add(R.drawable.ip_a_3);
+                specieImages.add(R.drawable.ip_a_4);
+                specieImages.add(R.drawable.ip_a_5);
+                specieImages.add(R.drawable.ip_a_6);
+                specieImages.add(R.drawable.ip_a_7);
+                specieImages.add(R.drawable.ip_a_8);
+                specieImages.add(R.drawable.ip_a_9);
+                specieImages.add(R.drawable.ip_a_10);
+                specieImages.add(R.drawable.ip_a_11);
+                specieImages.add(R.drawable.ip_a_12);
+                specieImages.add(R.drawable.ip_a_13);
+                specieImages.add(R.drawable.ip_a_14);
+                specieImages.add(R.drawable.ip_a_15);
+
+
+
+                specieImages.add(R.drawable.ip_v_0);
+                specieImages.add(R.drawable.ip_v_1);
+                specieImages.add(R.drawable.ip_v_2);
+                specieImages.add(R.drawable.ip_v_3);
+                specieImages.add(R.drawable.ip_v_4);
+                specieImages.add(R.drawable.ip_v_5);
+                specieImages.add(R.drawable.ip_v_6);
+                specieImages.add(R.drawable.ip_v_7);
+                specieImages.add(R.drawable.ip_v_8);
+                specieImages.add(R.drawable.ip_v_9);
+                specieImages.add(R.drawable.ip_v_10);
+                specieImages.add(R.drawable.ip_v_11);
+                specieImages.add(R.drawable.ip_v_12);
+                specieImages.add(R.drawable.ip_v_13);
+                specieImages.add(R.drawable.ip_v_14);
+                specieImages.add(R.drawable.ip_v_15);
+
+
+                // descripciones indo pacifico
+
+                specieTexts.add(getResources().getString(R.string.ip_a_0_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_1_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_2_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_3_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_4_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_5_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_6_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_7_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_8_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_9_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_10_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_11_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_12_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_13_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_14_text));
+                specieTexts.add(getResources().getString(R.string.ip_a_15_text));
+
+
+                specieTexts.add(getResources().getString(R.string.ip_v_0_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_1_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_2_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_3_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_4_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_5_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_6_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_7_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_8_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_9_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_10_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_11_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_12_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_13_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_14_text));
+                specieTexts.add(getResources().getString(R.string.ip_v_15_text));
+
+                break;
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 
 

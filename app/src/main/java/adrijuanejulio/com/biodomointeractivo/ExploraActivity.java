@@ -8,10 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 public class ExploraActivity extends AppCompatActivity {
+
+    // Código para cada zona del biodomo
     final private String ZONE_AMAZONIA = "0";
     final private String ZONE_MADAGASCAR = "1";
     final private String ZONE_INDOPACIFICO = "2";
 
+    // Botones para abrir cada zona del biodomo
     private Button amaButton;
     private Button madButton;
     private Button ipButton;
@@ -21,6 +24,8 @@ public class ExploraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explora);
 
+
+        // Asignamos los botones y activamos el listener
         amaButton = findViewById(R.id.ama_button);
         madButton = findViewById(R.id.mad_button);
         ipButton = findViewById(R.id.ip_button);

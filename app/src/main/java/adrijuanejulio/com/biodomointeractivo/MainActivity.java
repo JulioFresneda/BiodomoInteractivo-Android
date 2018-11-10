@@ -53,7 +53,7 @@ import ai.api.model.AIResponse;
 import ai.api.model.Result;
 
 // Esta es nuestra actividad principal y es el medio para poder ir hacia otras actividades hechas, es el eje principal y donde esta nuestro asistente.
-// Dentro de esta actividad esta el acceso a las otras además de un algoritmo para detectar cuando el dispositivo es puesto boca abajo para que el asistente pare
+// Dentro de esta actividad esta el acceso a las otras, además de un algoritmo para detectar cuando el dispositivo es puesto boca abajo para que el asistente pare
 // de hablar.
 // ************* COMPLETAR *************//
 
@@ -77,7 +77,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
 
     // END ASR/TTS Fields
 
-    // BUttons
+    // Botones para las otras actividades
     private ImageButton qrButton;
     private ImageButton speechButton;
     private ImageButton nfcButton;
@@ -85,6 +85,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     private ImageButton exploraButton;
     private ImageButton tarifasButton;
 
+    // Botones para las redes sociales
     private ImageButton fbButton;
     private ImageButton twitterButton;
     private ImageButton webButton;
@@ -114,6 +115,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Asignamos los botones
         qrButton = findViewById(R.id.qr_button);
         speechButton = findViewById(R.id.speech_button);
         nfcButton = findViewById(R.id.nfc_button);
@@ -204,7 +206,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     }
 
     /**
-     * Initializes the qr button and its listener. When the button is pressed, a qr recognition is enabled.
+     * Inicializamos el botón QR y su listener. Cuando el botón es pulsado, se abre la cámara para leer QR
      */
     private void setQrButton() {
         // gain reference to qr button
@@ -226,22 +228,28 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         });
     }
 
-    /* Returns results of call intents (use of QR)*/
+    /* Devuelve los resultados obtenidos al leer el QR */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
+        // Si el resultado no es nulo
         if (result != null) {
+
+            // Si cancelamos el escaneo
             if (result.getContents() == null) {
                 Toast.makeText(this, "Has cancelado el escaneo", Toast.LENGTH_LONG).show();
             } else {
 //
                 String contentQR = result.getContents();
 
+                // Si el QR nos lleva a una página web
                 if (contentQR.contains("http")) {
                     Uri web = Uri.parse(contentQR);
                     Intent gotoWeb = new Intent(Intent.ACTION_VIEW, web);
                     startActivity(gotoWeb);
+
+                // En caso contrario, nos llevará a un animal o vegetal del Explora
                 } else {
                     // Low cifrate
                     if (contentQR.toLowerCase().contains("biodomointeractivo")) {
@@ -259,7 +267,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     }
 
     /**
-     * Initializes the NFC button and its listener. When the button is pressed, a NFC recognition is enabled.
+     * Inicializamos el botón NFC y su listener. Cuando el botón es pulsado, se activa el reconocimiento NFC
      */
     private void setNFCButton() {
         nfcButton.setOnClickListener(new View.OnClickListener() {
@@ -271,7 +279,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         });
     }
 
-    /* LAunch NFC activity*/
+    /* Launch NFC activity*/
     private void launchNFCActivity() {
         Intent intent = new Intent(this, NFCActivity.class);
         startActivity(intent);
@@ -279,7 +287,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
 
 
     /**
-     * Initializes the Explora button and its listener.
+     * Inicializamos el botón de explora y su listener
      */
     private void setExploraButton() {
         exploraButton.setOnClickListener(new View.OnClickListener() {
@@ -299,7 +307,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
 
 
     /**
-     * Initializes the Tarifas button and its listener. When the button is pressed, tarifas is enabled.
+     * Inicializamos el botón de tarifas y su listener. Cuando el botón es pulsado, se abre la actividad de las tarifas y precios
      */
     private void setTarifasButton() {
         tarifasButton.setOnClickListener(new View.OnClickListener() {
@@ -320,7 +328,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
 
 
     /**
-     * Initializes the NFC button and its listener. When the button is pressed, a NFC recognition is enabled.
+     * Inicializamos el botón del mapa y su listener. Cuando el botón es pulsado, se abre un mapa del cual podemos hacer zoom
      */
     private void setMapaButton() {
         mapaButton.setOnClickListener(new View.OnClickListener() {
@@ -332,7 +340,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         });
     }
 
-    /* Launch NFC activity*/
+    /* Launch mapa activity*/
     private void launchMapaActivity() {
         Intent intent = new Intent(this, MapaActivity.class);
         startActivity(intent);
@@ -340,13 +348,13 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
 
 
     /**
-     * Initializes the Twitter button and its listener.
+     * Inicializamos el botón de twitter y su listener. Cuando el botón es pulsado, se activa el navegador con el twitter del biodomo
      */
     private void setTwitterButton() {
         twitterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
                     Intent intent = new Intent(Intent.ACTION_VIEW,
                             Uri.parse("https://twitter.com/ParqueCiencias"));
                     startActivity(intent);
@@ -357,7 +365,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     }
 
     /**
-     * Initializes the Fb button and its listener.
+     * Inicializamos el botón de twitter y su listener. Cuando el botón es pulsado, se activa el navegador con el facebook del biodomo
      */
     private void setFbButton() {
         fbButton.setOnClickListener(new View.OnClickListener() {
@@ -374,7 +382,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     }
 
     /**
-     * Initializes the web button and its listener.
+     * Inicializamos el botón de twitter y su listener. Cuando el botón es pulsado, se activa el navegador con la web del biodomo
      */
     private void setWebButton() {
         webButton.setOnClickListener(new View.OnClickListener() {
@@ -392,7 +400,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
 
 
     /**
-     * Initializes the Yt button and its listener.
+     * Inicializamos el botón de twitter y su listener. Cuando el botón es pulsado, se activa el navegador con el canal de youtube del biodomo
      */
     private void setYtButton() {
         ytButton.setOnClickListener(new View.OnClickListener() {
