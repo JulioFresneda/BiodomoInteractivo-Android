@@ -245,17 +245,17 @@ public class ExploraViewActivity extends AppCompatActivity {
             switch (id) {
                 case 0:
                     titleTextView.setText(R.string.zone_amazonia_title);
-                    imageView.setImageResource(R.drawable.explora_amaz_button);
+                    imageView.setImageResource(R.drawable.nfc_amazonia);
                     textView.setText(R.string.zone_amazonia_desc);
                     break;
                 case 1:
                     titleTextView.setText(R.string.zone_madagascar_title);
-                    imageView.setImageResource(R.drawable.explora_mad_button);
+                    imageView.setImageResource(R.drawable.nfc_madagascar);
                     textView.setText(R.string.zone_madagascar_desc);
                     break;
                 case 2:
                     titleTextView.setText(R.string.zone_ip_title);
-                    imageView.setImageResource(R.drawable.explora_ip_button);
+                    imageView.setImageResource(R.drawable.nfc_indopacifico);
                     textView.setText(R.string.zone_ip_desc);
                     break;
                 default:
