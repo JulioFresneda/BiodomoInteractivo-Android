@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_explora"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -62,7 +61,6 @@
             app:layout_constraintTop_toTopOf="@+id/ama_button" />
 
         <TextView
-            android:id="@+id/amazoniaTextButton"
             android:layout_width="0dp"
             android:layout_height="91dp"
             android:layout_marginStart="80dp"
@@ -127,7 +125,6 @@
             app:layout_constraintTop_toTopOf="@+id/mad_button" />
 
         <TextView
-            android:id="@+id/madagascarTextButton"
             android:layout_width="0dp"
             android:layout_height="91dp"
             android:layout_marginStart="80dp"
@@ -192,7 +189,6 @@
             app:layout_constraintTop_toTopOf="@+id/ip_button" />
 
         <TextView
-            android:id="@+id/indopacificoTextButton"
             android:layout_width="0dp"
             android:layout_height="91dp"
             android:layout_marginStart="80dp"

@@ -6,15 +6,14 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/topscreen_mapa"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:scaleType="centerCrop"
         android:translationZ="3dp"
-        app:srcCompat="@drawable/background_v" />
+        app:srcCompat="@drawable/background_v"
+        android:contentDescription="Top bar" />
 
     <ImageView
-        android:id="@+id/bottomscreen_mapa"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignBottom="@+id/myZoomageView"
@@ -23,7 +22,8 @@
         android:layout_marginBottom="0dp"
         android:scaleType="centerCrop"
         android:translationZ="3dp"
-        app:srcCompat="@drawable/background_v" />
+        app:srcCompat="@drawable/background_v"
+        android:contentDescription="Bottom" />
 
     <ImageView
         android:id="@+id/background"

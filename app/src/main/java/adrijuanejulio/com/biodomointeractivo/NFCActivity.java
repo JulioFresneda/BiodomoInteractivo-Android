@@ -3,13 +3,10 @@ package adrijuanejulio.com.biodomointeractivo;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NdefMessage;
-import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.MifareClassic;
 import android.nfc.tech.MifareUltralight;
-import android.nfc.tech.NfcA;
-import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,14 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import adrijuanejulio.com.biodomointeractivo.parser.NdefMessageParser;
 import adrijuanejulio.com.biodomointeractivo.record.ParsedNdefRecord;
 
 public class NFCActivity extends AppCompatActivity {
-    NfcAdapter nfcAdapter;
+    private NfcAdapter nfcAdapter;
     PendingIntent pendingIntent;
     TextView text;
 
@@ -180,7 +176,7 @@ public class NFCActivity extends AppCompatActivity {
                     sb.append('\n');
 
                     sb.append("Mifare size: ");
-                    sb.append(mifareTag.getSize() + " bytes");
+                    sb.append(mifareTag.getSize()).append(" bytes");
                     sb.append('\n');
 
                     sb.append("Mifare sectors: ");
@@ -190,7 +186,7 @@ public class NFCActivity extends AppCompatActivity {
                     sb.append("Mifare blocks: ");
                     sb.append(mifareTag.getBlockCount());
                 } catch (Exception e) {
-                    sb.append("Mifare classic error: " + e.getMessage());
+                    sb.append("Mifare classic error: ").append(e.getMessage());
                 }
             }
 
@@ -246,9 +242,9 @@ public class NFCActivity extends AppCompatActivity {
         long result = 0;
         long factor = 1;
         for (byte aByte : bytes) {
-            long value = aByte & 0xffl;
+            long value = aByte & 0xffL;
             result += value * factor;
-            factor *= 256l;
+            factor *= 256L;
         }
         return result;
     }
@@ -257,9 +253,9 @@ public class NFCActivity extends AppCompatActivity {
         long result = 0;
         long factor = 1;
         for (int i = bytes.length - 1; i >= 0; --i) {
-            long value = bytes[i] & 0xffl;
+            long value = bytes[i] & 0xffL;
             result += value * factor;
-            factor *= 256l;
+            factor *= 256L;
         }
         return result;
     }

@@ -6,31 +6,18 @@
     <string name="lector_nfc">Lector NFC</string>
     <string name="lector_qr">Lector QR</string>
     <string name="precios">Precios</string>
-    <string name="redes_sociales">Redes sociales</string>
     <string name="mapa">Mapa</string>
     <string name="tarifas_image">Tarifas</string>
 
     <!-- Voice strings -->
     <!-- Texts -->
-    <string name="speechbtn_default">Háblame</string>
-    <string name="speechbtn_listening">Estoy escuchándote…</string>
-    <string name="initial_prompt">Bienvenido al Biodomo de Granada</string>
     <string name="listen_again">Qué quieres saber</string>
-    <string name="listen_later">Cuando quieras seguimos!</string>
 
     <string name="check_internet_connection">Please check your Internet connection</string>
 
     <string name="asr_permission">BiodomoAssistant must access the microphone in order to perform speech recognition</string>
     <string name="asr_permission_notgranted">Sorry, Biodomo Assistant cannot work without accessing the microphone</string>
-    <string name="asr_notsupported">ASR not supported</string>
-    <string name="asr_results">Results ready :D</string>
-    <string name="asr_invalid_params">Invalid parameters for recognition</string>
     <string name="asr_error">Speech recognition error</string>
-    <string name="asr_readyforspeech">Ready to hear you speak!</string>
-    <string name="asr_beginningofspeech">You have started talking ;)</string>
-    <string name="asr_buffer">Buffer received</string>
-    <string name="asr_endofspeech">You have stopped talking</string>
-    <string name="asr_parcialresult">Parcial results received</string>
     <string name="asr_error_audio"> Audio recording error</string>
     <string name="asr_error_client">Unknown client side error</string>
     <string name="asr_error_permissions">Insufficient permissions</string>
@@ -43,19 +30,11 @@
     <string name="asr_notstarted">Speech recognition could not be started</string>
 
     <!-- Colors -->
-    <color name="speechbtn_default">#EEEEEE</color>
 
     <!-- Generales -->
-    <string name="hello_world">Hello world!</string>
-    <string name="habla_con_nuestro_asistente_del_biodomo">Habla con nuestro asistente del Biodomo</string>
-    <string name="escanea">Escanea el código QR para obtener información de la especie</string>
-    <color name="speechbtn_listening">#99FFBB</color>
-    <string name="title_activity_como_llegar_gm">Map</string>
-    <string name="ruta">Pulsa para obtener la ruta de tu posición actual al Biodomo</string>
     <string name="donde_se_almacena_la_imagen">Donde se almacena la imagen</string>
     <string name="boton_left">Boton left</string>
     <string name="boton_right">Boton right</string>
-    <string name="texto_descriptivo">Texto descriptivo</string>
     <string name="nfc_activity_name">NFC Activity</string>
     <string name="nfc_message">Hold a tag against the back of your device</string>
     <!-- END generales-->

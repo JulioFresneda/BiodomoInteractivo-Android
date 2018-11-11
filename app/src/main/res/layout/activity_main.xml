@@ -83,7 +83,6 @@
         android:contentDescription="@string/brujula" />
 
     <TextView
-        android:id="@+id/cabecera_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -112,7 +111,6 @@
         app:layout_constraintTop_toTopOf="@+id/explora_button" />
 
     <TextView
-        android:id="@+id/exploraTextButton"
         android:layout_width="225dp"
         android:layout_height="91dp"
         android:layout_marginTop="8dp"
@@ -165,7 +163,6 @@
 
 
     <TextView
-        android:id="@+id/nfcText"
         android:layout_width="107dp"
         android:layout_height="29dp"
         android:layout_marginStart="45dp"
@@ -176,7 +173,6 @@
         app:layout_constraintTop_toTopOf="@+id/nfc_button" />
 
     <TextView
-        android:id="@+id/qrText"
         android:layout_width="91dp"
         android:layout_height="29dp"
         android:layout_marginStart="45dp"
@@ -187,7 +183,6 @@
         app:layout_constraintTop_toTopOf="@+id/qr_button" />
 
     <TextView
-        android:id="@+id/preciosText"
         android:layout_width="70dp"
         android:layout_height="29dp"
         android:layout_marginStart="45dp"
@@ -198,7 +193,6 @@
         app:layout_constraintTop_toTopOf="@+id/precios_button" />
 
     <TextView
-        android:id="@+id/mapaText"
         android:layout_width="52dp"
         android:layout_height="32dp"
         android:layout_marginStart="45dp"

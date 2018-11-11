@@ -12,7 +12,8 @@ tools:context=".NFCActivity">
     android:layout_height="200dp"
     android:layout_marginTop="50dp"
     android:src="@drawable/nfc_button"
-    android:layout_centerHorizontal="true"/>
+    android:layout_centerHorizontal="true"
+    android:contentDescription="Logo NFC" />
 
     <TextView
         android:id="@+id/nfc_text"

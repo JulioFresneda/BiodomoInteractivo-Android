@@ -82,7 +82,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/bg_explora_button" />
+        app:srcCompat="@drawable/bg_explora_button"
+        android:contentDescription="Texto background explora" />
 
     <ImageView
         android:id="@+id/bg_title_explora"
@@ -92,7 +93,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_v" />
+        app:srcCompat="@drawable/background_v"
+        android:contentDescription="Título background explora" />
 
     <ImageView
         android:id="@+id/specieImage"
@@ -117,6 +119,7 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/lectorqr_button" />
+        app:srcCompat="@drawable/lectorqr_button"
+        android:focusable="true" />
 
 </android.support.constraint.ConstraintLayout>

@@ -16,8 +16,6 @@ import android.os.Bundle;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -420,7 +418,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
      * Detect if the device is face up or face down
      */
 
-    public void getAccelerometer(SensorEvent event) {
+    private void getAccelerometer(SensorEvent event) {
         float gz;
         int type = event.sensor.getType();
         if (type == Sensor.TYPE_ACCELEROMETER) {

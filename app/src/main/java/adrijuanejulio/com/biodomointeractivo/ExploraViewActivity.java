@@ -23,10 +23,6 @@ import java.util.Collections;
 public class ExploraViewActivity extends AppCompatActivity {
 
 
-    // Zona del biodomo que queremos explorar
-    private String zoneSelected;
-
-
     // Arrays donde se almacenarán sólo los nombres, imágenes y textos de la zona que queremos explorar
     private ArrayList<String> specieNames;
     private ArrayList<Integer> specieImages;
@@ -36,7 +32,8 @@ public class ExploraViewActivity extends AppCompatActivity {
     private ArrayList<Integer> shuffleIndices;
 
     // Botones para pasar a la izquierda, derecha y el botón flotante lector de QR
-    Button leftButton, rightButton;
+    private Button leftButton;
+    Button rightButton;
     FloatingActionButton floatingQRButton;
 
     TextView titleTextView;
@@ -80,7 +77,8 @@ public class ExploraViewActivity extends AppCompatActivity {
 
         if (getIntent().getStringExtra("zone") != null) {
             Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla de zonas");
-            zoneSelected = getIntent().getStringExtra("zone");
+            // Zona del biodomo que queremos explorar
+            String zoneSelected = getIntent().getStringExtra("zone");
 
             specieNames = new ArrayList<>();
             specieImages = new ArrayList<>();

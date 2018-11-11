@@ -9,11 +9,6 @@ import android.widget.Button;
 
 public class ExploraActivity extends AppCompatActivity {
 
-    // Código para cada zona del biodomo
-    final private String ZONE_AMAZONIA = "0";
-    final private String ZONE_MADAGASCAR = "1";
-    final private String ZONE_INDOPACIFICO = "2";
-
     // Botones para abrir cada zona del biodomo
     private Button amaButton;
     private Button madButton;
@@ -54,6 +49,8 @@ public class ExploraActivity extends AppCompatActivity {
     /* Launch Amazonia activity*/
     private void launchAmaActivity(){
         Intent intent = new Intent(this, ExploraViewActivity.class);
+        // Código para cada zona del biodomo
+        String ZONE_AMAZONIA = "0";
         intent.putExtra("zone", ZONE_AMAZONIA);
         startActivity(intent);
     }
@@ -76,6 +73,7 @@ public class ExploraActivity extends AppCompatActivity {
     /* Launch madagascar activity*/
     private void launchMadActivity(){
         Intent intent = new Intent(this, ExploraViewActivity.class);
+        String ZONE_MADAGASCAR = "1";
         intent.putExtra("zone", ZONE_MADAGASCAR);
         startActivity(intent);
     }
@@ -97,6 +95,7 @@ public class ExploraActivity extends AppCompatActivity {
     /* Launch madagascar activity*/
     private void launchIpActivity(){
         Intent intent = new Intent(this, ExploraViewActivity.class);
+        String ZONE_INDOPACIFICO = "2";
         intent.putExtra("zone", ZONE_INDOPACIFICO);
         startActivity(intent);
     }
