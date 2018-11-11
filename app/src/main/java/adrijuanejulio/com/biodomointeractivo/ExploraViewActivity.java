@@ -54,22 +54,14 @@ public class ExploraViewActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explora_view);
 
-        /* INICIO SIMULACION BASE DE DATOS */
         shuffleIndices = new ArrayList<>();
 
         floatingQRButton = findViewById(R.id.floatingQRButton);
         //Set up the qr button
         setQrButton();
-
-
-
-
-
-        /* FIN SIMULACION BASE DE DATOS */
 
         position = 0;
 
@@ -82,10 +74,6 @@ public class ExploraViewActivity extends AppCompatActivity {
 
         leftButtonDrawable = getDrawable(R.drawable.button_left);
         rightButtonDrawable = getDrawable(R.drawable.button_right);
-
-
-
-
 
 
         // Insertamos datos según la zona
@@ -101,16 +89,13 @@ public class ExploraViewActivity extends AppCompatActivity {
             ImageView topscreen;
             ImageView bgText;
 
-            // INSERT SPECIES
-            insertSpecies( zoneSelected );
+            /* INICIO SIMULACION BASE DE DATOS */
+            insertSpecies(zoneSelected);
+            /* FIN SIMULACION BASE DE DATOS */
 
             // Cargamos el color de la interfaz según en qué zona estemos
             switch (zoneSelected) {
-
-
                 case "0":
-
-
                     topscreen = findViewById(R.id.bg_title_explora);
                     topscreen.setImageResource(R.drawable.explora_ama_topscreen);
 
@@ -122,8 +107,6 @@ public class ExploraViewActivity extends AppCompatActivity {
 
                     break;
                 case "1":
-
-
                     topscreen = findViewById(R.id.bg_title_explora);
                     topscreen.setImageResource(R.drawable.explora_mad_topscreen);
 
@@ -135,8 +118,6 @@ public class ExploraViewActivity extends AppCompatActivity {
 
                     break;
                 case "2":
-
-
                     topscreen = findViewById(R.id.bg_title_explora);
                     topscreen.setImageResource(R.drawable.explora_ip_topscreen);
 
@@ -150,14 +131,11 @@ public class ExploraViewActivity extends AppCompatActivity {
             }
 
             // Hacemos shuffle a los índices
-            for(int i = 0; i< specieImages.size(); i++ )
-            {
+            for (int i = 0; i < specieImages.size(); i++) {
                 shuffleIndices.add(i);
             }
 
             Collections.shuffle(shuffleIndices);
-
-
 
             titleTextView.setText(specieNames.get(shuffleIndices.get(position)));
             imageView.setImageResource(specieImages.get(shuffleIndices.get(position)));
@@ -168,55 +146,56 @@ public class ExploraViewActivity extends AppCompatActivity {
 
 
             // Listener del botón derecho
-        rightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
+            rightButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (position < specieImages.size() - 1) {
+                        position++;
 
-                if(position < specieImages.size() -1) {
-                    position++;
+                        int id = specieImages.get(shuffleIndices.get(position));
 
-                    int id = specieImages.get(shuffleIndices.get(position));
+                        titleTextView.setText(specieNames.get(shuffleIndices.get(position)));
 
-                    titleTextView.setText(specieNames.get(shuffleIndices.get(position)));
+                        imageView.setImageResource(id);
 
-                    imageView.setImageResource(id);
+                        textView.setText(specieTexts.get(shuffleIndices.get(position)));
 
-                    textView.setText(specieTexts.get(shuffleIndices.get(position)));
+                        if (position == specieImages.size() - 1)
+                            rightButton.setBackgroundResource(R.drawable.button_left_right_off);
+                        if (position == 1) leftButton.setBackground(leftButtonDrawable);
 
-                    if( position == specieImages.size()-1 ) rightButton.setBackgroundResource(R.drawable.button_left_right_off);
-                    if( position == 1 ) leftButton.setBackground(leftButtonDrawable);
-
-                }
-            }
-
-        });
-
-        // Listener del botón izquierdo
-        leftButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-
-                if(position > 0 ) {
-                    position--;
-
-                    int id = specieImages.get(shuffleIndices.get(position));
-
-                    titleTextView.setText(specieNames.get(shuffleIndices.get(position)));
-                    imageView.setImageResource(id);
-                    textView.setText(specieTexts.get(shuffleIndices.get(position)));
-
-                    if( position == 0 ) leftButton.setBackgroundResource(R.drawable.button_left_right_off);
-
-
-                    if(position == specieImages.size()-2 ) rightButton.setBackground(rightButtonDrawable);
+                    }
                 }
 
-            }
+            });
+
+            // Listener del botón izquierdo
+            leftButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (position > 0) {
+                        position--;
+
+                        int id = specieImages.get(shuffleIndices.get(position));
+
+                        titleTextView.setText(specieNames.get(shuffleIndices.get(position)));
+                        imageView.setImageResource(id);
+                        textView.setText(specieTexts.get(shuffleIndices.get(position)));
+
+                        if (position == 0)
+                            leftButton.setBackgroundResource(R.drawable.button_left_right_off);
+
+
+                        if (position == specieImages.size() - 2)
+                            rightButton.setBackground(rightButtonDrawable);
+                    }
+
+                }
 
             });
 
 
-        // Si obtenemos información a través del QR, desciframos el mensaje y lo cargamos en ExploraView
+            // Si obtenemos información a través del QR, desciframos el mensaje y lo cargamos en ExploraView
         } else if (getIntent().getStringExtra("id") != null) {
             Log.e("RECIBIENDO INTENT", " ---------------> Viene de la pantalla del lector QR");
             String id = getIntent().getStringExtra("id");
@@ -267,11 +246,7 @@ public class ExploraViewActivity extends AppCompatActivity {
         }
 
 
-
     }
-
-
-
 
 
     /**
@@ -315,12 +290,10 @@ public class ExploraViewActivity extends AppCompatActivity {
                     startActivity(gotoWeb);
                 } else {
                     // Low cifrate
-
-
                     if (contentQR.toLowerCase().contains("biodomointeractivo")) {
 
                         String id = contentQR.substring(contentQR.indexOf(":") + 1);
-                        Log.e("ee33","e33333333e");
+                        Log.e("ee33", "e33333333e");
 
                         Intent intent = new Intent(this, ExploraViewActivity.class);
                         intent.putExtra("id", id);
@@ -337,19 +310,10 @@ public class ExploraViewActivity extends AppCompatActivity {
     }
 
 
+    /* insertar especies segun la zona */
+    private void insertSpecies(String zoneSelected) {
 
-
-
-
-
-
-
-
-    ////////// Método para insertar especies
-    private void insertSpecies( String zoneSelected)
-    {
-
-        switch (zoneSelected){
+        switch (zoneSelected) {
             case "0":
                 // titulos amazonas
                 specieNames.add(getResources().getString(R.string.ama_a_0_title));
@@ -429,8 +393,6 @@ public class ExploraViewActivity extends AppCompatActivity {
                 specieImages.add(R.drawable.ama_v_15);
 
 
-
-
                 // inserts descripciones amazonas
                 specieTexts.add(getResources().getString(R.string.ama_a_0_text));
                 specieTexts.add(getResources().getString(R.string.ama_a_1_text));
@@ -452,7 +414,6 @@ public class ExploraViewActivity extends AppCompatActivity {
                 specieTexts.add(getResources().getString(R.string.ama_a_17_text));
 
 
-
                 specieTexts.add(getResources().getString(R.string.ama_v_0_text));
                 specieTexts.add(getResources().getString(R.string.ama_v_1_text));
                 specieTexts.add(getResources().getString(R.string.ama_v_2_text));
@@ -470,7 +431,6 @@ public class ExploraViewActivity extends AppCompatActivity {
                 specieTexts.add(getResources().getString(R.string.ama_v_14_text));
                 specieTexts.add(getResources().getString(R.string.ama_v_15_text));
                 break;
-
 
 
             case "1":
@@ -519,8 +479,6 @@ public class ExploraViewActivity extends AppCompatActivity {
                 specieImages.add(R.drawable.mad_v_15);
 
 
-
-
                 // inserts descripciones madagascar
                 specieTexts.add(getResources().getString(R.string.mad_a_0_text));
                 specieTexts.add(getResources().getString(R.string.mad_a_1_text));
@@ -566,7 +524,6 @@ public class ExploraViewActivity extends AppCompatActivity {
                 specieNames.add(getResources().getString(R.string.ip_a_15_title));
 
 
-
                 specieNames.add(getResources().getString(R.string.ip_v_0_title));
                 specieNames.add(getResources().getString(R.string.ip_v_1_title));
                 specieNames.add(getResources().getString(R.string.ip_v_2_title));
@@ -583,9 +540,6 @@ public class ExploraViewActivity extends AppCompatActivity {
                 specieNames.add(getResources().getString(R.string.ip_v_13_title));
                 specieNames.add(getResources().getString(R.string.ip_v_14_title));
                 specieNames.add(getResources().getString(R.string.ip_v_15_title));
-
-
-
 
 
                 //imagenes indo pacifico
@@ -605,7 +559,6 @@ public class ExploraViewActivity extends AppCompatActivity {
                 specieImages.add(R.drawable.ip_a_13);
                 specieImages.add(R.drawable.ip_a_14);
                 specieImages.add(R.drawable.ip_a_15);
-
 
 
                 specieImages.add(R.drawable.ip_v_0);
@@ -666,18 +619,7 @@ public class ExploraViewActivity extends AppCompatActivity {
                 break;
 
 
-
-
         }
-
-
-
-
-
-
-
-
-
 
 
     }

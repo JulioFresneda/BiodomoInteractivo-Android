@@ -54,7 +54,6 @@ import static android.os.Build.BRAND;
  *
  * @author Zoraida Callejas, Michael McTear, David Griol
  * @version 3.1, 09/10/17
- *
  * @see <a href="http://developer.android.com/reference/android/speech/tts/TextToSpeech.html">TextToSpeech reference</a>
  * @see <a href="http://developer.android.com/reference/android/speech/tts/UtteranceProgressListener.html">UtteranceProgressListerner reference</a>
  */
@@ -70,16 +69,14 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
     private static final String LOGTAG = "VOICEACTIVITY";
 
 
-/*
-  					AUTOMATIC SPEECH RECOGNITION
-
- */
+    /* AUTOMATIC SPEECH RECOGNITION */
 
     /**
      * Creates the speech recognizer and text-to-speech synthesizer instances
-     * @see RecognitionListener
+     *
      * @param ctx context of the interaction
-     * */
+     * @see RecognitionListener
+     */
     protected void initSpeechInputOutput(Activity ctx) {
 
         this.ctx = ctx;
@@ -93,8 +90,7 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
         if (intActivities.size() != 0 || "generic".equals(BRAND.toLowerCase(Locale.US))) {
             myASR = SpeechRecognizer.createSpeechRecognizer(ctx);
             myASR.setRecognitionListener(this);
-        }
-        else
+        } else
             myASR = null;
     }
 
@@ -102,7 +98,7 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      * Checks whether the user has granted permission to the microphone. If the permission has not been provided,
      * it is requested. The result of the request (whether the user finally grants the permission or not)
      * is processed in the onRequestPermissionsResult method.
-     *
+     * <p>
      * This is necessary from Android 6 (API level 23), in which users grant permissions to apps
      * while the app is running. In previous versions, the permissions were granted when installing the app
      * See: http://developer.android.com/intl/es/training/permissions/requesting.html
@@ -126,10 +122,10 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      * abstract method "onRecordAudioPermissionDenied" method is invoked. Such method must be implemented
      * by the subclasses of VoiceActivity.
      * More info: http://developer.android.com/intl/es/training/permissions/requesting.html
-     * */
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
-        if(requestCode == MY_PERMISSIONS_REQUEST_RECORD_AUDIO) {
+        if (requestCode == MY_PERMISSIONS_REQUEST_RECORD_AUDIO) {
             // If request is cancelled, the result arrays are empty.
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Log.i(LOGTAG, "Record audio permission granted");
@@ -154,16 +150,14 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
     /**
      * Starts speech recognition after checking the ASR parameters
      *
-     * @param language Language used for speech recognition (e.g. Locale.ENGLISH)
+     * @param language   Language used for speech recognition (e.g. Locale.ENGLISH)
      * @param maxResults Maximum number of recognition results
-     * @exception Exception An exception is raised if the language specified is not available or the other parameters are not valid
+     * @throws Exception An exception is raised if the language specified is not available or the other parameters are not valid
      */
-    protected void listen(final Locale language, final int maxResults) throws Exception
-    {
+    protected void listen(final Locale language, final int maxResults) throws Exception {
         checkASRPermission();
 
-        if(maxResults >= 0)
-        {
+        if (maxResults >= 0) {
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 
             // Specify the calling package to identify the application
@@ -181,8 +175,7 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
 
             myASR.startListening(intent);
 
-        }
-        else {
+        } else {
             Log.e(LOGTAG, "Invalid params to listen method");
             throw new Exception("Invalid params to listen method"); //If the input parameters are not valid, it throws an exception
         }
@@ -190,12 +183,10 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
     }
 
 
-
-
     /**
      * Stops listening to the user
      */
-    protected void stopListening(){
+    protected void stopListening() {
         myASR.stopListening();
     }
 
@@ -206,24 +197,23 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      */
 
     @SuppressLint("InlinedApi")
-	/*
-	 * (non-Javadoc)
-	 *
-	 * Invoked when the ASR provides recognition results
-	 *
-	 * @see android.speech.RecognitionListener#onResults(android.os.Bundle)
-	 */
+    /*
+     * (non-Javadoc)
+     *
+     * Invoked when the ASR provides recognition results
+     *
+     * @see android.speech.RecognitionListener#onResults(android.os.Bundle)
+     */
     @Override
     public void onResults(Bundle results) {
-        if(results!=null){
+        if (results != null) {
 
             //Checks the API level because the confidence scores are supported only from API level 14:
             //http://developer.android.com/reference/android/speech/SpeechRecognizer.html#CONFIDENCE_SCORES
             //Processes the recognition results and their confidences
             processAsrResults(results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION), results.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES));
             //											Attention: It is not RecognizerIntent.EXTRA_RESULTS, that is for intents (see the ASRWithIntent app)
-        }
-        else {
+        } else {
 
             //Processes recognition errors
             processAsrError(SpeechRecognizer.ERROR_NO_MATCH);
@@ -259,50 +249,56 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      * @see android.speech.RecognitionListener#onBeginningOfSpeech()
      */
     @Override
-    public void onBeginningOfSpeech() {	}
+    public void onBeginningOfSpeech() {
+    }
 
     /*
      * (non-Javadoc)
      * @see android.speech.RecognitionListener#onBufferReceived(byte[])
      */
     @Override
-    public void onBufferReceived(byte[] buffer) { }
+    public void onBufferReceived(byte[] buffer) {
+    }
 
     /*
      * (non-Javadoc)
      * @see android.speech.RecognitionListener#onBeginningOfSpeech()
      */
     @Override
-    public void onEndOfSpeech() {}
+    public void onEndOfSpeech() {
+    }
 
     /*
      * (non-Javadoc)
      * @see android.speech.RecognitionListener#onEvent(int, android.os.Bundle)
      */
     @Override
-    public void onEvent(int arg0, Bundle arg1) {}
+    public void onEvent(int arg0, Bundle arg1) {
+    }
 
     /*
      * (non-Javadoc)
      * @see android.speech.RecognitionListener#onPartialResults(android.os.Bundle)
      */
     @Override
-    public void onPartialResults(Bundle arg0) {}
+    public void onPartialResults(Bundle arg0) {
+    }
 
     /*
- * (non-Javadoc)
- * @see android.speech.RecognitionListener#onRmsChanged(float)
- */
+     * (non-Javadoc)
+     * @see android.speech.RecognitionListener#onRmsChanged(float)
+     */
     @Override
     public void onRmsChanged(float arg0) {
     }
 
     /**
      * Processes the ASR recognition results
-     * @param nBestList	List of the N recognition results
+     *
+     * @param nBestList        List of the N recognition results
      * @param nBestConfidences List of the N corresponding confidences
      */
-    protected abstract void processAsrResults(ArrayList<String> nBestList, float [] nBestConfidences);
+    protected abstract void processAsrResults(ArrayList<String> nBestList, float[] nBestConfidences);
 
     /**
      * Processes the situation in which the ASR engine is ready to listen
@@ -311,6 +307,7 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
 
     /**
      * Processes ASR error situations
+     *
      * @param errorCode code of the error (constant of the {@link SpeechRecognizer} class
      */
     protected abstract void processAsrError(int errorCode);
@@ -326,23 +323,21 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
     /**
      * Starts the TTS engine. It is work-around to avoid implementing the UtteranceProgressListener abstract class.
      * See the problem here: http://stackoverflow.com/questions/11703653/why-is-utteranceprogresslistener-not-an-interface
-     * @author Method by Greg Milette (comments incorporated by us). Source: https://github.com/gast-lib/gast-lib/blob/master/library/src/root/gast/speech/voiceaction/VoiceActionExecutor.java
      *
+     * @author Method by Greg Milette (comments incorporated by us). Source: https://github.com/gast-lib/gast-lib/blob/master/library/src/root/gast/speech/voiceaction/VoiceActionExecutor.java
      */
     @SuppressLint("NewApi")
     @SuppressWarnings("deprecation")
-    private void setTTS()
-    {
+    private void setTTS() {
         myTTS = new TextToSpeech(ctx, this);
 
-		/*
-		 * The listener for the TTS events varies depending on the Android version used:
-		 * the most updated one is UtteranceProgressListener, but in SKD versions
-		 * 15 or earlier, it is necessary to use the deprecated OnUtteranceCompletedListener
-		 */
+        /*
+         * The listener for the TTS events varies depending on the Android version used:
+         * the most updated one is UtteranceProgressListener, but in SKD versions
+         * 15 or earlier, it is necessary to use the deprecated OnUtteranceCompletedListener
+         */
 
-        myTTS.setOnUtteranceProgressListener(new UtteranceProgressListener()
-        {
+        myTTS.setOnUtteranceProgressListener(new UtteranceProgressListener() {
             @Override
             public void onDone(String utteranceId) //TTS finished synthesizing
             {
@@ -386,24 +381,21 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      * If any of the codes are not valid, it uses the default language
      *
      * @param languageCode a String representing the language code, e.g. EN
-     * @param countryCode a String representing the country code for the language used, e.g. US.
+     * @param countryCode  a String representing the country code for the language used, e.g. US.
      * @throws Exception when the codes supplied cannot be used and the default locale is selected
      */
     private void setLocale(String languageCode, String countryCode) throws Exception {
-        if(languageCode==null)
-        {
+        if (languageCode == null) {
             setLocale();
             throw new Exception("Language code was not provided, using default locale");
-        }
-        else{
-            if(countryCode==null)
+        } else {
+            if (countryCode == null)
                 setLocale(languageCode);
             else {
                 Locale lang = new Locale(languageCode, countryCode);
-                if (myTTS.isLanguageAvailable(lang) == TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE )
+                if (myTTS.isLanguageAvailable(lang) == TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE)
                     myTTS.setLanguage(lang);
-                else
-                {
+                else {
                     setLocale();
                     throw new Exception("Language or country code not supported, using default locale");
                 }
@@ -419,24 +411,20 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      * @throws Exception when the code supplied cannot be used and the default locale is selected
      */
     private void setLocale(String languageCode) throws Exception {
-        if(languageCode==null)
-        {
+        if (languageCode == null) {
             setLocale();
             throw new Exception("Language code was not provided, using default locale");
-        }
-        else {
+        } else {
             Locale lang;
 
-            if(languageCode.contains("es"))
+            if (languageCode.contains("es"))
                 lang = new Locale("es", "ES");
             else
                 lang = new Locale(languageCode);
 
             if (myTTS.isLanguageAvailable(lang) != TextToSpeech.LANG_MISSING_DATA && myTTS.isLanguageAvailable(lang) != TextToSpeech.LANG_NOT_SUPPORTED) {
                 myTTS.setLanguage(lang);
-            }
-            else
-            {
+            } else {
                 setLocale();
                 throw new Exception("Language code not supported, using default locale");
             }
@@ -446,7 +434,7 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
     /**
      * Sets the default language of the device as locale for speech synthesis
      */
-    private void setLocale(){
+    private void setLocale() {
         myTTS.setLanguage(Locale.getDefault());
     }
 
@@ -455,9 +443,9 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      * it it is not available)
      *
      * @param languageCode language for the TTS, e.g. EN
-     * @param countryCode country for the TTS, e.g. US
-     * @param text string to be synthesized
-     * @param id integer that identifies the prompt uniquely
+     * @param countryCode  country for the TTS, e.g. US
+     * @param text         string to be synthesized
+     * @param id           integer that identifies the prompt uniquely
      * @throws Exception when the codes supplied cannot be used and the default locale is selected
      */
     public void speak(String text, String languageCode, String countryCode, Integer id) throws Exception {
@@ -472,8 +460,8 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      * if it is not available)
      *
      * @param languageCode language for the TTS, e.g. EN
-     * @param text string to be synthesized
-     * @param id integer that identifies the prompt uniquely
+     * @param text         string to be synthesized
+     * @param id           integer that identifies the prompt uniquely
      * @throws Exception when the code supplied cannot be used and the default locale is selected
      */
     protected void speak(String text, String languageCode, Integer id) throws Exception {
@@ -487,9 +475,9 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      * Synthesizes a text using the default language of the device
      *
      * @param text string to be synthesized
-     * @param id integer that identifies the prompt uniquely
+     * @param id   integer that identifies the prompt uniquely
      */
-    public void speak(String text, Integer id){
+    public void speak(String text, Integer id) {
         setLocale();
         HashMap<String, String> params = new HashMap<>();
         params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, id.toString());
@@ -499,8 +487,8 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
     /**
      * Stops the synthesizer if it is speaking
      */
-    public void stop(){
-        if(myTTS.isSpeaking())
+    public void stop() {
+        if (myTTS.isSpeaking())
             myTTS.stop();
     }
 
@@ -508,10 +496,10 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      * Stops the speech synthesis and recognition engines. It is important to call it, as
      * it releases the native resources used.
      */
-    protected void shutdown(){
+    protected void shutdown() {
         myTTS.stop();
         myTTS.shutdown();
-        myTTS=null;			/*
+        myTTS = null;			/*
 		 						This is necessary in order to force the creation of a new TTS instance after shutdown.
 		 						It is useful for handling runtime changes such as a change in the orientation of the device,
 		 						as it is necessary to create a new instance with the new context.
@@ -519,7 +507,7 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
 							*/
         myASR.stopListening();
         myASR.destroy();
-        myASR=null;
+        myASR = null;
     }
 
     /*
@@ -530,11 +518,9 @@ public abstract class VoiceActivity extends Activity implements RecognitionListe
      */
     @Override
     public void onInit(int status) {
-        if(status != TextToSpeech.ERROR){
+        if (status != TextToSpeech.ERROR) {
             setLocale();
-        }
-        else
-        {
+        } else {
             Log.e(LOGTAG, "Error creating the TTS");
         }
 

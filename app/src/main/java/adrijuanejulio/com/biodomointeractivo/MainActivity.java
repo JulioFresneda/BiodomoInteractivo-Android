@@ -101,16 +101,8 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /**
-         *  Esto es para el flip down and up
-         */
-
+        // Esto es para el flip down and up
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-
-        /**
-         *
-         */
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -187,12 +179,11 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
                     Log.e(LOGTAG, "Pulsando boton..");
 
                     //Ask the user to speak
-                    if(greenButton) {
+                    if (greenButton) {
                         Log.e(LOGTAG, "BOTON: Hablame de nuevo..");
                         speak(getResources().getString(R.string.listen_again), LANGUAGECODE, ID_PROMPT_QUERY);
                         escuchaGiro = true;
-                    }
-                    else{
+                    } else {
                         Log.e(LOGTAG, "BOTON: Para de escuchar");
                         stopListening();
                         changeButtonAppearanceToDefault();
@@ -249,7 +240,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
                     Intent gotoWeb = new Intent(Intent.ACTION_VIEW, web);
                     startActivity(gotoWeb);
 
-                // En caso contrario, nos llevará a un animal o vegetal del Explora
+                    // En caso contrario, nos llevará a un animal o vegetal del Explora
                 } else {
                     // Low cifrate
                     if (contentQR.toLowerCase().contains("biodomointeractivo")) {
@@ -326,7 +317,6 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
     }
 
 
-
     /**
      * Inicializamos el botón del mapa y su listener. Cuando el botón es pulsado, se abre un mapa del cual podemos hacer zoom
      */
@@ -355,9 +345,9 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
             @Override
             public void onClick(View view) {
 
-                    Intent intent = new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("https://twitter.com/ParqueCiencias"));
-                    startActivity(intent);
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://twitter.com/ParqueCiencias"));
+                startActivity(intent);
 
             }
 
@@ -426,7 +416,6 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
      ******************************************************************/
 
 
-
     /**
      * Detect if the device is face up or face down
      */
@@ -483,17 +472,13 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         sensorManager.unregisterListener(this);
     }
 
-/**
- * END Detect if the device is face up or face down
- */
-
+    /* END Detect if the device is face up or face down */
 
 
     /* Voice Methods*/
 
     /**
-     * On destroy activity
-     * Shuts down the TTS engine when finished
+     * On destroy activity. Shuts down the TTS engine when finished
      */
     @Override
     public void onDestroy() {
@@ -501,7 +486,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         shutdown();
     }
 
-    /*************** START IMPLEMENTATION VOICE ACTIVITY **********************/
+    /************** START IMPLEMENTATION VOICE ACTIVITY **********************/
     /**
      * Explain to the user why we need their permission to record audio on the device
      * See the checkASRPermission in the VoiceActivity class
@@ -740,6 +725,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
      *
      * @param userInput recognized utterance
      */
+    @SuppressLint("StaticFieldLeak")
     private void sendMsgToChatBot(String userInput) {
 
         //final AIRequest aiRequest = new AIRequest();
@@ -836,10 +822,12 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         return (activeNetwork != null && activeNetwork.isConnected());
     }
 
+    /*Inner Async Task class to send msg to chat bot */
+
 
     /************************Connection with APIs********************/
 
-    /*Inner Async TAsk to send HTTP POST Request to Wikipedia*/
+    /*Inner Async TAsk class to send HTTP POST Request to Wikipedia*/
     @SuppressLint("StaticFieldLeak")
     private class HTTPAsyncTask extends AsyncTask<String, Void, String> {
 
@@ -866,7 +854,7 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
                 Log.i(LOGTAG, "Intentando hablar sobre wikipedia.. " + result);
                 if (result.isEmpty())
                     result = "No tengo ninguna información disponible, lo siento";
-                speak(result, LANGUAGECODE, ID_PROMPT_QUERY);
+                speak(result, LANGUAGECODE, ID_PROMPT_INFO);
             } catch (Exception e) {
                 Log.e(LOGTAG, "Not WIKIPEDIA speak..");
             }
@@ -931,12 +919,14 @@ public class MainActivity extends VoiceActivity implements SensorEventListener {
         return sb.toString();
     }
 
-//    private JSONObject buildJsonObject() throws JSONException {
-//
-//        //Create json here
-//
-//        return new JSONObject();
-//    }
+/*
+private JSONObject buildJsonObject() throws JSONException {
+
+//Create json here
+
+return new JSONObject();
+}
+*/
 
     private void setPostRequestContent(HttpURLConnection conn,
                                        JSONObject jsonObject) throws IOException {
