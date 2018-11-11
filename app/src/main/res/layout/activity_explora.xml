@@ -67,7 +67,7 @@
             android:layout_height="91dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="8dp"
-            android:text="@string/zone_madagascar_desc"
+            android:text="@string/zone_amazonia_desc"
             android:textSize="12sp"
             android:translationZ="3dp"
             app:layout_constraintEnd_toEndOf="@+id/amazoniaText"
