@@ -315,12 +315,19 @@ public class ExploraViewActivity extends AppCompatActivity {
                     startActivity(gotoWeb);
                 } else {
                     // Low cifrate
+
+
                     if (contentQR.toLowerCase().contains("biodomointeractivo")) {
+
                         String id = contentQR.substring(contentQR.indexOf(":") + 1);
+                        Log.e("ee33","e33333333e");
 
                         Intent intent = new Intent(this, ExploraViewActivity.class);
                         intent.putExtra("id", id);
                         startActivity(intent);
+
+                        // Si venimos de leer otro QR, matamos la actividad para no colapsar la memoria
+                        if (getIntent().getStringExtra("id") != null) this.finish();
                     }
                 }
             }

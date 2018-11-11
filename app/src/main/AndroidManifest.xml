@@ -18,7 +18,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        >
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
@@ -34,8 +35,10 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".record.MapaActivity" />
         <activity android:name=".MapaActivity" />
-        <activity android:name=".ExploraActivity" />
-        <activity android:name=".ExploraViewActivity" />
+        <activity android:name=".ExploraActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ExploraViewActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".TarifasActivity"
             android:screenOrientation="portrait" />
